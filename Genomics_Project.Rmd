@@ -1,29 +1,71 @@
 ---
 title: "Genomics_Project"
-output: html_document
-date: "2026-02-13"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    number_sections: true
+    theme: lumen
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# Introduction
+
+Data from patients with a variant of cardiomyopathy will be studied in order get familiar with the process of analyzing sequenced DNA. The goal of this project is to spot genomic variations which may correlate to the disease.
+
+## Cardiomyopathy
+
+*Cardiomyopathy is a disease which affects the heart muscle.*
+
+## Tools
+
+*Galaxy, R Studio...*
+
+# Data
+
+*Explain about the data here*
+
+## Quality Control
+
+To evaluate the quality of the sequenced data the tool `Falco` was used. In this case we will input a `.fastQ.gz` file and receive several plots as output. Each plot points out a specific aspect of the data regarding quality and provides a score in the form of [pass]{style="color:#009900"}, [warn]{style="color:#999900"} or [fail]{style="color:#990000"}.
+
+```{=html}
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>Falco</b> An alternative, more performant implementation of FastQC for high throughput sequence quality control
+(Galaxy Version 1.2.4+galaxy0)
+</pre>
 ```
 
-## R Markdown
+### Per base sequence quality (pass)
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+![Per base sequence quality](./assets/quality-test/per-base-sequence-quality.png)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+### Per tile sequence quality (pass)
 
-```{r cars}
-summary(cars)
-```
+![Per base sequence quality](./assets/quality-test/per-tile-sequence-quality.png)
 
-## Including Plots
+### Per sequence quality scores (pass)
 
-You can also embed plots, for example:
+![Per base sequence quality](./assets/quality-test/per-sequence-quality-scores.png)
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+### Per base sequence content (fail)
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+![Per base sequence quality](./assets/quality-test/per-base-sequence-content.png)
+
+### Per sequence GC content (pass)
+
+![Per base sequence quality](./assets/quality-test/per-sequence-gc-content.png)
+
+### Per base N content (pass)
+
+![Per base sequence quality](./assets/quality-test/per-base-n-content.png)
+
+### Sequence Length Distribution (warn)
+
+![Per base sequence quality](./assets/quality-test/sequence-length-distribution.png)
+
+### Sequence Duplication Levels (warn)
+
+![Per base sequence quality](./assets/quality-test/sequence-duplication-levels.png)
+
+## Trimming
