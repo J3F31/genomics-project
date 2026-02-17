@@ -36,36 +36,60 @@ To evaluate the quality of the sequenced data the tool `Falco` was used. In this
 </pre>
 ```
 
-### Per base sequence quality (pass)
+### [Per base sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html)
 
-![Per base sequence quality](./assets/quality-test/per-base-sequence-quality.png)
+This graph shows the quality values average in each base pair position read. The middle line is the median value, the boxes represent the inner 25% to 75% and the whiskers are the 10% and 90% points.
 
-### Per tile sequence quality (pass)
+![](./assets/quality-test/r2/per-base-sequence-quality.png)
 
-![Per base sequence quality](./assets/quality-test/per-tile-sequence-quality.png)
+This test resulted in a pass. This is because no value is below 10 and no median is below 25.
 
-### Per sequence quality scores (pass)
+### [Per tile sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html)
 
-![Per base sequence quality](./assets/quality-test/per-sequence-quality-scores.png)
+This test gives quality scores on each base pair position per tile in the sequencer flow cell. A heat map like pattern represents above average values with cold colors and below average values with hot ones.
 
-### Per base sequence content (fail)
+![](./assets/quality-test/r2/per-tile-sequence-quality.png)
 
-![Per base sequence quality](./assets/quality-test/per-base-sequence-content.png)
+The test resulted in a pass and there are no consistent low values for any given tile.
 
-### Per sequence GC content (pass)
+### [Per sequence quality scores](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/3%20Per%20Sequence%20Quality%20Scores.html)
 
-![Per base sequence quality](./assets/quality-test/per-sequence-gc-content.png)
+This plot shows the amount of sequences per Phred score, the highest density value being the average score.
 
-### Per base N content (pass)
+![](./assets/quality-test/r2/per-sequence-quality-scores.png)
 
-![Per base sequence quality](./assets/quality-test/per-base-n-content.png)
+This test resulted in a pass as the most frequently observed values are above 27.
 
-### Sequence Length Distribution (warn)
+### [Per base sequence content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/4%20Per%20Base%20Sequence%20Content.html)
 
-![Per base sequence quality](./assets/quality-test/sequence-length-distribution.png)
+Here the percentage amount of each nucleotide A, C, T and G is plotted per base pair position. It is expected to have a equally consistent amount of A and T as well as C and G.
 
-### Sequence Duplication Levels (warn)
+![](./assets/quality-test/r2/per-base-sequence-content.png)
 
-![Per base sequence quality](./assets/quality-test/sequence-duplication-levels.png)
+This test resulted in a fail. However, all sequencers produce inaccurate readings for this test at the start of the sequence.
+
+### [Per sequence GC content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html)
+
+This plot shows the Guanine and Cytosine percent amount against a theoretical normal distribution.
+
+![](./assets/quality-test/r2/per-sequence-gc-content.png)
+
+The result is a pass given that the sum of deviation from the normal distribution does not exceed 15% of all reads.
+
+### [Per base N content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/6%20Per%20Base%20N%20Content.html)
+
+If the sequencer is unable to confidently assign a base it will substitute it with an N. This test shows the percent amount of N per base pair position.
+
+![](./assets/quality-test/r2/per-base-n-content.png)
+
+The test resulted in a pass, because no position has more than 5%.
+
+### [Sequence Length Distribution](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html)
+
+![](./assets/quality-test/r2/sequence-length-distribution.png)
+
+### [Sequence Duplication Levels](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html)
+
+![](./assets/quality-test/r2/sequence-duplication-levels.png)
 
 ## Trimming
