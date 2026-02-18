@@ -23,7 +23,21 @@ Data from patients with a variant of cardiomyopathy will be studied in order get
 
 # Data
 
-*Explain about the data here*
+The raw data is a `fastQ.gz` file, which includes DNA strands resulted from sequencing as well as some information about the sequencing process. This is the first entry of the file:
+
+```         
+@M01234:01:000000000-A1B2C:1:1101:16810:1655 2:N:0:2
+AATGACATTGATCTCCACAGCCATCAAGAGCCCATTCAAGATGACCATCATGCCTGTGATGCAGAAACGCAGGTTTGATATGTCCAAGCCAGACTGACAGTACTTAACCAATTTTATTGTTTTTGTAATAAAGGCCCTTACCCAATACAGG
++
+11A11DDFDDB@GGGGCF11FA1GGF1GBCCBFHHHHGHFCGHFFHFHB1F1FFHBF1BG2DFBGF1FC/EE/A1D/1A2DBGGHFFFE/000FG11BF1GFGFHHFHHEHHHGHHGBDFHFHG/BE2F2>FH1>E/FE11BG</B1<110
+```
+
+Each line describes the following:
+
+-   An identifier for the sequencing machine, the chip it used and the specific position within it.
+-   The DNA nucleotides in order given by the sequence.
+-   A plus sign.
+-   A corresponding quality identifier for each nucleotide, also given by the sequencer.
 
 ## Quality Control
 
@@ -35,6 +49,18 @@ To evaluate the quality of the sequenced data the tool `Falco` was used. In this
 (Galaxy Version 1.2.4+galaxy0)
 </pre>
 ```
+
+### Basic Statistics
+
+| Measure                           | Value                                |
+|-----------------------------------|--------------------------------------|
+| Filename                          | Sample1_0394321_L001_R2_001_fastq_gz |
+| File type                         | Conventional base calls              |
+| Encoding                          | Sanger / Illumina 1.9                |
+| Total Sequences                   | 1424257                              |
+| Sequences Flagged As Poor Quality | 0                                    |
+| Sequence length                   | 32 - 151                             |
+| %GC:                              | 43                                   |
 
 ### [Per base sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html)
 
