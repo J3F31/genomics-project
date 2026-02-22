@@ -4,7 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
-    toc_depth: 3
+    toc_depth: 4
     number_sections: true
     theme: lumen
 ---
@@ -19,7 +19,10 @@ Data from patients with a variant of cardiomyopathy will be studied in order get
 
 ## Tools
 
-*Galaxy, R Studio...*
+| Tool    | Purpose                  |
+|---------|--------------------------|
+| RStudio | Writing documentation    |
+| Galaxy  | Data processing pipeline |
 
 # Data
 
@@ -50,6 +53,8 @@ To evaluate the quality of the sequenced data the tool `Falco` was used. In this
 </pre>
 ```
 
+Tool parameters set to *default*.
+
 ### Basic Statistics
 
 | Measure                           | Value                                |
@@ -68,7 +73,7 @@ This graph shows the quality values average in each base pair position read. The
 
 ![](./assets/quality-test/r2/per-base-sequence-quality.png)
 
-This test resulted in a pass. This is because no value is below 10 and no median is below 25.
+This test resulted in a pass. This is because no value is below 10 and no median is below 25. Quality decreases at the end of the sequences due to [phasing](https://www.ecseq.com/support/ngs/why-does-the-sequence-quality-decrease-over-the-read-in-illumina). This is a small chance that a nucleotide is misplaced, which with longer sequences adds up.
 
 ### [Per tile sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html)
 
@@ -119,3 +124,56 @@ The test resulted in a pass, because no position has more than 5%.
 ![](./assets/quality-test/r2/sequence-duplication-levels.png)
 
 ## Trimming
+
+The next step is to trim the data and keep only values with a certain minimum quality score. For this the tool `Trimmomatic` was used.
+
+```{=html}
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>Trimmomatic</b> flexible read trimming tool for Illumina NGS data
+(Galaxy Version 0.39+galaxy2)
+</pre>
+```
+
+`Trimmomatic` outputs 2 sets of files, 2 paired and 2 unpaired for the corresponding R1 and R2 strands. Some discarded sequences from one strand may have not been discarded on the other, these are shown on the unpaired files. The paired files show only matching non-discarded sequences in both strands. We will only continue with the paired files.
+
+In order to compare the trimmed values the `Falco` tool was used, but this time on the trimmed data. Multiple iteration of the trim with different tool inputs were done.
+
+### First trim
+
+| Input Parameter | Value |
+|------------------------------------|------------------------------------|
+| Single-end or paired-end reads? | pair_of_files |
+| Input FASTQ file (R1/first of pair) |  |
+| Input FASTQ file (R2/second of pair) |  |
+| Perform initial ILLUMINACLIP step? | true |
+| Select standard adapter sequences or provide custom? | standard |
+| Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
+| Maximum mismatch count which will still allow a full match to be performed | 2 |
+| How accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment | 30 |
+| How accurate the match between any adapter etc. sequence must be against a read | 10 |
+| Minimum length of adapter that needs to be detected (PE specific/palindrome mode) | 8 |
+| Always keep both reads (PE specific/palindrome mode)? | true |
+| Select Trimmomatic operation to perform | SLIDINGWINDOW |
+| Number of bases to average across | 4 |
+| Average quality required | 20 |
+| Select Trimmomatic operation to perform | MINLEN |
+| Minimum length of reads to be kept | 70 |
+| Quality score encoding | Nothing selected. |
+| Output trimlog file? | false |
+| Output trimmomatic log messages? | false |
+
+#### Basic Statistics
+
+| Measure | Value |
+|:--:|:--:|
+| Filename | Trimmomatic on Sample1_0394321_L001_R2_001_fastq_gz \_R2 paired\_ |
+| File type | Conventional base calls |
+| Encoding | Sanger / Illumina 1.9 |
+| Total Sequences | 1172109 |
+| Sequences Flagged As Poor Quality | 0 |
+| Sequence length | 70 - 151 |
+| %GC: | 42 |
+
+#### Per base sequence quality
+
+![](./assets/data-trim/first-trim.png)
