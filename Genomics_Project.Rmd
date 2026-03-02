@@ -20,7 +20,7 @@ Data from patients with a variant of cardiomyopathy will be studied in order get
 ## Tools
 
 | Tool    | Purpose                  |
-|---------|--------------------------|
+|:-------:|:------------------------:|
 | RStudio | Writing documentation    |
 | Galaxy  | Data processing pipeline |
 
@@ -59,7 +59,7 @@ Tool parameters set to *default*.
 
 | Measure                           | Value                                |
 |-----------------------------------|--------------------------------------|
-| Filename                          | Sample1_0394321_L001_R2_001_fastq_gz |
+| Filename                          |  |
 | File type                         | Conventional base calls              |
 | Encoding                          | Sanger / Illumina 1.9                |
 | Total Sequences                   | 1424257                              |
@@ -143,8 +143,8 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 | Input Parameter | Value |
 |------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
-| Input FASTQ file (R1/first of pair) |  |
-| Input FASTQ file (R2/second of pair) |  |
+| Input FASTQ file (R1/first of pair) | *R1 file* |
+| Input FASTQ file (R2/second of pair) | *R2 file*  |
 | Perform initial ILLUMINACLIP step? | true |
 | Select standard adapter sequences or provide custom? | standard |
 | Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
@@ -165,8 +165,8 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 #### Basic Statistics
 
 | Measure | Value |
-|:--:|:--:|
-| Filename | Trimmomatic on Sample1_0394321_L001_R2_001_fastq_gz \_R2 paired\_ |
+|:----------------------------------:|:----------------------------------:|
+| Filename |  |
 | File type | Conventional base calls |
 | Encoding | Sanger / Illumina 1.9 |
 | Total Sequences | 1172109 |
@@ -176,4 +176,205 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 
 #### Per base sequence quality
 
-![](./assets/data-trim/first-trim.png)
+![Forward trand](./assets/data-trim/trim-1-R1.png)
+
+![Reverse strand](./assets/data-trim/trim-1-R2.png)
+
+### Second trim
+
+| Input Parameter | Value |
+|------------------------------------|------------------------------------|
+| Single-end or paired-end reads? | pair_of_files |
+| Input FASTQ file (R1/first of pair) | *R1 file* |
+| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Perform initial ILLUMINACLIP step? | true |
+| Select standard adapter sequences or provide custom? | standard |
+| Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
+| Maximum mismatch count which will still allow a full match to be performed | 2 |
+| How accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment | 30 |
+| How accurate the match between any adapter etc. sequence must be against a read | 10 |
+| Minimum length of adapter that needs to be detected (PE specific/palindrome mode) | 8 |
+| Always keep both reads (PE specific/palindrome mode)? | true |
+| Select Trimmomatic operation to perform | SLIDINGWINDOW |
+| Number of bases to average across | 4 |
+| Average quality required | 30 |
+| Select Trimmomatic operation to perform | MINLEN |
+| Minimum length of reads to be kept | 70 |
+| Quality score encoding | Nothing selected. |
+| Output trimlog file? | false |
+| Output trimmomatic log messages? | false |
+
+#### Basic statistics
+
+| Measure | Value |
+|:----------------------------------:|:----------------------------------:|
+| Filename |  |
+| File type | Conventional base calls |
+| Encoding | Sanger / Illumina 1.9 |
+| Total Sequences | 754143 |
+| Sequences Flagged As Poor Quality | 0 |
+| Sequence length | 70 - 151 |
+| %GC: | 41 |
+
+#### Per base sequence quality
+
+![Forward strand](./assets/data-trim/trim-2-R1.png)
+
+![Reverse strand](./assets/data-trim/trim-2-R2.png)
+
+### Third trim
+
+| Input Parameter | Value |
+|------------------------------------|------------------------------------|
+| Single-end or paired-end reads? | pair_of_files |
+| Input FASTQ file (R1/first of pair) | *R1 file* |
+| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Perform initial ILLUMINACLIP step? | true |
+| Select standard adapter sequences or provide custom? | standard |
+| Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
+| Maximum mismatch count which will still allow a full match to be performed | 2 |
+| How accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment | 30 |
+| How accurate the match between any adapter etc. sequence must be against a read | 10 |
+| Minimum length of adapter that needs to be detected (PE specific/palindrome mode) | 8 |
+| Always keep both reads (PE specific/palindrome mode)? | true |
+| Select Trimmomatic operation to perform | SLIDINGWINDOW |
+| Number of bases to average across | 4 |
+| Average quality required | 30 |
+| Select Trimmomatic operation to perform | MINLEN |
+| Minimum length of reads to be kept | 100 |
+| Quality score encoding | Nothing selected. |
+| Output trimlog file? | false |
+| Output trimmomatic log messages? | false |
+
+#### Basic Statistics
+
+| Measure | Value |
+|:----------------------------------:|:----------------------------------:|
+| Filename |  |
+| File type | Conventional base calls |
+| Encoding | Sanger / Illumina 1.9 |
+| Total Sequences | 639254 |
+| Sequences Flagged As Poor Quality | 0 |
+| Sequence length | 100 - 151 |
+| %GC: | 41 |
+
+#### Per base sequence quality
+
+![Forward strand](./assets/data-trim/trim-3-R1.png)
+
+![Reverse strand](./assets/data-trim/trim-3-R2.png)
+
+### Fourth trim
+
+| Input Parameter | Value |
+|------------------------------------|------------------------------------|
+| Single-end or paired-end reads? | pair_of_files |
+| Input FASTQ file (R1/first of pair) | *R1 file* |
+| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Perform initial ILLUMINACLIP step? | true |
+| Select standard adapter sequences or provide custom? | standard |
+| Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
+| Maximum mismatch count which will still allow a full match to be performed | 2 |
+| How accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment | 30 |
+| How accurate the match between any adapter etc. sequence must be against a read | 10 |
+| Minimum length of adapter that needs to be detected (PE specific/palindrome mode) | 8 |
+| Always keep both reads (PE specific/palindrome mode)? | true |
+| Select Trimmomatic operation to perform | SLIDINGWINDOW |
+| Number of bases to average across | 4 |
+| Average quality required | 30 |
+| Select Trimmomatic operation to perform | MINLEN |
+| Minimum length of reads to be kept | 50 |
+| Quality score encoding | Nothing selected. |
+| Output trimlog file? | false |
+| Output trimmomatic log messages? | false |
+
+#### Basic Statistics
+
+| Measure | Value |
+|:----------------------------------:|:----------------------------------:|
+| Filename |  |
+| File type | Conventional base calls |
+| Encoding | Sanger / Illumina 1.9 |
+| Total Sequences | 822515 |
+| Sequences Flagged As Poor Quality | 0 |
+| Sequence length | 50 - 151 |
+| %GC: | 42 |
+
+#### Per base sequence quality
+
+![Forward strand](./assets/data-trim/trim-4-R1.png)
+
+![Reverse strand](./assets/data-trim/trim-4-R2.png)
+
+### Fifth trim
+
+| Input Parameter | Value |
+|------------------------------------|------------------------------------|
+| Single-end or paired-end reads? | pair_of_files |
+| Input FASTQ file (R1/first of pair) | *R1 file* |
+| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Perform initial ILLUMINACLIP step? | true |
+| Select standard adapter sequences or provide custom? | standard |
+| Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
+| Maximum mismatch count which will still allow a full match to be performed | 2 |
+| How accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment | 30 |
+| How accurate the match between any adapter etc. sequence must be against a read | 10 |
+| Minimum length of adapter that needs to be detected (PE specific/palindrome mode) | 8 |
+| Always keep both reads (PE specific/palindrome mode)? | true |
+| Select Trimmomatic operation to perform | SLIDINGWINDOW |
+| Number of bases to average across | 4 |
+| Average quality required | 20 |
+| Select Trimmomatic operation to perform | MINLEN |
+| Minimum length of reads to be kept | 50 |
+| Quality score encoding | Nothing selected. |
+| Output trimlog file? | false |
+| Output trimmomatic log messages? | false |
+
+#### Basic Statistics
+
+| Measure | Value |
+|:----------------------------------:|:----------------------------------:|
+| Filename |  |
+| File type | Conventional base calls |
+| Encoding | Sanger / Illumina 1.9 |
+| Total Sequences | 1224621 |
+| Sequences Flagged As Poor Quality | 0 |
+| Sequence length | 50 - 151 |
+| %GC: | 42 |
+
+#### Per base sequence quality
+
+![Forward strand](./assets/data-trim/trim-5-R1.png)
+
+![Reverse strand](./assets/data-trim/trim-5-R2.png)
+
+
+### Results
+
+```{r echo = FALSE}
+totalSequences <- 1424257
+
+PercentSequencesRemoved <- function(x){
+  percentSequencesLeft <- ((x * 100) / totalSequences)
+  round(100 - percentSequencesLeft, digits = 2)
+}
+```
+
+| Trim number | Avg. quality required | Min. read length to keep | % sequences removed |
+|:-----------:|:---------------------:|:------------------------:|:-------------------:|
+| 1st | 20 | 70 | `r PercentSequencesRemoved(1172109)` |
+| 2nd | 30 | 70 | `r PercentSequencesRemoved(754143)` |
+| 3rd | 30 | 100 | `r PercentSequencesRemoved(639254)` |
+| 4th | 30 | 50 | `r PercentSequencesRemoved(822515)` |
+| 5th | 20 | 50 | `r PercentSequencesRemoved(1224621)` |
+
+## Mapping
+
+```{r}
+Coverage <- function(readLength, readAmount){
+  (readLength * readAmount) / 320000
+}
+
+(c <- Coverage(138, 1206159))
+(c / 20)
+```
