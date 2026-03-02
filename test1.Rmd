@@ -49,6 +49,8 @@ library(dplyr)
 
 ## Background: Cardiomyopathy
 
+roa taking
+
 Cardiomyopathy is a group of diseases that affect the heart muscle, leading to structural and functional abnormalities that impair the heart’s ability to pump blood efficiently. These conditions can result in serious clinical outcomes, including heart failure, arrhythmias, and sudden cardiac death.
 
 Many forms of cardiomyopathy have a genetic basis. Inherited mutations have been associated with several types of the disease, such as hypertrophic, dilated, restrictive, and arrhythmogenic cardiomyopathy, as well as left ventricular non-compaction and ion channelopathies. These mutations often affect genes involved in heart muscle structure and function, including those related to the sarcomere, cytoskeleton, and ion channels.
@@ -158,7 +160,7 @@ Based on the initial quality assessment, reads were trimmed to remove low-qualit
 **Tool Parameters**
 
 | Input Parameter | Value |
-|----|----|
+|------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | se |
 | Input FASTQ file |  |
 | Perform initial ILLUMINACLIP step? | true |
