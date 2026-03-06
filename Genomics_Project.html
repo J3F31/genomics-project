@@ -1610,10 +1610,6 @@ provides a score in the form of <span style="color:#009900">pass</span>,
 <h3><span class="header-section-number">2.1.1</span> Basic
 Statistics</h3>
 <table>
-<colgroup>
-<col width="47%" />
-<col width="52%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th>Measure</th>
@@ -1843,10 +1839,6 @@ specific/palindrome mode)</td>
 <h4><span class="header-section-number">2.2.1.1</span> Basic
 Statistics</h4>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Measure</th>
@@ -1998,10 +1990,6 @@ specific/palindrome mode)</td>
 <h4><span class="header-section-number">2.2.2.1</span> Basic
 statistics</h4>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Measure</th>
@@ -2153,10 +2141,6 @@ specific/palindrome mode)</td>
 <h4><span class="header-section-number">2.2.3.1</span> Basic
 Statistics</h4>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Measure</th>
@@ -2308,10 +2292,6 @@ specific/palindrome mode)</td>
 <h4><span class="header-section-number">2.2.4.1</span> Basic
 Statistics</h4>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Measure</th>
@@ -2463,10 +2443,6 @@ specific/palindrome mode)</td>
 <h4><span class="header-section-number">2.2.5.1</span> Basic
 Statistics</h4>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Measure</th>
@@ -2522,9 +2498,9 @@ quality</h4>
 <h3><span class="header-section-number">2.2.6</span> Results</h3>
 <table>
 <colgroup>
-<col width="15%" />
-<col width="27%" />
-<col width="31%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 <col width="25%" />
 </colgroup>
 <thead>
@@ -2568,6 +2544,120 @@ quality</h4>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div id="mapping" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Mapping</h2>
+<p><em>explain</em></p>
+</div>
+<div id="expected-coverage" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Expected
+coverage</h2>
+<p>A sequence’s coverage or read depth is the average amount of reads of
+each region in a given genome. To calculate the coverage we can use the
+formula <code>C = LN/G</code>, where <code>C = coverage</code>,
+<code>L = read length</code>, <code>N = number of reads</code> and
+<code>G = captured region</code>. This results in an expected or
+estimated coverage, as many reads could not be distributed evenly.</p>
+<pre class="r"><code>Coverage &lt;- function(readLength, readAmount, capturedRegion){
+  (readLength * readAmount) / capturedRegion
+}</code></pre>
+<pre class="r"><code># Our expected coverage on CardioPanel
+#
+# 50 min. &amp; 138 max. sequence length
+# 1206159 total sequences, times 2 strands
+# 320000 bases for the CarioPanel 
+Coverage(88, 1206159 * 2, 320000)</code></pre>
+<pre><code>## [1] 663.3874</code></pre>
+<pre class="r"><code># &quot;Max Illumina sequencer coverage on CardioPanel
+#
+# 300 max Illumina sequence length
+# 25000000 max Illumina reads
+# 320000 bases for the CardioPanel
+Coverage(300, 25000000, 320000)</code></pre>
+<pre><code>## [1] 23437.5</code></pre>
+<p>The resulting expected read depth is ~ 663. Which means spotted DNA
+variants should be of high confidence. However, the actual coverage of
+each region should be also checked after the following mapping
+steps.</p>
+</div>
+<div id="mapping-with-bwa" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Mapping with BWA</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Input Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Will you select a reference genome from your history or use a
+built-in index?</td>
+<td>cached</td>
+</tr>
+<tr class="even">
+<td>Using reference genome</td>
+<td>hg38</td>
+</tr>
+<tr class="odd">
+<td>Single or Paired-end reads</td>
+<td>paired</td>
+</tr>
+<tr class="even">
+<td>Select first set of reads</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Select second set of reads</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Enter mean, standard deviation, max, and min for insert
+lengths.</td>
+<td>Not available.</td>
+</tr>
+<tr class="odd">
+<td>Set read groups information?</td>
+<td>do_not_set</td>
+</tr>
+<tr class="even">
+<td>Select analysis mode</td>
+<td>illumina</td>
+</tr>
+<tr class="odd">
+<td>BAM sorting mode</td>
+<td>Sort by chromosomal coordinates</td>
+</tr>
+</tbody>
+</table>
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>Map with BWA-MEM</b> - map medium and long reads (&gt; 100 bp) against reference genome
+(Galaxy Version 0.7.19)
+</pre>
+<div id="marking-duplicate-mapped-reads" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Marking duplicate
+mapped reads</h3>
+<p>Tool…</p>
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>Map with BWA-MEM</b> - map medium and long reads (&gt; 100 bp) against reference genome
+(Galaxy Version 0.7.19)
+</pre>
+</div>
+<div id="visualizing-the-mapping-data" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Visualizing the
+mapping data</h3>
+<p>IGV tool <em>explain</em></p>
+<p>Data/reference genome used <em>explain</em></p>
+<div id="variant-calling" class="section level4" number="2.5.2.1">
+<h4><span class="header-section-number">2.5.2.1</span> Variant
+calling</h4>
+<p><em>screenshots</em></p>
+</div>
 </div>
 </div>
 </div>

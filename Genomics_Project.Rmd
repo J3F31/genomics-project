@@ -19,9 +19,9 @@ Data from patients with a variant of cardiomyopathy will be studied in order get
 
 ## Tools
 
-| Tool    | Purpose                  |
+|  Tool   |         Purpose          |
 |:-------:|:------------------------:|
-| RStudio | Writing documentation    |
+| RStudio |  Writing documentation   |
 | Galaxy  | Data processing pipeline |
 
 # Data
@@ -57,15 +57,15 @@ Tool parameters set to *default*.
 
 ### Basic Statistics
 
-| Measure                           | Value                                |
-|-----------------------------------|--------------------------------------|
-| Filename                          |  |
-| File type                         | Conventional base calls              |
-| Encoding                          | Sanger / Illumina 1.9                |
-| Total Sequences                   | 1424257                              |
-| Sequences Flagged As Poor Quality | 0                                    |
-| Sequence length                   | 32 - 151                             |
-| %GC:                              | 43                                   |
+| Measure                           | Value                   |
+|-----------------------------------|-------------------------|
+| Filename                          |                         |
+| File type                         | Conventional base calls |
+| Encoding                          | Sanger / Illumina 1.9   |
+| Total Sequences                   | 1424257                 |
+| Sequences Flagged As Poor Quality | 0                       |
+| Sequence length                   | 32 - 151                |
+| %GC:                              | 43                      |
 
 ### [Per base sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html)
 
@@ -144,7 +144,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 |------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
-| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Input FASTQ file (R2/second of pair) | *R2 file* |
 | Perform initial ILLUMINACLIP step? | true |
 | Select standard adapter sequences or provide custom? | standard |
 | Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
@@ -164,15 +164,15 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 
 #### Basic Statistics
 
-| Measure | Value |
-|:----------------------------------:|:----------------------------------:|
-| Filename |  |
-| File type | Conventional base calls |
-| Encoding | Sanger / Illumina 1.9 |
-| Total Sequences | 1172109 |
-| Sequences Flagged As Poor Quality | 0 |
-| Sequence length | 70 - 151 |
-| %GC: | 42 |
+|              Measure              |          Value          |
+|:---------------------------------:|:-----------------------:|
+|             Filename              |                         |
+|             File type             | Conventional base calls |
+|             Encoding              |  Sanger / Illumina 1.9  |
+|          Total Sequences          |         1172109         |
+| Sequences Flagged As Poor Quality |            0            |
+|          Sequence length          |        70 - 151         |
+|               %GC:                |           42            |
 
 #### Per base sequence quality
 
@@ -186,7 +186,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 |------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
-| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Input FASTQ file (R2/second of pair) | *R2 file* |
 | Perform initial ILLUMINACLIP step? | true |
 | Select standard adapter sequences or provide custom? | standard |
 | Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
@@ -206,15 +206,15 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 
 #### Basic statistics
 
-| Measure | Value |
-|:----------------------------------:|:----------------------------------:|
-| Filename |  |
-| File type | Conventional base calls |
-| Encoding | Sanger / Illumina 1.9 |
-| Total Sequences | 754143 |
-| Sequences Flagged As Poor Quality | 0 |
-| Sequence length | 70 - 151 |
-| %GC: | 41 |
+|              Measure              |          Value          |
+|:---------------------------------:|:-----------------------:|
+|             Filename              |                         |
+|             File type             | Conventional base calls |
+|             Encoding              |  Sanger / Illumina 1.9  |
+|          Total Sequences          |         754143          |
+| Sequences Flagged As Poor Quality |            0            |
+|          Sequence length          |        70 - 151         |
+|               %GC:                |           41            |
 
 #### Per base sequence quality
 
@@ -228,7 +228,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 |------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
-| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Input FASTQ file (R2/second of pair) | *R2 file* |
 | Perform initial ILLUMINACLIP step? | true |
 | Select standard adapter sequences or provide custom? | standard |
 | Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
@@ -248,15 +248,15 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 
 #### Basic Statistics
 
-| Measure | Value |
-|:----------------------------------:|:----------------------------------:|
-| Filename |  |
-| File type | Conventional base calls |
-| Encoding | Sanger / Illumina 1.9 |
-| Total Sequences | 639254 |
-| Sequences Flagged As Poor Quality | 0 |
-| Sequence length | 100 - 151 |
-| %GC: | 41 |
+|              Measure              |          Value          |
+|:---------------------------------:|:-----------------------:|
+|             Filename              |                         |
+|             File type             | Conventional base calls |
+|             Encoding              |  Sanger / Illumina 1.9  |
+|          Total Sequences          |         639254          |
+| Sequences Flagged As Poor Quality |            0            |
+|          Sequence length          |        100 - 151        |
+|               %GC:                |           41            |
 
 #### Per base sequence quality
 
@@ -270,7 +270,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 |------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
-| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Input FASTQ file (R2/second of pair) | *R2 file* |
 | Perform initial ILLUMINACLIP step? | true |
 | Select standard adapter sequences or provide custom? | standard |
 | Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
@@ -290,15 +290,15 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 
 #### Basic Statistics
 
-| Measure | Value |
-|:----------------------------------:|:----------------------------------:|
-| Filename |  |
-| File type | Conventional base calls |
-| Encoding | Sanger / Illumina 1.9 |
-| Total Sequences | 822515 |
-| Sequences Flagged As Poor Quality | 0 |
-| Sequence length | 50 - 151 |
-| %GC: | 42 |
+|              Measure              |          Value          |
+|:---------------------------------:|:-----------------------:|
+|             Filename              |                         |
+|             File type             | Conventional base calls |
+|             Encoding              |  Sanger / Illumina 1.9  |
+|          Total Sequences          |         822515          |
+| Sequences Flagged As Poor Quality |            0            |
+|          Sequence length          |        50 - 151         |
+|               %GC:                |           42            |
 
 #### Per base sequence quality
 
@@ -312,7 +312,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 |------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
-| Input FASTQ file (R2/second of pair) | *R2 file*  |
+| Input FASTQ file (R2/second of pair) | *R2 file* |
 | Perform initial ILLUMINACLIP step? | true |
 | Select standard adapter sequences or provide custom? | standard |
 | Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
@@ -332,22 +332,21 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 
 #### Basic Statistics
 
-| Measure | Value |
-|:----------------------------------:|:----------------------------------:|
-| Filename |  |
-| File type | Conventional base calls |
-| Encoding | Sanger / Illumina 1.9 |
-| Total Sequences | 1224621 |
-| Sequences Flagged As Poor Quality | 0 |
-| Sequence length | 50 - 151 |
-| %GC: | 42 |
+|              Measure              |          Value          |
+|:---------------------------------:|:-----------------------:|
+|             Filename              |                         |
+|             File type             | Conventional base calls |
+|             Encoding              |  Sanger / Illumina 1.9  |
+|          Total Sequences          |         1224621         |
+| Sequences Flagged As Poor Quality |            0            |
+|          Sequence length          |        50 - 151         |
+|               %GC:                |           42            |
 
 #### Per base sequence quality
 
 ![Forward strand](./assets/data-trim/trim-5-R1.png)
 
 ![Reverse strand](./assets/data-trim/trim-5-R2.png)
-
 
 ### Results
 
@@ -360,8 +359,8 @@ PercentSequencesRemoved <- function(x){
 }
 ```
 
-| Trim number | Avg. quality required | Min. read length to keep | % sequences removed |
-|:-----------:|:---------------------:|:------------------------:|:-------------------:|
+| Trim number | Avg. quality required | Min. read length to keep | \% sequences removed |
+|:----------------:|:----------------:|:----------------:|:----------------:|
 | 1st | 20 | 70 | `r PercentSequencesRemoved(1172109)` |
 | 2nd | 30 | 70 | `r PercentSequencesRemoved(754143)` |
 | 3rd | 30 | 100 | `r PercentSequencesRemoved(639254)` |
@@ -372,39 +371,72 @@ PercentSequencesRemoved <- function(x){
 
 *explain*
 
-```{r}
-Coverage <- function(readLength, readAmount){
-  (readLength * readAmount) / 320000
-}
+## Expected coverage
 
-Coverage(138, 1206159 * 2)
+A sequence's coverage or read depth is the average amount of reads of each region in a given genome. To calculate the coverage we can use the formula `C = LN/G`, where `C = coverage`, `L = read length`, `N = number of reads` and `G = captured region`. This results in an expected or estimated coverage, as many reads could not be distributed evenly.
+
+```{r}
+Coverage <- function(readLength, readAmount, capturedRegion){
+  (readLength * readAmount) / capturedRegion
+}
 ```
 
-To map the trimmed data with BWA...
+```{r}
+# Our expected coverage on CardioPanel
+#
+# 50 min. & 138 max. sequence length
+# 1206159 total sequences, times 2 strands
+# 320000 bases for the CarioPanel 
+Coverage(88, 1206159 * 2, 320000)
+
+# "Max Illumina sequencer coverage on CardioPanel
+#
+# 300 max Illumina sequence length
+# 25000000 max Illumina reads
+# 320000 bases for the CardioPanel
+Coverage(300, 25000000, 320000)
+```
+
+The resulting expected read depth is \~ 663. Which means spotted DNA variants should be of high confidence. However, the actual coverage of each region should be also checked after the following mapping steps.
+
+## Mapping with BWA
+
+| Input Parameter | Value |
+|----------------------------------|----------------------------------|
+| Will you select a reference genome from your history or use a built-in index? | cached |
+| Using reference genome | hg38 |
+| Single or Paired-end reads | paired |
+| Select first set of reads |  |
+| Select second set of reads |  |
+| Enter mean, standard deviation, max, and min for insert lengths. | Not available. |
+| Set read groups information? | do_not_set |
+| Select analysis mode | illumina |
+| BAM sorting mode | Sort by chromosomal coordinates |
 
 ```{=html}
 <pre style="background-color:#dee2e6; color:#2c3143; border:none">
-<b>Map with BWA-MEM</b> - map medium and long reads (> 100 bp) against reference genome (Galaxy Version 0.7.19)
+<b>Map with BWA-MEM</b> - map medium and long reads (> 100 bp) against reference genome
+(Galaxy Version 0.7.19)
 </pre>
 ```
 
-### Marking Duplicate Mapped Reads
+### Marking duplicate mapped reads
 
 Tool...
 
 ```{=html}
 <pre style="background-color:#dee2e6; color:#2c3143; border:none">
-<b>Map with BWA-MEM</b> - map medium and long reads (> 100 bp) against reference genome (Galaxy Version 0.7.19)
+<b>Map with BWA-MEM</b> - map medium and long reads (> 100 bp) against reference genome
+(Galaxy Version 0.7.19)
 </pre>
 ```
 
-### Visualizing the Mapping Data
+### Visualizing the mapping data
 
 IGV tool *explain*
 
 Data/reference genome used *explain*
 
-#### Variant Calling
+#### Variant calling
 
 *screenshots*
-
