@@ -49,11 +49,6 @@ library(dplyr)
 
 ## Background: Cardiomyopathy
 
-<<<<<<< HEAD
-roa taking!!!!!
-
-=======
->>>>>>> 9de6987 (adding quality res after trimming)
 Cardiomyopathy is a group of diseases that affect the heart muscle, leading to structural and functional abnormalities that impair the heart’s ability to pump blood efficiently. These conditions can result in serious clinical outcomes, including heart failure, arrhythmias, and sudden cardiac death.
 
 Many forms of cardiomyopathy have a genetic basis. Inherited mutations have been associated with several types of the disease, such as hypertrophic, dilated, restrictive, and arrhythmogenic cardiomyopathy, as well as left ventricular non-compaction and ion channelopathies. These mutations often affect genes involved in heart muscle structure and function, including those related to the sarcomere, cytoskeleton, and ion channels.
