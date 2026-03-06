@@ -370,11 +370,41 @@ PercentSequencesRemoved <- function(x){
 
 ## Mapping
 
+*explain*
+
 ```{r}
 Coverage <- function(readLength, readAmount){
   (readLength * readAmount) / 320000
 }
 
-(c <- Coverage(138, 1206159))
-(c / 20)
+Coverage(138, 1206159 * 2)
 ```
+
+To map the trimmed data with BWA...
+
+```{=html}
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>Map with BWA-MEM</b> - map medium and long reads (> 100 bp) against reference genome (Galaxy Version 0.7.19)
+</pre>
+```
+
+### Marking Duplicate Mapped Reads
+
+Tool...
+
+```{=html}
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>Map with BWA-MEM</b> - map medium and long reads (> 100 bp) against reference genome (Galaxy Version 0.7.19)
+</pre>
+```
+
+### Visualizing the Mapping Data
+
+IGV tool *explain*
+
+Data/reference genome used *explain*
+
+#### Variant Calling
+
+*screenshots*
+
