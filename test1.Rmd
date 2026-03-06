@@ -183,7 +183,7 @@ Based on the initial quality assessment, reads were trimmed to remove low-qualit
 | Output trimlog file? | false |
 | Output trimmomatic log messages? | false |
 
-### Quality Control Results after trimming
+### Quality Control Results After Trimming
 
 #### - Sample1_R1_fastq_gz_R1 paired
 
