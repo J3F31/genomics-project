@@ -49,8 +49,11 @@ library(dplyr)
 
 ## Background: Cardiomyopathy
 
+<<<<<<< HEAD
 roa taking!!!!!
 
+=======
+>>>>>>> 9de6987 (adding quality res after trimming)
 Cardiomyopathy is a group of diseases that affect the heart muscle, leading to structural and functional abnormalities that impair the heart’s ability to pump blood efficiently. These conditions can result in serious clinical outcomes, including heart failure, arrhythmias, and sudden cardiac death.
 
 Many forms of cardiomyopathy have a genetic basis. Inherited mutations have been associated with several types of the disease, such as hypertrophic, dilated, restrictive, and arrhythmogenic cardiomyopathy, as well as left ventricular non-compaction and ion channelopathies. These mutations often affect genes involved in heart muscle structure and function, including those related to the sarcomere, cytoskeleton, and ion channels.
@@ -93,7 +96,7 @@ The overall analysis workflow is designed to identify and characterize genetic v
 
 Quality control of raw sequencing reads was performed to evaluate data quality before downstream analysis. For this purpose, the tool **Falco** was used. A `.fastQ.gz` file was provided as input, and Falco generates several plots as output. Each plot highlights a specific aspect of the sequencing data, such as base quality scores, GC content, sequence length distribution, and the presence of adapter contamination, and provides a quality assessment in the form of **pass, warn, or fail**.
 
-### Quality Control Results
+### Quality Control Results \*\* here will add the results for r1 also!
 
 The quality control results were examined to determine whether read trimming or filtering was required before alignment. Key observations from the quality reports are summarized and interpreted in this section.
 
@@ -149,7 +152,7 @@ No overrepresented sequences
 
 ![](./assets/quality_res_byROA/Adapter%20Content1.png)
 
-## Read Trimming and Filtering
+## Read Trimming and Filtering \*\* see the jero doc!
 
 Based on the initial quality assessment, reads were trimmed to remove low-quality bases and sequencing adapters, ensuring that only high-quality sequences were retained for downstream analysis.
 
@@ -161,11 +164,12 @@ Based on the initial quality assessment, reads were trimmed to remove low-qualit
 
 | Input Parameter | Value |
 |------------------------------------|------------------------------------|
-| Single-end or paired-end reads? | se |
-| Input FASTQ file |  |
+| Single-end or paired-end reads? | pair_of_files |
+| Input FASTQ file (R1/first of pair) |  |
+| Input FASTQ file (R2/second of pair) |  |
 | Perform initial ILLUMINACLIP step? | true |
 | Select standard adapter sequences or provide custom? | standard |
-| Adapter sequences to use | TruSeq3 (single-ended, for MiSeq and HiSeq) |
+| Adapter sequences to use | TruSeq3 (paired-ended, for MiSeq and HiSeq) |
 | Maximum mismatch count which will still allow a full match to be performed | 2 |
 | How accurate the match between the two 'adapter ligated' reads must be for PE palindrome read alignment | 30 |
 | How accurate the match between any adapter etc. sequence must be against a read | 10 |
@@ -176,11 +180,123 @@ Based on the initial quality assessment, reads were trimmed to remove low-qualit
 | Average quality required | 20 |
 | Select Trimmomatic operation to perform | CROP |
 | Number of bases to keep from the start of the read | 145 |
+| Select Trimmomatic operation to perform | HEADCROP |
+| Number of bases to remove from the start of the read | 7 |
 | Select Trimmomatic operation to perform | MINLEN |
 | Minimum length of reads to be kept | 50 |
 | Quality score encoding | Nothing selected. |
 | Output trimlog file? | false |
 | Output trimmomatic log messages? | false |
+
+### Quality Control Results after trimming
+
+#### - Sample1_R1_fastq_gz_R1 paired
+
+## **Basic Statistics: pass**
+
+| Measure | Value |
+|:----------------------------------:|:----------------------------------:|
+| Filename | Trimmomatic on Sample1_0394321_L001_R1_001_fastq_gz \_R1 paired\_ |
+| File type | Conventional base calls |
+| Encoding | Sanger / Illumina 1.9 |
+| Total Sequences | 1206159 |
+| Sequences Flagged As Poor Quality | 0 |
+| Sequence length | 50 - 138 |
+| %GC: | 42 |
+
+## **Per base sequence quality: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20quality_r1_after.png)
+
+## **Per tile sequence quality: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20tile%20sequence%20quality_r1.png)
+
+## **Per sequence quality scores: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20quality%20scores_r1.png)
+
+## **Per base sequence content : pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20content_r1.png)
+
+## **Per sequence GC content: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20GC%20content_r1.png)
+
+## **Per base N content : pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20base%20N%20content_r1.png)
+
+## **Sequence Length Distribution : warn**
+
+![](./assets/quality_res_byROA/after%20trimming/Sequence%20Length%20Distribution_r1.png)
+
+## **Sequence Duplication Levels : warn**
+
+![](./assets/quality_res_byROA/after%20trimming/Sequence%20Duplication%20Levels_r1.png)
+
+## **Overrepresented sequences : pass**
+
+### No overrepresented sequences
+
+## **Adapter Content : pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Adapter%20Content_r1.png)
+
+#### - Sample1_R2_fastq_gz_R2 paired
+
+## **Basic Statistics: pass**
+
+| Measure | Value |
+|:----------------------------------:|:----------------------------------:|
+| Filename | Trimmomatic on Sample1_0394321_L001_R2_001_fastq_gz \_R2 paired\_ |
+| File type | Conventional base calls |
+| Encoding | Sanger / Illumina 1.9 |
+| Total Sequences | 1206159 |
+| Sequences Flagged As Poor Quality | 0 |
+| Sequence length | 50 - 138 |
+| %GC: | 42 |
+
+## **Per base sequence quality: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20quality_r2.png)
+
+## **Per tile sequence quality: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20tile%20sequence%20quality_r2.png)
+
+## **Per sequence quality scores: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20quality%20scores_r2.png)
+
+## **Per base sequence content : warn**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20content_r2.png)
+
+## **Per sequence GC content: pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20GC%20content_r2.png)
+
+## **Per base N content : pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Per%20base%20N%20content_r2.png)
+
+## **Sequence Length Distribution : warn**
+
+![](./assets/quality_res_byROA/after%20trimming/Sequence%20Length%20Distribution_r2.png)
+
+## **Sequence Duplication Levels : warn**
+
+![](./assets/quality_res_byROA/after%20trimming/Sequence%20Duplication%20Levels_r2.png)
+
+## **Overrepresented sequences : pass**
+
+### No overrepresented sequences
+
+## **Adapter Content : pass**
+
+![](./assets/quality_res_byROA/after%20trimming/Adapter%20Content_r2.png)
 
 ## Read Alignment
 
