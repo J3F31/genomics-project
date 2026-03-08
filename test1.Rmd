@@ -1,17 +1,19 @@
 ---
-title: "test1"
+title: "Genomics Project Report"
 subtitle: "Master's Degree Project Report"
-author: "roa"
+author: "roa hanoun"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    toc: true
-    number_sections: true
-    latex_engine: xelatex
   html_document:
     toc: true
     toc_float: true
-    number_sections: true
+    number_sections: false
+    theme: cosmo
+    highlight: tango
+  pdf_document:
+    toc: true
+    number_sections: false
+    latex_engine: xelatex
 fontsize: 12pt
 geometry: margin=1in
 ---
@@ -293,21 +295,96 @@ Based on the initial quality assessment, reads were trimmed to remove low-qualit
 
 ![](./assets/quality_res_byROA/after%20trimming/Adapter%20Content_r2.png)
 
-## Read Alignment
+## Read Alignment (mapping with jero)
 
 Filtered reads were aligned to the appropriate human reference genome using a short-read aligner.
 
-*Reference genome:*
+**Reference genome:**
 
-*Alignment tool:*
+**Alignment tool: BWA**
 
 ### Alignment Statistics
 
 Key alignment metrics such as mapping rate and coverage were evaluated.
 
-```         
-# Alignment statistics summary 
+coverage with jero !
+
+### Marking Duplicate Mapped Reads
+
+Before analyzing differences between the reference genome and our patient sample, duplicate mapped reads must be identified. Duplicates arise from PCR amplification bias (multiple copies of the same fragment) or optical artifacts during sequencing, and if unaddressed, can lead to false positive variant calls and inaccurate coverage estimates.
+
+We used `MarkDuplicates` tool on the coordinate-sorted BAM files from the previous mapping step. The algorithm identifies duplicate pairs by comparing read coordinates, orientations, and insert sizes, then adds a duplicate flag to each identified duplicate read. Importantly, reads are flagged but not removed, preserving data integrity while allowing downstream tools to ignore these flagged reads during analysis.
+
+**The output includes:**
+
+A marked BAM file `.marked.bam`: alignment data with duplicate flags
+
+A BAM index file `.bai`: enables rapid random access for visualization
+
+These files serve as input for the next step: visualizing the mapping data without the confounding effects of duplicates.
+
+### Visualizing the Mapping Data
+
+#### Integrative Genomics Viewer (IGV)
+
+To visually inspect the mapped reads and identify potential variants, we used the **Integrative Genomics Viewer (IGV)**. This tool enabled visualization of read alignment, coverage depth, and nucleotide changes across target regions, using the BED file to navigate directly to genes of interest.
+
+#### Reference Genome and Data Files
+
+The reference genome used for visualization was **GRCh38/hg38** (Genome Reference Consortium Human Build 38), which provides a high-quality assembly of the human genome. 
+
+For this visualization step, we used two primary input files:
+
+1.  **Marked BAM file** (`dataset.bam`): Contains the aligned reads with duplicate flags, enabling accurate visualization without PCR bias.
+
+2.  **Target BED file** (`CAR_0394321_en-20_target_v2_8.bed`): A interval file specifying all captured regions in the gene panel.
+
+The BED file contains four columns specifying the chromosome, exon start and end positions, and gene name (e.g., PSEN2, LMNA), allowing us to navigate directly to regions of interest. This BED file served as a navigation guide, allowing us to rapidly zoom into specific genes of interest and examine their coverage and potential variants.
+
+#### Variant Identification
+
+Using the BED file to navigate, we examined two different genes of interest. Below are representative examples of variants identified in this analysis:
+
+**Figure 1: PSEN2 Gene Region**
+
+![](./assets/quality_res_byROA/mapping/varient%20on%20stop%20codon.jpeg)
+
+A variant was identified in the PSEN2 gene at the stop codon position. The reference sequence shows a stop codon (TGA), while the patient sample displays a T nucleotide (red) at this position, changing the codon to CGA, which encodes Arginine (ARG). This stop-loss variant would result in an extended protein product, potentially altering its normal function.
+
+**Figure 2: LMNA Gene Region**
+
+![](./assets/quality_res_byROA/mapping/3.jpeg)
+
+Visualization of the LMNA gene showing a heterozygous variant. The aligned reads display both reference and alternative alleles (mixed colors at the variant position), with approximately equal representation. Heterozygous variants in LMNA are known to be associated with dilated cardiomyopathy (DCM).
+
+## Mapping Quality Control
+
+The first step is to load the BED file containing the exon coordinates of our panel genes. The file is tab-separated and has four columns: chromosome, start, end, and gene name. We will read it into R, assign proper column names, and then examine the distribution of exons across chromosomes.
+```{r}
+
+bed_file <- "./BedFile.bed"
+
+exons <- read.table(bed_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+
+# Assign meaningful column names
+colnames(exons) <- c("chromosome", "start", "end", "gene")
+
+# Inspect the first few rows
+head(exons)
+
+# Count exons per chromosome
+exon_counts <- table(exons$chromosome)
+print(exon_counts)
+
+# Plot the number of exons per chromosome
+barplot(exon_counts, 
+        main = "Number of exons per chromosome",
+        ylab = "Exon count",
+        xlab = "Chromosome",
+)       
+
 ```
+
 
 ## Variant Calling
 
