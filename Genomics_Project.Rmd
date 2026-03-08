@@ -141,7 +141,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### First trim
 
 | Input Parameter | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -183,7 +183,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Second trim
 
 | Input Parameter | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -225,7 +225,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Third trim
 
 | Input Parameter | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -267,7 +267,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Fourth trim
 
 | Input Parameter | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -309,7 +309,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Fifth trim
 
 | Input Parameter | Value |
-|------------------------------------|------------------------------------|
+|----|----|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
