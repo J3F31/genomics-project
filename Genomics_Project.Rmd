@@ -439,9 +439,6 @@ Data/reference genome used *explain*
 
 #### Variant calling
 
-//ATG added
-chr2:178,649,522-178,649,592
-//A added, backwards of forwards?
-chr2:178,650,610-178,650,681
+![Variant on chromosome 2, at position: chr2:178,751,235-178,751,305](./assets/IGV-chromosome2-variant.png)
 
 *screenshots*
