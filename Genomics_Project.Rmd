@@ -371,7 +371,7 @@ PercentSequencesRemoved <- function(x){
 
 *explain*
 
-## Expected coverage
+### Expected coverage
 
 A sequence's coverage or read depth is the average amount of reads of each region in a given genome. To calculate the coverage we can use the formula `C = LN/G`, where `C = coverage`, `L = read length`, `N = number of reads` and `G = captured region`. This results in an expected or estimated coverage, as many reads could not be distributed evenly.
 
@@ -399,7 +399,7 @@ Coverage(300, 25000000, 320000)
 
 The resulting expected read depth is \~ 663. Which means spotted DNA variants should be of high confidence. However, the actual coverage of each region should be also checked after the following mapping steps.
 
-## Mapping with BWA
+### Mapping with BWA
 
 | Input Parameter | Value |
 |----------------------------------|----------------------------------|
@@ -437,11 +437,84 @@ IGV tool *explain*
 
 Data/reference genome used *explain*
 
-#### Variant calling
+### Variant calling
 
-//ATG added
-chr2:178,649,522-178,649,592
-//A added, backwards of forwards?
-chr2:178,650,610-178,650,681
+The following variant is on the TTN gene. The nucleotide **A** from the reference gene is replaced with a **C**, which only changes one aminoacid (threonine is replaced with proline).
 
-*screenshots*
+![IGV tool variant visualization at position: chr2:178,751,235-178,751,305](./assets/IGV-chromosome2-variant.png)
+
+## Mapping Quality Control
+
+### Assignment 1 & 2
+
+```{r}
+
+refGen <- read.table("./Reference-hg38.bed")
+names(refGen) <- c("Chromosome", "Exon Start", "Exon End", "Gene")
+
+chrCount <- tapply(refGen$Gene, refGen$Chromosome, length)
+
+barplot(chrCount, las = 2,
+        xlab = "Chromosome", ylab = "Gene frequency", 
+        main = "Genes per chromosome")
+
+```
+
+### Assignment 3
+
+```{r include=FALSE}
+## Only needed when the package is missing
+if (!require("BiocManager"))
+    install.packages("BiocManager")
+
+BiocManager::install("GenomicRanges")
+```
+
+```{r include=FALSE}
+# This package contains the 'IRanges', 'GRanges' and 'GRangesList' classes we will use
+library(GenomicRanges)
+```
+
+```{r}
+
+( SOD2 <- refGen[refGen$Gene == "SOD2",] )
+
+( iranges <- IRanges(start = SOD2$`Exon Start`, end = SOD2$`Exon End`, names = SOD2$Gene) )
+cat("Length of SOD2:", sum( width(iranges) ), "bp")
+
+( granges <- GRanges(seqnames = SOD2$Chromosome, ranges = iranges) )
+
+```
+
+```{r}
+
+geneList <- list()
+
+for (geneName in unique(refGen$Gene)){
+  gene <- refGen[refGen$Gene == geneName,]
+  iranges <- IRanges(start = gene$`Exon Start`, end = gene$`Exon End`, names = gene$Gene)
+  granges <- GRanges(seqnames = gene$Chromosome, ranges = iranges)
+  geneList[[geneName]] <- granges
+}
+
+geneList <- GRangesList(geneList)
+
+```
+
+### Assignment 4
+
+```{r include=FALSE}
+if (!require("plotrix"))
+  install.packages("plotrix")
+
+library(plotrix)
+```
+
+```{r}
+
+geneLengths <- sum(width(ranges(geneList)))
+
+gap.barplot(geneLengths, gap = c(10000, 12000))
+
+
+```
