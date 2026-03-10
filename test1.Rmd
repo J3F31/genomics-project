@@ -359,18 +359,22 @@ Visualization of the LMNA gene showing a heterozygous variant. The aligned reads
 
 ## Mapping Quality Control
 
+In this section, we assessed the mapping coverage for all panel genes to evaluate mapping performance. As observed in IGV, coverage levels varied significantly across regions, ranging from very high (300+) to areas with only a few reads present, which can impact variant detection reliability. Using **R** with libraries commonly used in genetic research, we calculated and reported coverage statistics for all panel genes to quantitatively assess these variations and identify undercovered regions.
+
+**Loading the BED-data**
+
 The first step is to load the BED file containing the exon coordinates of our panel genes. The file is tab-separated and has four columns: chromosome, start, end, and gene name. We will read it into R, assign proper column names, and then examine the distribution of exons across chromosomes.
+
 ```{r}
 
 bed_file <- "./BedFile.bed"
 
 exons <- read.table(bed_file, header = FALSE, sep = "\t", stringsAsFactors = FALSE)
 
-# Assign meaningful column names
 colnames(exons) <- c("chromosome", "start", "end", "gene")
 
-# Inspect the first few rows
 head(exons)
+View(exons)
 
 # Count exons per chromosome
 exon_counts <- table(exons$chromosome)
@@ -381,10 +385,47 @@ barplot(exon_counts,
         main = "Number of exons per chromosome",
         ylab = "Exon count",
         xlab = "Chromosome",
+        las = 2,
 )       
 
 ```
+**BED-visualization**
 
+In this section, we visualized the distribution of genes across different chromosomes using the BED data. First, we reduced the data to unique chromosome-gene combinations, then counted the number of genes per chromosome and presented the results in a bar plot. This visualization provides a clear overview of how genes are distributed across chromosomes, helping to identify which chromosomes carry the most genes in our panel.
+
+```{r}
+chromosome_gene <- subset(exons, select = c(chromosome, gene))
+head(chromosome_gene)
+
+uni_gene <- unique(chromosome_gene)
+
+head(uni_gene)
+#View(uni_gene)
+
+gene_counts <- table(uni_gene$chromosome)
+
+barplot(gene_counts, 
+        main = "Number of gene per chromosome",
+        ylab = "Number of genes",
+        xlab = "Chromosome",
+        las = 2,
+    )
+```
+**Bioconductor**
+
+```{r}
+# This package contains the 'IRanges', 'GRanges' and 'GRangesList' classes we will use
+library(GenomicRanges)
+# Print all rows where the gene name is for example 'SOD2'
+sod2 <- exons[exons$gene == "SOD2", ]
+
+# Assign whole columns to the IRanges arguments
+#ranges <- IRanges(start = sod2$begin,
+ #                 end = sod2$end,
+  #                names = sod2$gene)
+# Print the object
+#ranges
+```
 
 ## Variant Calling
 
