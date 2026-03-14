@@ -389,6 +389,13 @@ barplot(exon_counts,
 )       
 
 ```
+```{r}
+
+#exon_counts_df <- as.data.frame(exon_counts)
+#colnames(exon_counts_df) <- c("chromosome", "exon_count")
+```
+
+
 **BED-visualization**
 
 In this section, we visualized the distribution of genes across different chromosomes using the BED data. First, we reduced the data to unique chromosome-gene combinations, then counted the number of genes per chromosome and presented the results in a bar plot. This visualization provides a clear overview of how genes are distributed across chromosomes, helping to identify which chromosomes carry the most genes in our panel.
@@ -416,16 +423,111 @@ barplot(gene_counts,
 ```{r}
 # This package contains the 'IRanges', 'GRanges' and 'GRangesList' classes we will use
 library(GenomicRanges)
+
 # Print all rows where the gene name is for example 'SOD2'
-sod2 <- exons[exons$gene == "SOD2", ]
+(sod2 <- exons[exons$gene == "SOD2", ]
+)
 
 # Assign whole columns to the IRanges arguments
-#ranges <- IRanges(start = sod2$begin,
- #                 end = sod2$end,
-  #                names = sod2$gene)
+ranges <- IRanges(start = sod2$start,
+                  end = sod2$end,
+                  names = sod2$gene)
 # Print the object
-#ranges
+ranges
+
+# Calculate and print the length of a gene
+cat("Length of SOD2:", sum( width(ranges) ), "bp")
 ```
+**Why Convert IRanges to GRanges?** 
+
+The IRanges object contains exon positions and lengths but lacks chromosome information, making it incomplete for genomic analysis. Converting to a GRanges object adds the chromosome context, creating a complete genomic coordinate system that properly locates each exon in the genome.
+
+```{r}
+# Converts iRanges to GRanges, adding the chromosome name
+granges <- GRanges(seqnames = sod2$chromosome,
+                   ranges = ranges)
+granges
+```
+
+```{r}
+# Split the data by gene, resulting in a list with named elements
+bed_splitted <- split(exons, exons$gene)
+#View(bed_splitted)
+my_list <- list()
+
+for (gene in names(bed_splitted)[1:55]) {
+  
+  data <- bed_splitted[[gene]]
+
+  ranges <- IRanges(start = data$start,
+                  end = data$end)
+  #print(ranges)
+ granges <- GRanges(seqnames = data$chromosome,
+                   ranges = ranges) 
+ 
+ my_list[[gene]] <- granges
+
+}
+
+final_GRange_list <- GRangesList(my_list) 
+
+#class(final_GRange_list)
+#elementType(final_GRange_list)
+
+#print(final_GRange_list)
+
+```
+
+**Gene Lengths**
+```{r}
+for (gene in names(final_GRange_list)) {
+
+gene_ranges <- ranges(final_GRange_list[[gene]])
+cat("Length of the", gene ,"gene:", sum(width(gene_ranges)), "\n")
+}
+
+```
+**Loading the Mapped Reads**
+
+```{r}
+# Loading the RSamtools library
+library(Rsamtools)
+
+bam_file <- BamFile(file="./mapping.bam", index = "./mapping.bam.bai")
+
+TTN_gene <- final_GRange_list [["TTN"]]
+
+ScanParam_gene <-ScanBamParam(which = TTN_gene)
+
+pileup_data <- pileup(file = bam_file, index = ScanParam_gene)
+
+head(pileup_data)
+
+
+```
+**Pileup Processing**
+
+```{r}
+pileup_list <- list()
+
+for (gene in names(final_GRange_list)) {
+  
+  data <- final_GRange_list[[gene]]
+
+ ScanParam_gene <-ScanBamParam(which = data)
+
+pileup_data <- pileup(file = bam_file, index = ScanParam_gene)
+ 
+ pileup_list[[gene]] <- pileup_data
+
+}
+
+#class(final_GRange_list)
+#elementType(final_GRange_list)
+
+head(pileup_list)
+```
+
 
 ## Variant Calling
 
