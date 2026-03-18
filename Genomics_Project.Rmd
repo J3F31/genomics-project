@@ -141,7 +141,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### First trim
 
 | Input Parameter | Value |
-|----|----|
+|------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -183,7 +183,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Second trim
 
 | Input Parameter | Value |
-|----|----|
+|------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -225,7 +225,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Third trim
 
 | Input Parameter | Value |
-|----|----|
+|------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -267,7 +267,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Fourth trim
 
 | Input Parameter | Value |
-|----|----|
+|------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -309,7 +309,7 @@ In order to compare the trimmed values the `Falco` tool was used, but this time 
 ### Fifth trim
 
 | Input Parameter | Value |
-|----|----|
+|------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) | *R1 file* |
 | Input FASTQ file (R2/second of pair) | *R2 file* |
@@ -402,7 +402,7 @@ The resulting expected read depth is \~ 663. Which means spotted DNA variants sh
 ### Mapping with BWA
 
 | Input Parameter | Value |
-|----------------------------------|----------------------------------|
+|------------------------------------|------------------------------------|
 | Will you select a reference genome from your history or use a built-in index? | cached |
 | Using reference genome | hg38 |
 | Single or Paired-end reads | paired |
@@ -445,7 +445,7 @@ The following variant is on the TTN gene. The nucleotide **A** from the referenc
 
 ## Mapping Quality Control
 
-### Assignment 1 & 2
+### BED-data
 
 ```{r}
 
@@ -460,7 +460,7 @@ barplot(chrCount, las = 2,
 
 ```
 
-### Assignment 3
+### Bioconductor
 
 ```{r include=FALSE}
 ## Only needed when the package is missing
@@ -470,7 +470,7 @@ if (!require("BiocManager"))
 BiocManager::install("GenomicRanges")
 ```
 
-```{r include=FALSE}
+```{r message=FALSE}
 # This package contains the 'IRanges', 'GRanges' and 'GRangesList' classes we will use
 library(GenomicRanges)
 ```
@@ -501,20 +501,151 @@ geneList <- GRangesList(geneList)
 
 ```
 
-### Assignment 4
+### Gene Lengths
 
 ```{r include=FALSE}
 if (!require("plotrix"))
   install.packages("plotrix")
+```
 
+```{r message=FALSE}
 library(plotrix)
 ```
 
 ```{r}
 
 geneLengths <- sum(width(ranges(geneList)))
+# Originally 123059
+geneLengths["TTN"] <- 25000
 
-gap.barplot(geneLengths, gap = c(10000, 12000))
+barplot(geneLengths, axes = F, cex.names = 0.5, las = 2, ylim = c(0, 25000))
+axis(2, at = c(0, 5000, 10000, 15000, 20000, 25000), 
+     labels = c("0", "5000", "10000", "15000", "20000", "123059"), las = 2)
+axis.break(2, 20000, style = "gap", brw = 0.05)
+
+```
+
+### Loading the Mapped Reads
+
+```{r include=FALSE}
+
+# Installing required library
+if (!require("Rsamtools"))
+  BiocManager::install("Rsamtools")
+```
+
+```{r message=FALSE}
+# Loading the RSamtools library
+library(Rsamtools)
+
+```
+
+```{r}
+
+bamFile <- BamFile("./MapReads.bam", index = "./MapReads.bai")
+bamParam <- ScanBamParam(which = geneList[["NEXN"]], what = scanBamWhat())
+
+bamPileup <- pileup(file = bamFile, scanBamParam = bamParam)
+head(bamPileup)
+
+```
+
+### Pileup Processing
+
+```{r}
+
+genePileupList <- list()
+
+
+for (geneName in names(geneList)) {
+  bamParam <- ScanBamParam(which = geneList[[geneName]], what = scanBamWhat())
+  bamPileup <- pileup(file = bamFile, scanBamParam = bamParam)
+  genePileupList[[geneName]] <- bamPileup
+}
+
+head(genePileupList[["NEXN"]])
+
+```
+
+### Coverage calculation and reporting
+
+```{r}
+
+coverage = aggregate(x = list(count = genePileupList[["NEXN"]]$count), 
+                     by = list(pos = genePileupList[["NEXN"]]$pos), FUN=sum)
+head(coverage)
+
+```
+
+```{r}
+
+geneCoverageList <- list()
+
+for (geneName in names(geneList)) {
+  coverage = aggregate(x = list(count = genePileupList[[geneName]]$count), 
+                     by = list(pos = genePileupList[[geneName]]$pos), FUN=sum)
+  geneCoverageList[[geneName]] <- coverage
+}
+
+```
+
+```{r}
+
+positionCount <- c()
+averageCoverage <- c()
+lowCoverageConstant <- 20
+lowCoverage <- c()
+
+for (geneName in names(geneList)) {
+  positionCount <- c(positionCount,
+                     length(geneCoverageList[[geneName]]$pos))
+  averageCoverage <- c(averageCoverage,
+                       round(mean(geneCoverageList[[geneName]]$count), digits = 1))
+  lowCoverage <- c(lowCoverage,
+                   length(geneCoverageList[[geneName]]$count[geneCoverageList[[geneName]]$count < lowCoverageConstant]))
+}
+
+lowCoveragePercent <- round((lowCoverage / positionCount) * 100, digits = 1)
+
+geneCoveragePositions <- 
+  data.frame(
+    row.names = names(geneCoverageList), 
+    length = positionCount,
+    avg_coverage = averageCoverage,
+    low_coverage = lowCoverage,
+    low_coverage_perc = lowCoveragePercent
+  )
+geneCoveragePositions
+
+```
+
+## Analysis of Variants
+
+|              Input Parameter               |        Value        |
+|:------------------------------------------:|:-------------------:|
+|         Input reads in BAM format          |                     |
+| Choose the source for the reference genome |       cached        |
+|              Reference genome              |        hg38         |
+|            Call variants across            |       genome        |
+|         Types of variants to call          |      Only SNVs      |
+|         Variant calling parameters         |        false        |
+|         Variant filter parameters          | set_lofreq_standard |
+|                    sig                     |        0.01         |
+|                    bonf                    |       dynamic       |
+|                   others                   |       Empty.        |
+
+```{=html}
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>Call variants</b> with LoFreq
+(Galaxy Version 2.1.5+galaxy3)
+</pre>
+```
+
+### VCF File Processing
+
+```{r}
+
+vcfFile <- read.delim("./CallVariants.vcf", stringsAsFactors = FALSE, header = F)
 
 
 ```
