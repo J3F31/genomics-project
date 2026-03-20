@@ -645,7 +645,46 @@ geneCoveragePositions
 
 ```{r}
 
-vcfFile <- read.delim("./CallVariants.vcf", stringsAsFactors = FALSE, header = F)
+vcfFile <- read.delim("./CallVariants.vcf", stringsAsFactors = FALSE, comment = "#")
+head(vcfFile)
 
+```
+
+```{r}
+
+vcfInfo <- do.call(rbind,
+  strsplit(vcfFile$INFO, ";"))
+
+vcfInfo <- data.frame(vcfInfo)
+names(vcfInfo) <- c("DP", "AF", "SB", "DP4")
+
+alleleFreq <- gsub("AF=", x = vcfInfo$AF, "")
+
+```
+
+```{r}
+
+vcfIRanges <- IRanges(start = vcfFile$POS, end = vcfFile$POS)
+        #names = gene$Gene)
+vcfGRanges <- GRanges(seqnames = vcfFile$CHROM, ranges = vcfIRanges)
+
+mcols(vcfGRanges) <- DataFrame(AF = alleleFreq)
+
+vcfGRanges
+
+```
+
+```{r}
+
+overlaps <- findOverlaps(vcfGRanges, granges)
+overlaps <- DataFrame(overlaps)
+overlaps
+
+```
+
+```{r}
+
+
+vcfLines <- readLines(con = file("./CallVariants.vcf"))
 
 ```
