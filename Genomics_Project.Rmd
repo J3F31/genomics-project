@@ -489,7 +489,7 @@ cat("Length of SOD2:", sum( width(iranges) ), "bp")
 ```{r}
 
 geneList <- list()
-
+refGen$Gene[1]
 for (geneName in unique(refGen$Gene)){
   gene <- refGen[refGen$Gene == geneName,]
   iranges <- IRanges(start = gene$`Exon Start`, end = gene$`Exon End`, names = gene$Gene)
@@ -498,7 +498,7 @@ for (geneName in unique(refGen$Gene)){
 }
 
 geneList <- GRangesList(geneList)
-
+geneList
 ```
 
 ### Gene Lengths
@@ -658,25 +658,25 @@ vcfInfo <- do.call(rbind,
 vcfInfo <- data.frame(vcfInfo)
 names(vcfInfo) <- c("DP", "AF", "SB", "DP4")
 
-alleleFreq <- gsub("AF=", x = vcfInfo$AF, "")
+vcfInfo$AF <- as.numeric(gsub("AF=", x = vcfInfo$AF, ""))
 
 ```
 
 ```{r}
 
 vcfIRanges <- IRanges(start = vcfFile$POS, end = vcfFile$POS)
-        #names = gene$Gene)
+        
 vcfGRanges <- GRanges(seqnames = vcfFile$CHROM, ranges = vcfIRanges)
 
-mcols(vcfGRanges) <- DataFrame(AF = alleleFreq)
+mcols(vcfGRanges) <- DataFrame(AF = vcfInfo$AF)
 
-vcfGRanges
+( vcfGRanges <- vcfGRanges[vcfGRanges$AF >= 0.3] )
 
 ```
 
 ```{r}
 
-overlaps <- findOverlaps(vcfGRanges, granges)
+overlaps <- findOverlaps(vcfGRanges, geneList)
 overlaps <- DataFrame(overlaps)
 overlaps
 
@@ -684,7 +684,31 @@ overlaps
 
 ```{r}
 
+vcfLines <- readLines("./CallVariants.vcf")
+vcfHeader <- vcfLines[1:146]
+vcfData <- vcfLines[overlaps$queryHits + 147]
+writeLines(c(vcfHeader, vcfData), "./CallVariantsFiltered.vcf")
 
-vcfLines <- readLines(con = file("./CallVariants.vcf"))
+```
+
+### Variant Visualization
+
+```{r}
+
+hist(vcfGRanges$AF, xlab = "Allele Frequency", main = "Variant Allele Frequencies")
+
+```
+
+The 50% peak represents heterozygous genes and the 100% peak represents homozygous genes. Heterozygous genes are two different versions of the same gene and homozygous are two genes of same version, both acquired from the parents.
+
+```{r}
+
+variantFreq <- table(overlaps$subjectHits)
+names(variantFreq) <- names(geneList)[as.integer(names(variantFreq))]
+variantFreq <- data.frame(variantFreq)
+names(variantFreq) <- c("gene_name", "variants")
+
+barplot(table(overlaps$subjectHits))
+
 
 ```
