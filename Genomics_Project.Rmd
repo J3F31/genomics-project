@@ -518,7 +518,7 @@ geneLengths <- sum(width(ranges(geneList)))
 # Originally 123059
 geneLengths["TTN"] <- 25000
 
-barplot(geneLengths, axes = F, cex.names = 0.5, las = 2, ylim = c(0, 25000))
+barplot(geneLengths, axes = F, cex.names = 0.5, las = 2, ylim = c(0, 25000), main = "Gene Lengths")
 axis(2, at = c(0, 5000, 10000, 15000, 20000, 25000), 
      labels = c("0", "5000", "10000", "15000", "20000", "123059"), las = 2)
 axis.break(2, 20000, style = "gap", brw = 0.05)
@@ -705,10 +705,61 @@ The 50% peak represents heterozygous genes and the 100% peak represents homozygo
 
 variantFreq <- table(overlaps$subjectHits)
 names(variantFreq) <- names(geneList)[as.integer(names(variantFreq))]
-variantFreq <- data.frame(variantFreq)
-names(variantFreq) <- c("gene_name", "variants")
 
-barplot(table(overlaps$subjectHits))
-
+barplot(variantFreq, las = 2, cex.names = 0.5, ylim = c(0, 20), main = "Variants per Gene")
 
 ```
+
+## Variant Annotation
+
+### SnpEff and SnpSift
+
+Ran the tool `SnpEff` to annotate the filtered `vcf` file from the previous step. This adds metadata fields about each variant and predictions on their effects.
+
+```{=html}
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>SnpEff eff</b>  annotate variants
+(Galaxy Version 5.4+galaxy0)
+</pre>
+```
+
+Ran the tool `SnpSift` to further annotate our `vcf` file. This tool compares the resulting `vcf` file from the `SnpEff` step together with a `dbSnp` database file. The result expands on the metadata added by `SnpEff` and adds an ID field, which serves as an identifier for the variant in the NCBI database.
+
+```{=html}
+<pre style="background-color:#dee2e6; color:#2c3143; border:none">
+<b>SnpSift Annotate</b> SNPs from dbSnp
+(Galaxy Version 5.4.0c+galaxy0)
+</pre>
+```
+
+```{bash eval=FALSE}
+
+java -jar /data/datasets/dbNSFP/snpEff/SnpSift.jar DbNsfp -db /data/datasets/dbNSFP/snpEff/data/dbNSFP4.3c.txt.gz SnpVariants_Step2.vcf > SnpVariants_Step3.vcf
+
+```
+
+```{r include=FALSE}
+if (!require(stringr))
+  install.packages('stringr')
+```
+
+```{r message=FALSE}
+library(stringr)
+```
+
+```{r}
+
+snpVcf <- readLines("./SnpVariants_Step3.vcf")
+
+snpVcf <- snpVcf[str_detect(snpVcf, "##INFO=")]
+
+snpVcf <- str_replace(snpVcf, "##", "")
+#snpVcf <- str_replace(snpVcf, '>', "")
+snpVcf <- str_replace(snpVcf, " \ ", "")
+snpVcf <- str_split(snpVcf, ",")
+snpVcf
+#read.table(text = snpVcf, sep = ",", fill = TRUE)
+
+```
+
+### Analyzing Variant Annotation
