@@ -191,7 +191,7 @@ Based on our quality control results, we selected specific parameters for trimmi
 **Tool Parameters**
 
 | Input Parameter | Value |
-|----|----|
+|------------------------------------|------------------------------------|
 | Single-end or paired-end reads? | pair_of_files |
 | Input FASTQ file (R1/first of pair) |  |
 | Input FASTQ file (R2/second of pair) |  |
@@ -223,7 +223,7 @@ Based on our quality control results, we selected specific parameters for trimmi
 ## **Basic Statistics: pass**
 
 | Measure | Value |
-|:--:|:--:|
+|:----------------------------------:|:----------------------------------:|
 | Filename | Trimmomatic on Sample1_0394321_L001_R1_001_fastq_gz \_R1 paired\_ |
 | File type | Conventional base calls |
 | Encoding | Sanger / Illumina 1.9 |
@@ -277,7 +277,7 @@ Based on our quality control results, we selected specific parameters for trimmi
 ## **Basic Statistics: pass**
 
 | Measure | Value |
-|:--:|:--:|
+|:----------------------------------:|:----------------------------------:|
 | Filename | Trimmomatic on Sample1_0394321_L001_R2_001_fastq_gz \_R2 paired\_ |
 | File type | Conventional base calls |
 | Encoding | Sanger / Illumina 1.9 |
@@ -392,7 +392,7 @@ Visualization of the LMNA gene showing a heterozygous variant. The aligned reads
 
 In this section, we assessed the mapping coverage for all panel genes to evaluate mapping performance. As observed in IGV, coverage levels varied significantly across regions, ranging from very high (300+) to areas with only a few reads present, which can impact variant detection reliability. Using **R** with libraries commonly used in genetic research, we calculated and reported coverage statistics for all panel genes to quantitatively assess these variations and identify undercovered regions.
 
-**Loading the BED-data**
+### Loading the BED-data
 
 The first step is to load the BED file containing the exon coordinates of our panel genes. The file is tab-separated and has four columns: chromosome, start, end, and gene name. We will read it into R, assign proper column names, and then examine the distribution of exons across chromosomes.
 
@@ -428,7 +428,7 @@ This barplot shows the number of exons located on each chromosome in our dataset
 #colnames(exon_counts_df) <- c("chromosome", "exon_count")
 ```
 
-**BED-visualization**
+### BED-visualization
 
 In this section, we visualized the distribution of genes across different chromosomes using the BED data. First, we reduced the data to unique chromosome-gene combinations, then counted the number of genes per chromosome and presented the results in a bar plot. This visualization provides a clear overview of how genes are distributed across chromosomes, helping to identify which chromosomes carry the most genes in our panel.
 
@@ -453,7 +453,7 @@ barplot(gene_counts,
 
 This plot shows the number of genes per chromosome, and it directly explains the previous exon distribution. Chromosome 2 has the highest gene count (7 genes), which is why it also had the highest exon count (250-300). Chromosomes with fewer genes consistently showed fewer exons, confirming that exon numbers reflect gene density across chromosomes.
 
-**Bioconductor**
+### Bioconductor
 
 Bioconductor is a repository containing over 1800 R packages specifically designed for analyzing high-throughput biological data, which we used throughout this assignment.
 
@@ -461,12 +461,15 @@ Bioconductor is a repository containing over 1800 R packages specifically design
 
 The IRanges object contains exon positions and lengths but lacks chromosome information, making it incomplete for genomic analysis. Converting to a GRanges object adds the chromosome context, creating a complete genomic coordinate system that properly locates each exon in the genome.
 
-**Assignment 3**
+### GenomicRanges objects
 
 The BED file was first represented as an IRanges object since it contains simple positional data such as chromosome names and start/stop positions. These IRanges objects were then converted to GenomicRanges objects, which store genomic features (like exons) along with their chromosome coordinates and strand information.
 
 ```{r}
 # Split the data by gene, resulting in a list with named elements
+library(IRanges)
+library(GenomicRanges)
+
 bed_splitted <- split(exons, exons$gene)
 #View(bed_splitted)
 my_list <- list()
@@ -476,7 +479,7 @@ for (gene in names(bed_splitted)[1:55]) {
   data <- bed_splitted[[gene]]
 
   ranges <- IRanges(start = data$start,
-                  end = data$end)
+                  end = data$end, names = data$gene)
   #print(ranges)
  granges <- GRanges(seqnames = data$chromosome,
                    ranges = ranges) 
@@ -490,36 +493,34 @@ final_GRange_list <- GRangesList(my_list)
 #class(final_GRange_list)
 #elementType(final_GRange_list)
 
-#print(final_GRange_list)
+head(final_GRange_list)
 
 ```
 
-**Gene Lengths Visualization**
+### Gene Lengths Visualization
 
 After creating the GRanges objects, we calculated the length of each gene using the width and sum functions on the GRangesList. Since some genes are much longer than others, a standard barplot would be difficult to read. We used the `gap.barplot` function from the plotrix library, which allows us to create a barplot with a gap in the y-axis to accommodate extremely long genes while still showing variation among shorter genes.
 
 ```{r}
 library(plotrix)
 
-gene_lengths_list <- list()
-
-for (gene in names(final_GRange_list)) {
+# sapply applies the function to each element and returns a vector
+gene_lengths <- sapply(names(final_GRange_list), function(gene) {
   gene_ranges <- ranges(final_GRange_list[[gene]])
-  length_value <- sum(width(gene_ranges))
-  gene_lengths_list[[gene]] <- length_value
-}
+  sum(width(gene_ranges))
+})
 
-# Sort genes by length
+
 gene_lengths <- sort(gene_lengths, decreasing = TRUE)
 
-# Create barplot with gap
+# Create barplot
 gap.barplot(gene_lengths,
-            gap = c(5000, 80000),  # Creates gap between 5000 and 80000
+            gap = c(5000, 80000),
             xlab = "Genes",
             ylab = "Gene Length (bp)",
             main = "Gene Lengths Distribution",
             las = 2, 
-            ytics = seq(0, 100000, by = 5000))  # Add more tick marks
+            ytics = seq(0, 100000, by = 5000))
 
 ```
 
@@ -537,11 +538,11 @@ barplot(gene_lengths,
 axis(2, at = seq(0, 100000, by = 5000), las = 2)
 ```
 
-**Loading the Mapped Reads**
+### Loading the Mapped Reads
 
 We used the output from the mapping step (the BAM file) to inspect the coverage of all mapped positions across our panel genes. The Rsamtools library provides the necessary functions to read and process this alignment data into GRanges objects for further analysis.
 
-First, we used the *BamFile* function to create a reference to our BAM file and its index, which allowed us to access the alignment data efficiently without loading the entire file into memory. Then, to extract only our specific gene regions from the BED-data, we used the *ScanBamParam* function with GRanges objects to set the parameters for selection. Finally, we applied the *pileup* function to retrieve the coverage information for these regions, which returned the actual read counts at each position within our genes for downstream analysis.
+First, we used the *BamFile* function to create a reference to our BAM file and its index, which allowed us to access the alignment data efficiently without loading the entire file into memory. Then, to extract only our specific gene regions from the BED-data, we used the *ScanBamParam* function with GRanges objects to set the parameters for selection. Finally, we applied the *pileup* function to retrieve the coverage information for these regions, which returned the actual read counts at each position within our genes for downstream analysis. Here the pileup data for **TTN** gene.
 
 ```{r}
 # Loading the RSamtools library
@@ -560,7 +561,7 @@ head(pileup_data)
 
 ```
 
-**Pileup Processing**
+### Pileup Processing
 
 Here, we will obtain the pileup data for all our genes and store it in a single object `pileup_list`. This will allow us to calculate the average coverage for each gene and identify positions with low coverage that may require further inspection.
 
@@ -581,7 +582,9 @@ pileup_data <- pileup(file = bam_file, scanBamParam = ScanParam_gene)
 head(pileup_list[["TTN"]])
 ```
 
-**Coverage calculation and reporting**
+This table shows the raw sequencing data for every position in our genes. Each row represents one nucleotide position, telling us which chromosome it's on, the exact location, which DNA strand the read came from, what base (A, T, G, or C) was detected, and how many times that base was seen. The last column just labels which gene the position belongs to. This data helps us see how well each region was covered during sequencing and spot any positions that might need a closer look.
+
+### Coverage calculation and reporting
 
 In this assignment, we calculated the per-position coverage for each gene using the *aggregate* function, which sums the count values for each unique position across all reads. For every gene, we then determined: the number of bases sequenced, the average coverage, the number of low-coverage positions (below 30), and the percentage of low-coverage positions. These four values were stored in a new data frame along with the gene name, and the final results were ordered by the percentage of low-coverage positions in descending order for easy interpretation.
 
@@ -622,45 +625,155 @@ print(per_position_coverage)
 
 ```
 
+Coverage analysis across the 55 cardiomyopathy genes shows that the majority **(40 genes)** have excellent sequencing coverage with **0%** low coverage positions. However, several genes show concerning coverage gaps. JPH2 has the poorest coverage with **(30.7%)** of the gene falling below acceptable thresholds, followed by GATAD1 **(21.3%)**, TPM1 **(16.8%)**, and PRKAG2 **(16.3%)**. Other genes with significant coverage issues include DES **(14.7%)**, JUP **(11.2%)**, and MYBPC3 **(10.5%)**. These genes with \>10% low coverage warrant careful interpretation as potential variants in these poorly covered regions may be missed. In contrast, important large genes like TTN maintained excellent coverage throughout, increasing confidence in variant detection.
+
 ## Variant Calling
 
-Variant calling was performed to identify single nucleotide variants (SNVs) and small insertions/deletions (indels) from the aligned reads.
+Variant calling was performed to identify single nucleotide variants (SNVs) and small insertions/deletions (indels) from the aligned reads. We interest in a SNVs variants only, and using the default sittings in the tool.
 
-*Variant caller used:*
+**Variant caller used: `Call variants with LoFreq`**
 
-### Raw Variant Output
+### Raw Variant Output (VCF File)
 
-The initial variant call set contains all detected variants prior to filtering.
+The result of the `LoFreq` tool is a single new file in your history in the vcf file format where each line describes a single variant. We have **1005** different variants.
 
-## Variant Filtering
+```{r}
+library(readr)
+VCF_FILE <- read.delim("Call_variants.vcf", stringsAsFactors = FALSE , comment = "#")
 
-Variants were filtered based on quality metrics to reduce false positives. Filtering criteria included read depth, variant quality score, and allele frequency.
-
-### Filtering Criteria
-
--   Minimum depth (DP):
-
--   Minimum quality (QUAL):
-
-```         
-# Summary of filtered variants 
+head(VCF_FILE)
 ```
+
+## Variant Filtering (VCF File Processing)
+
+To minimize false positive calls, variants were filtered using established quality metrics, including read depth, variant quality score, and allele frequency. The filtering workflow began by extracting allele frequency (AF) information from the VCF file. This AF data was subsequently incorporated as an additional column following the creation of GRanges objects.
+
+```{r}
+
+vcfInfo <- do.call(rbind,
+  strsplit(VCF_FILE$INFO, ";"))
+
+vcfInfo <- data.frame(vcfInfo)
+names(vcfInfo) <- c("DP", "AF", "SB", "DP4")
+
+alleleFreq <- as.numeric(gsub("AF=", x = vcfInfo$AF, ""))
+
+
+```
+
+Variants were subsequently filtered to retain only those with an allele frequency of ≥30%.
+
+```{r}
+#VCF_FILE
+
+vcfIRanges <- IRanges(start = VCF_FILE$POS, end = VCF_FILE$POS)
+
+vcfGRanges <- GRanges(seqnames = VCF_FILE$CHROM, ranges = vcfIRanges )
+
+mcols(vcfGRanges) <- DataFrame(AF = alleleFreq)
+
+
+vcfGRanges <- vcfGRanges[vcfGRanges$AF >= 0.3]
+
+vcfGRanges
+```
+
+To identify all variants falling within exonic regions, an overlap analysis was performed using the `findOverlaps` function. The resulting output contains two columns: `queryHits` and `subjectHits.` The `queryHits` column indicates the rows from the VCF data that lie within an exon, representing the variants of interest. The `subjectHits` column corresponds not to individual exons but to genes, meaning a `subjectHits` value of 1 refers to a hit within any exon of the first gene.
+
+From the results, gene number 25 was observed to have 21 hits within its exonic regions.
+
+```{r}
+overlaps <- findOverlaps(vcfGRanges, final_GRange_list)
+overlaps <- DataFrame(overlaps)
+(overlaps)
+
+
+```
+
+After obtaining the row numbers of variants to retain, the filtered VCF file was reconstructed. This was achieved by reading the original VCF file with the readLines function. The header lines and variant rows were extracted separately, then recombined to generate the final filtered VCF file.
+
+```{r}
+vcfLines <- readLines(con = file("./Call_variants.vcf"))
+
+header_lines <- vcfLines[1:146]
+
+variant_lines <- vcfLines[147:length(vcfLines)]
+
+final_vcf <- c(header_lines, variant_lines)
+
+writeLines(final_vcf, "filtered_variants.vcf")
+
+
+#cat("Original total lines:", length(vcfLines), "\n")
+#cat("Header lines:", length(header_lines), "\n")
+#cat("Original variants:", length(variant_lines), "\n")
+#cat("New file total lines:", length(final_vcf), "\n")
+
+```
+
+## Variant Visualization
+
+Two simple visualizations were created to explore the filtered variant dataset.
+
+### Allele frequency distribution
+
+```{r}
+hist(alleleFreq, breaks = 20, main = "Distribution of Allele Frequencies",
+     xlab = "Allele Frequency",
+     ylab = "Number of Variants",
+     col = "steelblue")
+```
+The two peaks in the allele frequency histogram correspond to the two possible zygosity states in a diploid genome:
+
+- **50%**: Heterozygous variants, where one copy carries the alternative allele and the other carries the reference allele
+
+- **100%**: Homozygous variants, where both copies carry the alternative allele
+
+### Variants per gene
+
+```{r}
+
+variantFreq <- table(overlaps$subjectHits)
+
+names(variantFreq) <- names(final_GRange_list)[as.integer(names(variantFreq))]
+
+variantFreq <- data.frame(variantFreq)
+
+names(variantFreq) <- c("gene_name", "variant_count")
+
+#variantFreq
+#barplot(table(overlaps$subjectHits))
+
+ggplot(variantFreq, aes(x = gene_name, y = variant_count, fill = gene_name)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  labs(title = "Number of Variants per Gene", x = "Genes", y = "Number of Variants") +
+  scale_y_continuous(breaks = seq(0, 20, by = 2)) +   # finer y‑axis breaks
+  coord_cartesian(ylim = c(0, 20)) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))  # vertical labels
+
+
+```
+
+Looking at the distribution of variants across genes, **TTN** had the highest number with 19 variants, followed by **RYR2** with 11. **MYPN** and **DMD** each had 10 variants, while **MYH6** had 8. A few other genes like **DSP** (6) and **DES** (5) also showed moderate variant counts. The rest of the genes had smaller numbers, mostly between 1 and 3 variants.
+
+What's interesting is that most of the genes with the highest variant counts are actually known to be involved in heart disease. So even though the variants are spread across many genes, the ones with the most hits tend to be those with known roles in cardiac function. This is not surprising, as our samples were obtained from patients with cardiomyopathy, so finding more variants in heart-disease-associated genes is expected.
+
 
 ## Variant Annotation
 
-Filtered variants were annotated to identify affected genes and potential functional consequences.
+The filtered VCF file was uploaded to Galaxy for the subsequent annotation step to identify and characterize the genetic differences.
 
-*Annotation tool/database:*
+### SnpEff and SnpSift
 
-# Results
+**step1**
 
-## Variant Summary
+The result consists of two files: an annotated VCF file and a web-report on all the variants and their predicted effects.
 
-A total of (X) variants were retained after filtering. These variants include SNPs and small indels distributed across multiple genomic regions.
+**step3**
+i make one time run ! 
 
-```         
-# Tables or plots summarizing variants 
-```
+
 
 ## Candidate Variants Related to Cardiomyopathy
 
