@@ -749,17 +749,25 @@ library(stringr)
 
 ```{r}
 
+#Read metadata description fields from final vcf file
 snpVcf <- readLines("./SnpVariants_Step3.vcf")
+snpVcf <- snpVcf[str_detect(snpVcf, "##INFO")]
 
-snpVcf <- snpVcf[str_detect(snpVcf, "##INFO=")]
+#Remove identifier fields
+snpVcf <- str_remove_all(snpVcf, "(##INFO=<ID=|Number=|Type=|Description=|\\\\|\"|>)")
+snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
 
-snpVcf <- str_replace(snpVcf, "##", "")
-#snpVcf <- str_replace(snpVcf, '>', "")
-snpVcf <- str_replace(snpVcf, " \ ", "")
-snpVcf <- str_split(snpVcf, ",")
-snpVcf
-#read.table(text = snpVcf, sep = ",", fill = TRUE)
+#Create table from resulting values
+snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
+
+#Assign database
+#Index 1 to 7 are from database Human Genome 38 (hg.38)
+#Index 8 to 10 are from assignment step 1, SnpEff
+#Index 11 to 31 are from assignment step 2, SnpSift
+#Index 32 to 75 are from assignment step 3, dbNSFP
+snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "SnpEff"), replicate(21, "SnpSift"), replicate(44, "dbNSFP"))
 
 ```
+
 
 ### Analyzing Variant Annotation
