@@ -756,16 +756,44 @@ snpVcf <- snpVcf[str_detect(snpVcf, "##INFO")]
 #Remove identifier fields
 snpVcf <- str_remove_all(snpVcf, "(##INFO=<ID=|Number=|Type=|Description=|\\\\|\"|>)")
 snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
+snpVcf$ID[32:75] <- str_remove(snpVcf$ID[32:75], "dbNSFP_")
 
 #Create table from resulting values
 snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
 
 #Assign database
 #Index 1 to 7 are from database Human Genome 38 (hg.38)
-#Index 8 to 10 are from assignment step 1, SnpEff
-#Index 11 to 31 are from assignment step 2, SnpSift
-#Index 32 to 75 are from assignment step 3, dbNSFP
-snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "SnpEff"), replicate(21, "SnpSift"), replicate(44, "dbNSFP"))
+#Index 8 to 10 are from database GRCh38.p14, assignment step 1 (SnpEff)
+#Index 11 to 31 are from database dbSnp_clinvar, assignment step 2 (SnpSift)
+#Index 32 to 75 are from database dbNSFP, assignment step 3 (SnpSift)
+snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "GRCh38.p14"), replicate(21, "dbSnp_clinvar"), replicate(44, "dbNSFP4.3c"))
+
+```
+
+```{r}
+
+nsfpDocs <- readLines("./dbNSFP4.3c.readme.txt")
+nsfpIDs <- snpVcf$ID[32:75]
+nsfpIDs <- str_remove(nsfpIDs, " ")
+nsfpIDs <- paste0(nsfpIDs, ":")
+
+nsfpDocsLines <- c()
+
+for (id in nsfpIDs) {
+  newLine <- nsfpDocs[str_detect(nsfpDocs, id)]
+  
+  
+  
+  
+  #if (identical(newLine, character(0))) nsfpDocsLines <- c(nsfpDocsLines, "") 
+  #nsfpDocsLines <- c(nsfpDocsLines, newLine)
+}
+
+#idx <- which(nsfpDocs != c(nsfpDocs[-1], NA))
+#idx
+#nsfpDocsLines <- str_remove_all(nsfpDocsLines, "(.+:\\s|\\\t|\\\\|\")")
+
+#snpVcf$Description[32:75] <- nsfpDocsLines
 
 ```
 
