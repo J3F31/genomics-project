@@ -723,11 +723,12 @@ hist(alleleFreq, breaks = 20, main = "Distribution of Allele Frequencies",
      ylab = "Number of Variants",
      col = "steelblue")
 ```
+
 The two peaks in the allele frequency histogram correspond to the two possible zygosity states in a diploid genome:
 
-- **50%**: Heterozygous variants, where one copy carries the alternative allele and the other carries the reference allele
+-   **50%**: Heterozygous variants, where one copy carries the alternative allele and the other carries the reference allele
 
-- **100%**: Homozygous variants, where both copies carry the alternative allele
+-   **100%**: Homozygous variants, where both copies carry the alternative allele
 
 ### Variants per gene
 
@@ -759,25 +760,95 @@ Looking at the distribution of variants across genes, **TTN** had the highest nu
 
 What's interesting is that most of the genes with the highest variant counts are actually known to be involved in heart disease. So even though the variants are spread across many genes, the ones with the most hits tend to be those with known roles in cardiac function. This is not surprising, as our samples were obtained from patients with cardiomyopathy, so finding more variants in heart-disease-associated genes is expected.
 
-
 ## Variant Annotation
 
 The filtered VCF file was uploaded to Galaxy for the subsequent annotation step to identify and characterize the genetic differences.
 
 ### SnpEff and SnpSift
 
-**step1**
+Following variant calling with `LoFreq`, we performed three sequential annotation steps to add functional, clinical, and population-level information to our filtered VCF file.
 
-The result consists of two files: an annotated VCF file and a web-report on all the variants and their predicted effects.
+**SnpEff – Functional Annotation**
 
-**step3**
-i make one time run ! 
+We used `SnpEff` with the GRCh38.p14 genome reference to annotate our filtered VCF file. This tool adds functional predictions for each variant, including impact severity (HIGH, MODERATE, LOW, MODIFIER), gene names, transcript biotypes, and HGVS nomenclature. All annotation details are stored in the `ANN` field. The output consists of an annotated VCF file and a web-based summary report.
 
+**SnpSift – dbSNP and ClinVar Annotation**
 
+We ran `SnpSift` to add known variant identifiers and clinical significance data using the `dbSNP` database that includes `ClinVar` information. The `ID` column was populated with ClinVar identifiers, and the `INFO` field was expanded with clinical significance (CLNSIG), disease names (CLNDN), and review status (CLNREVSTAT) for known variants.
 
-## Candidate Variants Related to Cardiomyopathy
+**SnpSift – dbNSFP Annotation**
 
-Several variants were identified in genes previously associated with cardiomyopathy. These variants represent potential contributors to disease development.
+We used `SnpSift` to annotate our VCF with the `dbNSFP` database, a comprehensive collection of over 300GB of integrated annotation sources. This step added population allele frequencies from gnomAD and ExAC, multiple in-silico prediction scores (including SIFT, PolyPhen, REVEL, CADD, and AlphaMissense), conservation metrics, and gene constraint information. The resulting file, `SnpVariants_Step3.vcf`, was used for subsequent filtering and analysis in Galaxy.
+
+**Annotation Summary**
+
+After completing the annotation workflow in Galaxy, we performed additional processing in R to extract and summarize the metadata from our annotated VCF file. The final output consolidates the key annotation data added during each step of the workflow. A brief summary of the added annotation sources and the types of values they provide is presented in the table below.
+
+```{r}
+library(stringr)
+
+#Read metadata description fields from final vcf file
+snpVcf <- readLines("./SnpVariants_Step3.vcf")
+snpVcf <- snpVcf[str_detect(snpVcf, "##INFO")]
+
+#Remove identifier fields
+snpVcf <- str_remove_all(snpVcf, "(##INFO=<ID=|Number=|Type=|Description=|\\\\|\"|>)")
+snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
+
+#Create table from resulting values
+snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
+
+#Assign database
+#Index 1 to 7 are from database Human Genome 38 (hg.38)
+#Index 8 to 10 are from assignment step 1, SnpEff
+#Index 11 to 31 are from assignment step 2, SnpSift
+#Index 32 to 75 are from assignment step 3, dbNSFP
+snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "SnpEff"), replicate(21, "SnpSift"), replicate(44, "dbNSFP"))
+
+```
+
+### Analyzing Variant Annotation
+
+After annotating our VCF file with functional, clinical, and population-level data, we performed additional data preparation steps to convert the complex annotation fields into a workable format suitable for filtering and ranking in R.
+
+**Data Preparation**
+
+-   Step #1 & #2; SnpEff ANN data and SnpSift ClinVar data
+
+We used the `SnpSift` Extract Fields tool in Galaxy to extract specific annotation fields from the annotated VCF file into a tabular format. This tool allows us to parse the complex `ANN` field—which contains multiple sub-fields separated by pipes (\|)—and convert them into individual columns. We enabled the "One effect per line" option, which creates a separate row for each transcript effect reported by `SnpEff`, ensuring that no annotation data is lost. The selected fields included basic variant information (CHROM, POS, ID, REF, ALT, FILTER) along with key SnpEff annotations such as effect type, impact severity, gene name, feature type, feature ID, and biotype, as well as ClinVar fields (CLNDN, CLNSIG, CLNVC). This produced our first tabular file containing functional and clinical annotations.
+
+-   Step #3; SnpSift dbNSFP
+
+Similarly, we used the `SnpSift` Extract Fields tool to extract `dbNSFP` annotations from the VCF file. All `dbNSFP` fields are prefixed with `dbNSFP_`, allowing us to selectively extract population frequencies, prediction scores, and conservation metrics. We extracted fields including population allele frequency (ExAC_Adj_AF), ensemble predictions (MetaSVM_pred), protein domain information (Interpro_domain), evolutionary predictions (LRT_pred), conservation scores (phastCons100way_vertebrate), and multiple in-silico predictors (MutationTaster_pred, MutationAssessor_pred, SIFT_pred). This produced a second tabular file containing comprehensive population and deleteriousness annotations.
+
+-   Merging and Column Selection
+
+After generating two separate tabular files—one containing SnpEff and ClinVar data, and another containing dbNSFP data—we merged them into a single consolidated file for analysis in R. The final merged file includes the following selected columns:
+
+| Column | Reason for Inclusion |
+|---------------------|---------------------------------------------------|
+| CHROM, POS, ID, REF, ALT, FILTER | Core variant identification and quality control |
+| ANN[\*].EFFECT | Specific molecular consequence (e.g., missense, stop_gained) |
+| ANN[\*].IMPACT | Severity ranking (HIGH, MODERATE, LOW, MODIFIER) |
+| ANN[\*].GENE | Gene symbol for biological context |
+| ANN[\*].FEATURE | Feature type (transcript, regulatory region) |
+| ANN[\*].FEATUREID | Unique transcript identifier for cross-referencing |
+| ANN[\*].BIOTYPE | Transcript classification (protein_coding, pseudogene) |
+| CLNDN, CLNSIG, CLNVC | Clinical significance and disease associations from ClinVar |
+| dbNSFP_ExAC_Adj_AF | Population frequency to filter common variants |
+| dbNSFP_MetaSVM_pred | Ensemble prediction for missense impact |
+| dbNSFP_Interpro_domain | Protein domain context for functional assessment |
+| dbNSFP_LRT_pred | Evolutionary-based deleteriousness prediction |
+| dbNSFP_phastCons100way_vertebrate | Conservation score for functionally important positions |
+| dbNSFP_MutationTaster_pred | Comprehensive disease-causing prediction |
+| dbNSFP_MutationAssessor_pred | Residue functional importance ranking |
+| dbNSFP_SIFT_pred | Classic missense deleteriousness prediction |
+
+**Finding Variants of Interest**
+
+With the merged tabular file containing all relevant annotations in a clean, structured format, we uploaded the file to RStudio for downstream filtering and prioritization. This final dataset enables us to apply systematic filtering criteria—such as rarity thresholds, damaging prediction consensus, and clinical significance—to identify a high-confidence set of variants most likely related to the condition of interest.
+
+# here we will do some R code to filter the file, As an end product for this step you are expected to include a nice table including at least 10 variants in your report that contains all relevant information for each of them, i.e. the chromomsome, position, reference and variant nucleotides, gene name and all relevant scores.
 
 # Discussion
 

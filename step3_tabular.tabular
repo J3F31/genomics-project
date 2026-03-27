@@ -1,0 +1,1199 @@
+CHROM	POS	ID	REF	ALT	FILTER	dbNSFP_ExAC_Adj_AF	dbNSFP_MetaSVM_pred	dbNSFP_Interpro_domain	dbNSFP_LRT_pred	dbNSFP_phastCons100way_vertebrate	dbNSFP_MutationTaster_pred	dbNSFP_MutationAssessor_pred	dbNSFP_SIFT_pred
+CHROM	0	ID	REF	ALT	FILTER								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156135818		G	T	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136394	48037	T	C	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	156136578	672784	G	A	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201365667	43617	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	201366771	1233312	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226882036	256180	C	T	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226883663	1263954	G	A	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	226885709	1287790	G	C	PASS								
+chr1	236719940	671984	T	C	PASS								
+chr1	236719940	671984	T	C	PASS								
+chr1	236719940	671984	T	C	PASS								
+chr1	236720264	671985	G	A	PASS								
+chr1	236720264	671985	G	A	PASS								
+chr1	236720264	671985	G	A	PASS								
+chr1	236739260	671061	C	T	PASS								
+chr1	236739260	671061	C	T	PASS								
+chr1	236739260	671061	C	T	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237417312	671746	G	C	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237454302		A	T	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237530621	672071	A	G	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237625562	671770	T	C	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237667803	671208	C	A	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237699158	672101	A	G	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237701903	671778	C	T	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237708493		A	G	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237718470	43699	C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792398		C	T	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr1	237792408		T	C	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68162146		G	A	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68165419	668991	T	C	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166032	672832	C	T	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166176	1291483	T	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166853	672834	A	C	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68166930	683656	G	A	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68173847	672835	G	T	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68174710	671144	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68175302	1284076	A	G	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68197583	671148	G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	68210146		G	A	PASS								
+chr10	74103992	671231	C	T	PASS								
+chr10	74103992	671231	C	T	PASS								
+chr10	86668410	671243	G	T	PASS								
+chr10	86668410	671243	G	T	PASS								
+chr10	86668410	671243	G	T	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86668578	138106	T	C	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	86687420	675552	C	T	PASS								
+chr10	90912807	301603	T	C	PASS								
+chr10	110781920	671181	G	A	PASS								
+chr10	110781920	671181	G	A	PASS								
+chr10	110781920	671181	G	A	PASS								
+chr10	110781920	671181	G	A	PASS								
+chr10	110783587	673055	G	A	PASS								
+chr10	110783587	673055	G	A	PASS								
+chr10	110783587	673055	G	A	PASS								
+chr10	110783587	673055	G	A	PASS								
+chr10	110799656	673082	G	A	PASS								
+chr10	110799656	673082	G	A	PASS								
+chr10	110799656	673082	G	A	PASS								
+chr10	110799656	673082	G	A	PASS								
+chr10	119670250	1282547	C	G	PASS								
+chr10	119670250	1282547	C	G	PASS								
+chr11	47341664		G	T	PASS								
+chr11	47350027	42760	G	A	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr12	21910403	1238806	A	G	PASS								
+chr14	19402349		T	C	PASS								
+chr14	23382665		A	G	PASS								
+chr14	23384253		T	A	PASS								
+chr14	23384420	258714	T	C	PASS								
+chr14	23385115		A	G	PASS								
+chr14	23386360	44526	A	G	PASS								
+chr14	23392602	44480	A	G	PASS	0.3461	T	Myosin_tail,Myosin_tail		0.841	P,P	N,N	T,T
+chr14	23397504	258707	A	G	PASS								
+chr14	23413975	255632	C	T	PASS								
+chr14	23413975	255632	C	T	PASS								
+chr14	23416678	1229666	G	A	PASS								
+chr14	23416678	1229666	G	A	PASS								
+chr14	23416678	1229666	G	A	PASS								
+chr14	49008162		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr15	33854721		C	T	PASS								
+chr17	10639866	1245918	A	G	PASS								
+chr17	10639866	1245918	A	G	PASS								
+chr17	10639866	1245918	A	G	PASS								
+chr17	10639866	1245918	A	G	PASS								
+chr17	10639901	1248520	A	G	PASS								
+chr17	10639901	1248520	A	G	PASS								
+chr17	10639901	1248520	A	G	PASS								
+chr17	10639901	1248520	A	G	PASS								
+chr17	10642813	258671	T	G	PASS								
+chr17	10642813	258671	T	G	PASS								
+chr17	10642813	258671	T	G	PASS								
+chr17	10642813	258671	T	G	PASS								
+chr17	10645675	258668	C	T	PASS								
+chr17	10645675	258668	C	T	PASS								
+chr17	10645675	258668	C	T	PASS								
+chr17	10645675	258668	C	T	PASS								
+chr17	39666058	44709	A	C	PASS								
+chr17	63941743	92863	G	T	PASS								
+chr17	63971875	255856	A	G	PASS								
+chr17	81510993	44150	G	A	PASS								
+chr17	81510993	44150	G	A	PASS								
+chr17	81510993	44150	G	A	PASS								
+chr17	81511519	44148	G	A	PASS								
+chr17	81511519	44148	G	A	PASS								
+chr17	81511519	44148	G	A	PASS								
+chr18	30349102		A	G	PASS								
+chr18	30349102		A	G	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34793909	674304	T	C	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr18	34882454	683485	C	T	PASS								
+chr2	123396611		C	G	PASS								
+chr2	123396635		A	C	PASS								
+chr2	124636654		C	G	PASS								
+chr2	124636654		C	G	PASS								
+chr2	124636654		C	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	127584028		T	G	PASS								
+chr2	130074958		A	G	PASS								
+chr2	130074958		A	G	PASS								
+chr2	130074958		A	G	PASS								
+chr2	130074958		A	G	PASS								
+chr2	130074958		A	G	PASS								
+chr2	130463597		C	T	PASS	0.8899	D	Actin/actin-like_conserved_site		1.0	P	H	D
+chr2	130463597		C	T	PASS	0.8899	D	Actin/actin-like_conserved_site		1.0	P	H	D
+chr2	130463597		C	T	PASS	0.8899	D	Actin/actin-like_conserved_site		1.0	P	H	D
+chr2	130463597		C	T	PASS	0.8899	D	Actin/actin-like_conserved_site		1.0	P	H	D
+chr2	130463597		C	T	PASS	0.8899	D	Actin/actin-like_conserved_site		1.0	P	H	D
+chr2	130463597		C	T	PASS	0.8899	D	Actin/actin-like_conserved_site		1.0	P	H	D
+chr2	130463872		G	A	PASS								
+chr2	130463872		G	A	PASS								
+chr2	130463872		G	A	PASS								
+chr2	130463872		G	A	PASS								
+chr2	130463872		G	A	PASS								
+chr2	130463872		G	A	PASS								
+chr2	130463926		G	A	PASS								
+chr2	130463926		G	A	PASS								
+chr2	130463926		G	A	PASS								
+chr2	130463926		G	A	PASS								
+chr2	130463926		G	A	PASS								
+chr2	130463926		G	A	PASS								
+chr2	131264056		G	T	PASS	0.003808	D			1.0	D,D,D,N	M	T
+chr2	131264056		G	T	PASS	0.003808	D			1.0	D,D,D,N	M	T
+chr2	131264056		G	T	PASS	0.003808	D			1.0	D,D,D,N	M	T
+chr2	131264056		G	T	PASS	0.003808	D			1.0	D,D,D,N	M	T
+chr2	131264056		G	T	PASS	0.003808	D			1.0	D,D,D,N	M	T
+chr2	131626564		A	C	PASS								
+chr2	165370540	669331	T	G	PASS								
+chr2	165370540	669331	T	G	PASS								
+chr2	165370540	669331	T	G	PASS								
+chr2	165370540	669331	T	G	PASS								
+chr2	165370540	669331	T	G	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166226468		T	C	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	166305767	1332926	G	A	PASS								
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178580041	47250	C	G	PASS	0.9986	T	.,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,.,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III,Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III_Fibronectin_type_III		0.547	P,P,P,P,P,P	.,.,.,N,.,.,N	T,T,.,.,T,T,.
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178597531		T	A	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178642063	1280382	A	T	PASS								
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178715250	46770	G	A	PASS	0.01673	T	.,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain,Immunoglobulin_I-set_Immunoglobulin-like_domain		0.851	D,D,D,N,N,N		T,.,.,.
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178745445		T	A	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178750225	47743	A	G	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771062	1231745	A	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178771155	1183594	C	T	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178777698	47063	G	A	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779159	1283537	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	178779207	1221641	A	G	PASS								
+chr2	201649012		G	C	PASS								
+chr2	201649012		G	C	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr20	34996486	1300270	C	T	PASS								
+chr21	9837649		T	C	PASS								
+chr22	15721451		A	G	PASS								
+chr22	15722028		A	C	PASS								
+chr3	14131327	669015	C	T	PASS								
+chr3	14132463	672173	G	T	PASS								
+chr3	14132646	671030	T	C	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	21488313		A	T	PASS								
+chr3	93470523		G	A	PASS								
+chr5	149895788		A	G	PASS								
+chr5	149895788		A	G	PASS								
+chr5	149895788		A	G	PASS								
+chr5	149895788		A	G	PASS								
+chr5	149895788		A	G	PASS								
+chr5	149895788		A	G	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156508981	683819	C	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr5	156588945	668952	G	A	PASS								
+chr6	7563523	672203	G	A	PASS								
+chr6	7563523	672203	G	A	PASS								
+chr6	7563523	672203	G	A	PASS								
+chr6	7566153	678481	T	C	PASS								
+chr6	7566153	678481	T	C	PASS								
+chr6	7566153	678481	T	C	PASS								
+chr6	7566182	672130	T	C	PASS								
+chr6	7566182	672130	T	C	PASS								
+chr6	7566182	672130	T	C	PASS								
+chr6	7579161	672151	A	G	PASS								
+chr6	7579161	672151	A	G	PASS								
+chr6	7579161	672151	A	G	PASS								
+chr6	7579179	1239249	A	G	PASS								
+chr6	7579179	1239249	A	G	PASS								
+chr6	7579179	1239249	A	G	PASS								
+chr6	66921336		C	G	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112134947		A	T	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112136269	44375	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	112139446	672706	G	A	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506010	1296321	T	C	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr6	133506216	1262043	A	G	PASS								
+chr7	63587192		A	G	PASS								
+chrUn_KI270438v1	109425		G	A	PASS								
+chrUn_KI270438v1	109550		A	G	PASS								
+chrUn_KI270438v1	109681		A	T	PASS								
+chrUn_KI270438v1	109826		T	A	PASS								
+chrUn_KI270438v1	110582		A	G	PASS								
+chrUn_KI270754v1	35735		G	A	PASS								
+chrUn_KI270754v1	36104		C	T	PASS								
+chrX	5562261		T	C	PASS								
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478309	11268	T	C	PASS	0.02224	T		U	0.025	P,P,P,P,P,P,P		T,.,D,T,D,.,T,.,T,D
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31478314	11267	T	A	PASS	0.0219	T		U	1.0	P,P,P,P,P,P,P		D,.,T,T,T,.,D,.,D,T
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
+chrX	31820242	672525	T	G	PASS								
