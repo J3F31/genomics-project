@@ -781,19 +781,13 @@ nsfpDocsLines <- c()
 
 for (id in nsfpIDs) {
   newLine <- nsfpDocs[str_detect(nsfpDocs, id)]
-  
-  
-  
-  
-  #if (identical(newLine, character(0))) nsfpDocsLines <- c(nsfpDocsLines, "") 
-  #nsfpDocsLines <- c(nsfpDocsLines, newLine)
+  if (identical(newLine, character(0))) nsfpDocsLines <- c(nsfpDocsLines, "") 
+  nsfpDocsLines <- c(nsfpDocsLines, newLine)
 }
 
-#idx <- which(nsfpDocs != c(nsfpDocs[-1], NA))
-#idx
-#nsfpDocsLines <- str_remove_all(nsfpDocsLines, "(.+:\\s|\\\t|\\\\|\")")
+nsfpDocsLines <- str_remove_all(nsfpDocsLines, "(.+:\\s|\\\t|\\\\|\")")
 
-#snpVcf$Description[32:75] <- nsfpDocsLines
+snpVcf$Description[32:75] <- nsfpDocsLines
 
 ```
 
