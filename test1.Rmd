@@ -848,7 +848,14 @@ After generating two separate tabular files—one containing SnpEff and ClinVar 
 
 With the merged tabular file containing all relevant annotations in a clean, structured format, we uploaded the file to RStudio for downstream filtering and prioritization. This final dataset enables us to apply systematic filtering criteria—such as rarity thresholds, damaging prediction consensus, and clinical significance—to identify a high-confidence set of variants most likely related to the condition of interest.
 
-# here we will do some R code to filter the file, As an end product for this step you are expected to include a nice table including at least 10 variants in your report that contains all relevant information for each of them, i.e. the chromomsome, position, reference and variant nucleotides, gene name and all relevant scores.
+here we will do some R code to filter the file, As an end product for this step you are expected to include a nice table including at least 10 variants in your report that contains all relevant information for each of them, i.e. the chromomsome, position, reference and variant nucleotides, gene name and all relevant scores.
+
+```{r}
+merged_tabular <- readLines("./Step1_2_tabular.tabular") #this will change to new update 
+merged_tabular
+
+```
+
 
 # Discussion
 
