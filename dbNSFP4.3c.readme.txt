@@ -4,85 +4,11 @@ Release:
 	February 18, 2022
 	
 Major sources:
-	Variant determination:
-		Gencode release 29/Ensembl 94, released October, 2018 (hg38)
-	Functional predictions:
-		SIFT ensembl 66, released Jan, 2015 http://provean.jcvi.org/index.php
-		SIFT4G 2.4, released Nov. 1, 2016 http://sift.bii.a-star.edu.sg/sift4g/public//Homo_sapiens/
-		PROVEAN 1.1 ensembl 66, released Jan, 2015 http://provean.jcvi.org/index.php
-		LRT, released November, 2009 http://www.genetics.wustl.edu/jflab/lrt_query.html
-		MutationTaster 2, data retrieved in 2015 http://www.mutationtaster.org/
-		MutationAssessor release 3, http://mutationassessor.org/
-		FATHMM v2.3, http://fathmm.biocompute.org.uk
-		fathmm-MKL, http://fathmm.biocompute.org.uk/fathmmMKL.htm
-		fathmm-XF, http://fathmm.biocompute.org.uk/fathmm-xf/
-		fitCons v1.01, http://compgen.bscb.cornell.edu/fitCons/
-		DANN, https://cbcl.ics.uci.edu/public_data/DANN/
-		MetaSVM and MetaLR, doi: 10.1093/hmg/ddu733
-		Eigen & Eigen PC v1.1, http://www.columbia.edu/~ii2135/eigen.html
-		M-CAP v1.3, http://bejerano.stanford.edu/MCAP/
-		MutPred v1.2, http://mutpred.mutdb.org/
-		MVP 1.0, https://github.com/ShenLab/missense
-		MPC release1, ftp://ftp.broadinstitute.org/pub/ExAC_release/release1/regional_missense_constraint/
-		PrimateAI, https://github.com/Illumina/PrimateAI
-		deogen2, https://deogen2.mutaframe.com/
-		ALoFT 1.0, http://aloft.gersteinlab.org/
-		BayesDel v1, http://fengbj-laboratory.org/BayesDel/BayesDel.html
-		LIST-S2 Release: 2019_10, https://precomputed.list-s2.msl.ubc.ca/
-		MetaRNN v1.0, http://www.liulab.science/metarnn.html
-	Conservation scores:
-		phyloP100way_vertebrate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP100way/
-		phyloP30way_mammalian (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP30way/
-		phyloP17way_primate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP17way/
-		phastCons100way_vertebrate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons100way/
-		phastCons30way_mammalian (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons30way/
-		phastCons17way_primate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons17way/
-		GERP++ http://mendel.stanford.edu/SidowLab/downloads/gerp/
-		SiPhy https://www.broadinstitute.org/mammals-models/29-mammals-project-supplementary-info
-		bStatistic http://cadd.gs.washington.edu/
-	Other variant annotation sources:
-		Interpro v71 http://www.ebi.ac.uk/interpro/
-		1000 Genomes project http://www.1000genomes.org/
-		ESP http://evs.gs.washington.edu/EVS/
-		dbSNP b155 (hg38) https://ftp.ncbi.nih.gov/snp/archive/b155/VCF/GCF_000001405.39.gz
-		clinvar release 20220122 (hg38) ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/
-		ExAC v0.3 http://exac.broadinstitute.org/
-		gnomAD exome 2.1.1 http://gnomad.broadinstitute.org/downloads
-		gnomAD genome 3.1 http://gnomad.broadinstitute.org/downloads
-		UK10K COHORT http://www.uk10k.org/studies/cohorts.html
-		Ancestral alleles (hg38) ftp://ftp.ensembl.org/pub/release-93/fasta/ancestral_alleles/homo_sapiens_ancestor_GRCh38.tar.gz
-		Altai Neanderthal genotypes: http://cdna.eva.mpg.de/neandertal/Vindija/VCF/Altai/
-		Denisova genotypes: http://cdna.eva.mpg.de/neandertal/Vindija/VCF/Denisova/
-		Vindija33.19 genotypes: http://cdna.eva.mpg.de/neandertal/Vindija/VCF/Vindija33.19/
-		Chagyrskaya genotype: http://cdna.eva.mpg.de/neandertal/Chagyrskaya/VCF/
-		GTEx v8 https://www.gtexportal.org/home/datasets
-		Geuvadis https://www.ebi.ac.uk/Tools/geuvadis-das/
-	Other gene annotation sources:
-		HGNC, downloaded on October 21, 2018
-		Uniprot, Release 2019_01
-		IntAct, downloaded on November 30, 2018
-		GWAS catalog, r2018-11-26
-		egenetics and GNF/Atlas expression data, downloaded from BioMart on Oct. 1, 2013
-		BioGRID, version 3.5.167
-		Haploinsufficiency probability data, from doi:10.1371/journal.pgen.1001154
-		Recessive probability data, from DOI:10.1126/science.1215040
-		Residual Variation Intolerance Score (RVIS), v3  http://genic-intolerance.org/
-		Genome-wide haploinsufficiency score (GHIS), from doi: 10.1093/nar/gkv474
-		ExAC Functional Gene Constraint, from release0.3.1
-		ExAC CNV gene score, from release0.3.1
-		GO, downloaded on December 6, 2018
-		ConsensusPathDB, Release 33
-		Essential genes, from doi:10.1371/journal.pgen.1003484, doi: 10.1126/science.aac7041, doi: 10.1016/j.cell.2015.11.015, doi: 10.1126/science.aac7557, doi:10.1371/journal.pcbi.1002886
-		Mouse genes, from Mouse Genome Informatics (MGI), 6.13 
-		Zebrafish genes, from The Zebrafish Information Network (ZFIN), downloaded on December 7,2018
-		KEGG pathway, from http://www.openbioinformatics.org/gengen/tutorial_calculate_gsea.html
-		BioCarta pathway, from http://www.openbioinformatics.org/gengen/tutorial_calculate_gsea.html
-		GDI, from doi: 10.1073/pnas.1518646112
-		LoFtool, from DOI:10.1093/bioinformatics/btv602
-		SORVA, from doi: 10.1101/103218
-		HIPred, from doi:10.1093/bioinformatics/btx028
-		HPO, data release 20200608, https://hpo.jax.org/app/download/annotation
-		
+	Variant determination:Gencode release 29/Ensembl 94, released October, 2018 (hg38)
+	Functional predictions:SIFT ensembl 66, released Jan, 2015 http://provean.jcvi.org/index.phpSIFT4G 2.4, released Nov. 1, 2016 http://sift.bii.a-star.edu.sg/sift4g/public//Homo_sapiens/PROVEAN 1.1 ensembl 66, released Jan, 2015 http://provean.jcvi.org/index.phpLRT, released November, 2009 http://www.genetics.wustl.edu/jflab/lrt_query.htmlMutationTaster 2, data retrieved in 2015 http://www.mutationtaster.org/MutationAssessor release 3, http://mutationassessor.org/FATHMM v2.3, http://fathmm.biocompute.org.ukfathmm-MKL, http://fathmm.biocompute.org.uk/fathmmMKL.htmfathmm-XF, http://fathmm.biocompute.org.uk/fathmm-xf/fitCons v1.01, http://compgen.bscb.cornell.edu/fitCons/DANN, https://cbcl.ics.uci.edu/public_data/DANN/MetaSVM and MetaLR, doi: 10.1093/hmg/ddu733Eigen & Eigen PC v1.1, http://www.columbia.edu/~ii2135/eigen.htmlM-CAP v1.3, http://bejerano.stanford.edu/MCAP/MutPred v1.2, http://mutpred.mutdb.org/MVP 1.0, https://github.com/ShenLab/missenseMPC release1, ftp://ftp.broadinstitute.org/pub/ExAC_release/release1/regional_missense_constraint/PrimateAI, https://github.com/Illumina/PrimateAIdeogen2, https://deogen2.mutaframe.com/ALoFT 1.0, http://aloft.gersteinlab.org/BayesDel v1, http://fengbj-laboratory.org/BayesDel/BayesDel.htmlLIST-S2 Release: 2019_10, https://precomputed.list-s2.msl.ubc.ca/MetaRNN v1.0, http://www.liulab.science/metarnn.html
+	Conservation scores:phyloP100way_vertebrate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP100way/phyloP30way_mammalian (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP30way/phyloP17way_primate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phyloP17way/phastCons100way_vertebrate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons100way/phastCons30way_mammalian (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons30way/phastCons17way_primate (hg38) http://hgdownload.soe.ucsc.edu/goldenPath/hg38/phastCons17way/GERP++ http://mendel.stanford.edu/SidowLab/downloads/gerp/SiPhy https://www.broadinstitute.org/mammals-models/29-mammals-project-supplementary-infobStatistic http://cadd.gs.washington.edu/
+	Other variant annotation sources:Interpro v71 http://www.ebi.ac.uk/interpro/1000 Genomes project http://www.1000genomes.org/ESP http://evs.gs.washington.edu/EVS/dbSNP b155 (hg38) https://ftp.ncbi.nih.gov/snp/archive/b155/VCF/GCF_000001405.39.gzclinvar release 20220122 (hg38) ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/ExAC v0.3 http://exac.broadinstitute.org/gnomAD exome 2.1.1 http://gnomad.broadinstitute.org/downloadsgnomAD genome 3.1 http://gnomad.broadinstitute.org/downloadsUK10K COHORT http://www.uk10k.org/studies/cohorts.htmlAncestral alleles (hg38) ftp://ftp.ensembl.org/pub/release-93/fasta/ancestral_alleles/homo_sapiens_ancestor_GRCh38.tar.gzAltai Neanderthal genotypes: http://cdna.eva.mpg.de/neandertal/Vindija/VCF/Altai/Denisova genotypes: http://cdna.eva.mpg.de/neandertal/Vindija/VCF/Denisova/Vindija33.19 genotypes: http://cdna.eva.mpg.de/neandertal/Vindija/VCF/Vindija33.19/Chagyrskaya genotype: http://cdna.eva.mpg.de/neandertal/Chagyrskaya/VCF/GTEx v8 https://www.gtexportal.org/home/datasetsGeuvadis https://www.ebi.ac.uk/Tools/geuvadis-das/
+	Other gene annotation sources:HGNC, downloaded on October 21, 2018Uniprot, Release 2019_01IntAct, downloaded on November 30, 2018GWAS catalog, r2018-11-26egenetics and GNF/Atlas expression data, downloaded from BioMart on Oct. 1, 2013BioGRID, version 3.5.167Haploinsufficiency probability data, from doi:10.1371/journal.pgen.1001154Recessive probability data, from DOI:10.1126/science.1215040Residual Variation Intolerance Score (RVIS), v3  http://genic-intolerance.org/Genome-wide haploinsufficiency score (GHIS), from doi: 10.1093/nar/gkv474ExAC Functional Gene Constraint, from release0.3.1ExAC CNV gene score, from release0.3.1GO, downloaded on December 6, 2018ConsensusPathDB, Release 33Essential genes, from doi:10.1371/journal.pgen.1003484, doi: 10.1126/science.aac7041, doi: 10.1016/j.cell.2015.11.015, doi: 10.1126/science.aac7557, doi:10.1371/journal.pcbi.1002886Mouse genes, from Mouse Genome Informatics (MGI), 6.13 Zebrafish genes, from The Zebrafish Information Network (ZFIN), downloaded on December 7,2018KEGG pathway, from http://www.openbioinformatics.org/gengen/tutorial_calculate_gsea.htmlBioCarta pathway, from http://www.openbioinformatics.org/gengen/tutorial_calculate_gsea.htmlGDI, from doi: 10.1073/pnas.1518646112LoFtool, from DOI:10.1093/bioinformatics/btv602SORVA, from doi: 10.1101/103218HIPred, from doi:10.1093/bioinformatics/btx028HPO, data release 20200608, https://hpo.jax.org/app/download/annotation
 
 Files:
 	dbNSFP4.3c_variant.chr<#>.gz      - gzipped dbNSFP variant database files by chromosomes
@@ -129,420 +55,156 @@ Description:
 
 Columns of dbNSFP_variant:
 1	chr: chromosome number
-2	pos(1-based): physical position on the chromosome as to hg38 (1-based coordinate).
-		For mitochondrial SNV, this position refers to the rCRS (GenBank: NC_012920). 
+2	pos(1-based): physical position on the chromosome as to hg38 (1-based coordinate).For mitochondrial SNV, this position refers to the rCRS (GenBank: NC_012920). 
 3	ref: reference nucleotide allele (as on the + strand)
 4	alt: alternative nucleotide allele (as on the + strand)
-5	aaref: reference amino acid
-		"." if the variant is a splicing site SNP (2bp on each end of an intron)
-6	aaalt: alternative amino acid
-		"." if the variant is a splicing site SNP (2bp on each end of an intron)
+5	aaref: reference amino acid"." if the variant is a splicing site SNP (2bp on each end of an intron)
+6	aaalt: alternative amino acid"." if the variant is a splicing site SNP (2bp on each end of an intron)
 7	rs_dbSNP: rs number from dbSNP
 8	hg19_chr: chromosome as to hg19, "." means missing
-9	hg19_pos(1-based): physical position on the chromosome as to hg19 (1-based coordinate).
-		For mitochondrial SNV, this position refers to a YRI sequence (GenBank: AF347015)
+9	hg19_pos(1-based): physical position on the chromosome as to hg19 (1-based coordinate).For mitochondrial SNV, this position refers to a YRI sequence (GenBank: AF347015)
 10	hg18_chr: chromosome as to hg18, "." means missing
-11	hg18_pos(1-based): physical position on the chromosome as to hg18 (1-based coordinate)
-		For mitochondrial SNV, this position refers to a YRI sequence (GenBank: AF347015)
-12	aapos: amino acid position as to the protein.
-		"-1" if the variant is a splicing site SNP (2bp on each end of an intron). 
-		Multiple entries separated by ";", corresponding to Ensembl_proteinid
-13	genename: gene name; if the nsSNV can be assigned to multiple genes, gene names are
-		separated by ";"
+11	hg18_pos(1-based): physical position on the chromosome as to hg18 (1-based coordinate)For mitochondrial SNV, this position refers to a YRI sequence (GenBank: AF347015)
+12	aapos: amino acid position as to the protein."-1" if the variant is a splicing site SNP (2bp on each end of an intron). Multiple entries separated by ";", corresponding to Ensembl_proteinid
+13	genename: gene name; if the nsSNV can be assigned to multiple genes, gene names areseparated by ";"
 14	Ensembl_geneid: Ensembl gene id
 15	Ensembl_transcriptid: Ensembl transcript ids (Multiple entries separated by ";")
-16	Ensembl_proteinid: Ensembl protein ids
-		Multiple entries separated by ";",  corresponding to Ensembl_transcriptids
-17	Uniprot_acc: Uniprot accession number matching the Ensembl_proteinid
-		Multiple entries separated by ";".
-18	Uniprot_entry: Uniprot entry ID matching the Ensembl_proteinid
-		Multiple entries separated by ";".
-19	HGVSc_ANNOVAR: HGVS coding variant presentation from ANNOVAR
-		Multiple entries separated by ";", corresponds to Ensembl_transcriptid
-20	HGVSp_ANNOVAR: HGVS protein variant presentation from ANNOVAR
-		Multiple entries separated by ";", corresponds to Ensembl_proteinid
-21	HGVSc_snpEff: HGVS coding variant presentation from snpEff
-		Multiple entries separated by ";", corresponds to Ensembl_transcriptid
-22	HGVSp_snpEff: HGVS protein variant presentation from snpEff
-		Multiple entries separated by ";", corresponds to Ensembl_proteinid
-23	HGVSc_VEP: HGVS coding variant presentation from VEP
-		Multiple entries separated by ";", corresponds to Ensembl_transcriptid
-24	HGVSp_VEP: HGVS protein variant presentation from VEP
-		Multiple entries separated by ";", corresponds to Ensembl_proteinid
-25	APPRIS: APPRIS annotation for the transcripts matching Ensembl_transcriptid
-		Multiple entries separated by ";". Potential values: principal1, principal2, 
-		principal3, principal4, principal5, alternative1, alternative2. 
-		See https://useast.ensembl.org/info/genome/genebuild/transcript_quality_tags.html
-26	GENCODE_basic: Whether the transcript belongs to GENCODE_basic (5' and 3' complete
-		transcripts). Multiple entries separated by ";", matching Ensembl_transcriptid.
-		See https://useast.ensembl.org/info/genome/genebuild/transcript_quality_tags.html
-27	TSL: Transcript Support Level.
-		Multiple entries separated by ";", matching Ensembl_transcriptid.
-		Potential values: 1 to 5, NA. 
-		See https://useast.ensembl.org/info/genome/genebuild/transcript_quality_tags.html
-28	VEP_canonical: canonical transcript used in Ensembl.
-		Multiple entries separated by ";", matching Ensembl_transcriptid.
-		See https://useast.ensembl.org/Help/Glossary?id=521
+16	Ensembl_proteinid: Ensembl protein idsMultiple entries separated by ";",  corresponding to Ensembl_transcriptids
+17	Uniprot_acc: Uniprot accession number matching the Ensembl_proteinidMultiple entries separated by ";".
+18	Uniprot_entry: Uniprot entry ID matching the Ensembl_proteinidMultiple entries separated by ";".
+19	HGVSc_ANNOVAR: HGVS coding variant presentation from ANNOVARMultiple entries separated by ";", corresponds to Ensembl_transcriptid
+20	HGVSp_ANNOVAR: HGVS protein variant presentation from ANNOVARMultiple entries separated by ";", corresponds to Ensembl_proteinid
+21	HGVSc_snpEff: HGVS coding variant presentation from snpEffMultiple entries separated by ";", corresponds to Ensembl_transcriptid
+22	HGVSp_snpEff: HGVS protein variant presentation from snpEffMultiple entries separated by ";", corresponds to Ensembl_proteinid
+23	HGVSc_VEP: HGVS coding variant presentation from VEPMultiple entries separated by ";", corresponds to Ensembl_transcriptid
+24	HGVSp_VEP: HGVS protein variant presentation from VEPMultiple entries separated by ";", corresponds to Ensembl_proteinid
+25	APPRIS: APPRIS annotation for the transcripts matching Ensembl_transcriptidMultiple entries separated by ";". Potential values: principal1, principal2, principal3, principal4, principal5, alternative1, alternative2. See https://useast.ensembl.org/info/genome/genebuild/transcript_quality_tags.html
+26	GENCODE_basic: Whether the transcript belongs to GENCODE_basic (5' and 3' completetranscripts). Multiple entries separated by ";", matching Ensembl_transcriptid.See https://useast.ensembl.org/info/genome/genebuild/transcript_quality_tags.html
+27	TSL: Transcript Support Level.Multiple entries separated by ";", matching Ensembl_transcriptid.Potential values: 1 to 5, NA. See https://useast.ensembl.org/info/genome/genebuild/transcript_quality_tags.html
+28	VEP_canonical: canonical transcript used in Ensembl.Multiple entries separated by ";", matching Ensembl_transcriptid.See https://useast.ensembl.org/Help/Glossary?id=521
 29	cds_strand: coding sequence (CDS) strand (+ or -)
 30	refcodon: reference codon
 31	codonpos: position on the codon (1, 2 or 3)
 32	codon_degeneracy: degenerate type (0, 2 or 3)
-33	Ancestral_allele: ancestral allele based on 8 primates EPO.
-		Ancestral alleles by Ensembl 84. The following comes from its original README file:
-		ACTG - high-confidence call, ancestral state supported by the other two sequences
-		actg - low-confidence call, ancestral state supported by one sequence only
-		N    - failure, the ancestral state is not supported by any other sequence
-		-    - the extant species contains an insertion at this position
-		.    - no coverage in the alignment
+33	Ancestral_allele: ancestral allele based on 8 primates EPO.Ancestral alleles by Ensembl 84. The following comes from its original README file:ACTG - high-confidence call, ancestral state supported by the other two sequencesactg - low-confidence call, ancestral state supported by one sequence onlyN    - failure, the ancestral state is not supported by any other sequence-    - the extant species contains an insertion at this position.    - no coverage in the alignment
 34	AltaiNeandertal: genotype of a deep sequenced Altai Neanderthal
 35	Denisova: genotype of a deep sequenced Denisova
 36	VindijiaNeandertal: genotype of a deep sequenced Vindijia Neandertal
 37	ChagyrskayaNeandertal: genotype of a deep sequenced Chagyrskaya Neandertal
-38	SIFT_score: SIFT score (SIFTori). Scores range from 0 to 1. The smaller the score the
-		more likely the SNP has damaging effect. 
-		Multiple scores separated by ";", corresponding to Ensembl_proteinid.
-39	SIFT_converted_rankscore: SIFTori scores were first converted to SIFTnew=1-SIFTori,
-		then ranked among all SIFTnew scores in dbNSFP. The rankscore is the ratio of 
-		the rank the SIFTnew score over the total number of SIFTnew scores in dbNSFP. 
-		If there are multiple scores, only the most damaging (largest) rankscore is presented.
-		The rankscores range from 0.00964 to 0.91255.
-40	SIFT_pred: If SIFTori is smaller than 0.05 (rankscore>0.39575) the corresponding nsSNV is
-		predicted as "D(amaging)"; otherwise it is predicted as "T(olerated)". 
-		Multiple predictions separated by ";"
-41	SIFT4G_score: SIFT 4G score (SIFT4G). Scores range from 0 to 1. The smaller the score the
-		more likely the SNP has damaging effect. 
-		Multiple scores separated by ",", corresponding to Ensembl_transcriptid
-42	SIFT4G_converted_rankscore: SIFT4G scores were first converted to SIFT4Gnew=1-SIFT4G,
-		then ranked among all SIFT4Gnew scores in dbNSFP. The rankscore is the ratio of 
-		the rank the SIFT4Gnew score over the total number of SIFT4Gnew scores in dbNSFP. 
-		If there are multiple scores, only the most damaging (largest) rankscore is presented.
-43	SIFT4G_pred: If SIFT4G is < 0.05 the corresponding nsSNV is
-		predicted as "D(amaging)"; otherwise it is predicted as "T(olerated)". 
-		Multiple scores separated by ",", corresponding to Ensembl_transcriptid
+38	SIFT_score: SIFT score (SIFTori). Scores range from 0 to 1. The smaller the score themore likely the SNP has damaging effect. Multiple scores separated by ";", corresponding to Ensembl_proteinid.
+39	SIFT_converted_rankscore: SIFTori scores were first converted to SIFTnew=1-SIFTori,then ranked among all SIFTnew scores in dbNSFP. The rankscore is the ratio of the rank the SIFTnew score over the total number of SIFTnew scores in dbNSFP. If there are multiple scores, only the most damaging (largest) rankscore is presented.The rankscores range from 0.00964 to 0.91255.
+40	SIFT_pred: If SIFTori is smaller than 0.05 (rankscore>0.39575) the corresponding nsSNV ispredicted as "D(amaging)"; otherwise it is predicted as "T(olerated)". Multiple predictions separated by ";"
+41	SIFT4G_score: SIFT 4G score (SIFT4G). Scores range from 0 to 1. The smaller the score themore likely the SNP has damaging effect. Multiple scores separated by ",", corresponding to Ensembl_transcriptid
+42	SIFT4G_converted_rankscore: SIFT4G scores were first converted to SIFT4Gnew=1-SIFT4G,then ranked among all SIFT4Gnew scores in dbNSFP. The rankscore is the ratio of the rank the SIFT4Gnew score over the total number of SIFT4Gnew scores in dbNSFP. If there are multiple scores, only the most damaging (largest) rankscore is presented.
+43	SIFT4G_pred: If SIFT4G is < 0.05 the corresponding nsSNV ispredicted as "D(amaging)"; otherwise it is predicted as "T(olerated)". Multiple scores separated by ",", corresponding to Ensembl_transcriptid
 44	LRT_score: The original LRT two-sided p-value (LRTori), ranges from 0 to 1.
-45	LRT_converted_rankscore: LRTori scores were first converted as LRTnew=1-LRTori*0.5 if
-		Omega<1, or LRTnew=LRTori*0.5 if Omega>=1. Then LRTnew scores were ranked among all 
-		LRTnew scores in dbNSFP. The rankscore is the ratio of the rank over the total number 
-		of the scores in dbNSFP. The scores range from 0.00162 to 0.8433.
-46	LRT_pred: LRT prediction, D(eleterious), N(eutral) or U(nknown), which is not solely
-		determined by the score. 
+45	LRT_converted_rankscore: LRTori scores were first converted as LRTnew=1-LRTori*0.5 ifOmega<1, or LRTnew=LRTori*0.5 if Omega>=1. Then LRTnew scores were ranked among all LRTnew scores in dbNSFP. The rankscore is the ratio of the rank over the total number of the scores in dbNSFP. The scores range from 0.00162 to 0.8433.
+46	LRT_pred: LRT prediction, D(eleterious), N(eutral) or U(nknown), which is not solelydetermined by the score. 
 47	LRT_Omega: estimated nonsynonymous-to-synonymous-rate ratio (Omega, reported by LRT)
-48	MutationTaster_score: MutationTaster p-value (MTori), ranges from 0 to 1. 
-		Multiple scores are separated by ";". Information on corresponding transcript(s) can 
-		be found by querying http://www.mutationtaster.org/ChrPos.html
-49	MutationTaster_converted_rankscore: The MTori scores were first converted. If the prediction
-		is "A" or "D" MTnew=MTori; if the prediction is "N" or "P", MTnew=1-MTori. Then MTnew 
-		scores were ranked among all MTnew scores in dbNSFP. If there are multiple scores of a 
-		SNV, only the largest MTnew was used in ranking. The rankscore is the ratio of the
-		rank of the score over the total number of MTnew scores in dbNSFP. The scores range
-		from 0.08979 to 0.81001.
-50	MutationTaster_pred: MutationTaster prediction, "A" ("disease_causing_automatic"),
-		"D" ("disease_causing"), "N" ("polymorphism") or "P" ("polymorphism_automatic"). The 
-		score cutoff between "D" and "N" is 0.5 for MTnew and 0.31733 for the rankscore.
+48	MutationTaster_score: MutationTaster p-value (MTori), ranges from 0 to 1. Multiple scores are separated by ";". Information on corresponding transcript(s) can be found by querying http://www.mutationtaster.org/ChrPos.html
+49	MutationTaster_converted_rankscore: The MTori scores were first converted. If the predictionis "A" or "D" MTnew=MTori; if the prediction is "N" or "P", MTnew=1-MTori. Then MTnew scores were ranked among all MTnew scores in dbNSFP. If there are multiple scores of a SNV, only the largest MTnew was used in ranking. The rankscore is the ratio of therank of the score over the total number of MTnew scores in dbNSFP. The scores rangefrom 0.08979 to 0.81001.
+50	MutationTaster_pred: MutationTaster prediction, "A" ("disease_causing_automatic"),"D" ("disease_causing"), "N" ("polymorphism") or "P" ("polymorphism_automatic"). The score cutoff between "D" and "N" is 0.5 for MTnew and 0.31733 for the rankscore.
 51	MutationTaster_model: MutationTaster prediction models.
 52	MutationTaster_AAE: MutationTaster predicted amino acid change.
-53	MutationAssessor_score: MutationAssessor functional impact combined score (MAori). The
-		score ranges from -5.17 to 6.49 in dbNSFP. 
-		Multiple entries are separated by ";", corresponding to Uniprot_entry.
-54	MutationAssessor_rankscore: MAori scores were ranked among all MAori scores in dbNSFP.
-		The rankscore is the ratio of the rank of the score over the total number of MAori 
-		scores in dbNSFP. The scores range from 0 to 1.
-55	MutationAssessor_pred: MutationAssessor's functional impact of a variant -
-		predicted functional, i.e. high ("H") or medium ("M"), or predicted non-functional,
-		i.e. low ("L") or neutral ("N"). The MAori score cutoffs between "H" and "M", 
-		"M" and "L", and "L" and "N", are 3.5, 1.935 and 0.8, respectively. The rankscore cutoffs 
-		between "H" and "M", "M" and "L", and "L" and "N", are 0.9307, 0.52043 and 0.19675, 
-		respectively.
-56	FATHMM_score: FATHMM default score (weighted for human inherited-disease mutations with
-		Disease Ontology) (FATHMMori). Scores range from -16.13 to 10.64. The smaller the score 
-		the more likely the SNP has damaging effect.
-		Multiple scores separated by ";", corresponding to Ensembl_proteinid.
-57	FATHMM_converted_rankscore: FATHMMori scores were first converted to
-		FATHMMnew=1-(FATHMMori+16.13)/26.77, then ranked among all FATHMMnew scores in dbNSFP. 
-		The rankscore is the ratio of the rank of the score over the total number of FATHMMnew 
-		scores in dbNSFP. If there are multiple scores, only the most damaging (largest) 
-		rankscore is presented. The scores range from 0 to 1.
-58	FATHMM_pred: If a FATHMMori score is <=-1.5 (or rankscore >=0.81332) the corresponding nsSNV
-		is predicted as "D(AMAGING)"; otherwise it is predicted as "T(OLERATED)".
-		Multiple predictions separated by ";", corresponding to Ensembl_proteinid.
-59	PROVEAN_score: PROVEAN score (PROVEANori). Scores range from -14 to 14. The smaller the score
-		the more likely the SNP has damaging effect. 
-		Multiple scores separated by ";", corresponding to Ensembl_proteinid.
-60	PROVEAN_converted_rankscore: PROVEANori were first converted to PROVEANnew=1-(PROVEANori+14)/28,
-		then ranked among all PROVEANnew scores in dbNSFP. The rankscore is the ratio of 
-		the rank the PROVEANnew score over the total number of PROVEANnew scores in dbNSFP. 
-		If there are multiple scores, only the most damaging (largest) rankscore is presented.
-		The scores range from 0 to 1.
-61	PROVEAN_pred: If PROVEANori <= -2.5 (rankscore>=0.54382) the corresponding nsSNV is
-		predicted as "D(amaging)"; otherwise it is predicted as "N(eutral)". 
-		Multiple predictions separated by ";", corresponding to Ensembl_proteinid.
-62	MetaSVM_score: Our support vector machine (SVM) based ensemble prediction score, which
-		incorporated 10 scores (SIFT, PolyPhen-2 HDIV, PolyPhen-2 HVAR, GERP++, MutationTaster, 
-		Mutation Assessor, FATHMM, LRT, SiPhy, PhyloP) and the maximum frequency observed in 
-		the 1000 genomes populations. Larger value means the SNV is more likely to be damaging. 
-		Scores range from -2 to 3 in dbNSFP.
-63	MetaSVM_rankscore: MetaSVM scores were ranked among all MetaSVM scores in dbNSFP.
-		The rankscore is the ratio of the rank of the score over the total number of MetaSVM 
-		scores in dbNSFP. The scores range from 0 to 1.
-64	MetaSVM_pred: Prediction of our SVM based ensemble prediction score,"T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is 0. The rankscore cutoff between
-		"D" and "T" is 0.82257.
-65	MetaLR_score: Our logistic regression (LR) based ensemble prediction score, which
-		incorporated 10 scores (SIFT, PolyPhen-2 HDIV, PolyPhen-2 HVAR, GERP++, MutationTaster, 
-		Mutation Assessor, FATHMM, LRT, SiPhy, PhyloP) and the maximum frequency observed in 
-		the 1000 genomes populations. Larger value means the SNV is more likely to be damaging. 
-		Scores range from 0 to 1.
-66	MetaLR_rankscore: MetaLR scores were ranked among all MetaLR scores in dbNSFP. The rankscore
-		is the ratio of the rank of the score over the total number of MetaLR scores in dbNSFP. 
-		The scores range from 0 to 1.
-67	MetaLR_pred: Prediction of our MetaLR based ensemble prediction score,"T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is 0.5. The rankscore cutoff between 
-		"D" and "T" is 0.81101.
-68	Reliability_index: Number of observed component scores (except the maximum frequency in
-		the 1000 genomes populations) for MetaSVM and MetaLR. Ranges from 1 to 10. As MetaSVM 
-		and MetaLR scores are calculated based on imputed data, the less missing component 
-		scores, the higher the reliability of the scores and predictions. 
-69	MetaRNN_score: Our recurrent neural network (RNN) based ensemble prediction score, which
-		incorporated 16 scores (SIFT, Polyphen2_HDIV, Polyphen2_HVAR, MutationAssessor, PROVEAN, 
-		VEST4, M-CAP, REVEL, MutPred, MVP, PrimateAI, DEOGEN2, CADD, fathmm-XF, Eigen and GenoCanyon), 
-		8 conservation scores (GERP, phyloP100way_vertebrate, phyloP30way_mammalian, 
-		phyloP17way_primate, phastCons100way_vertebrate, phastCons30way_mammalian, 
-		phastCons17way_primate and SiPhy), and allele frequency information from the 1000 Genomes 
-		Project (1000GP), ExAC, and gnomAD. Larger value means the SNV is more likely to be damaging. 
-		Scores range from 0 to 1.
-70	MetaRNN_rankscore: MetaRNN scores were ranked among all MetaRNN scores in dbNSFP. The rankscore
-		is the ratio of the rank of the score over the total number of MetaRNN scores in dbNSFP. 
-		The scores range from 0 to 1.
-71	MetaRNN_pred: Prediction of our MetaRNN based ensemble prediction score,"T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is 0.5. The rankscore cutoff between 
-		"D" and "T" is 0.6149.
-72	M-CAP_score: M-CAP is hybrid ensemble score (details in DOI: 10.1038/ng.3703). Scores range 
-		from 0 to 1. The larger the score the more likely the SNP has damaging effect. 
-73	M-CAP_rankscore: M-CAP scores were ranked among all M-CAP scores in dbNSFP. The rankscore is
-		the ratio of the rank of the score over the total number of M-CAP scores in dbNSFP.
-74	M-CAP_pred: Prediction of M-CAP score based on the authors' recommendation, "T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is 0.025.
-75	MutPred_score: General MutPred score. Scores range from 0 to 1. The larger the score the more
-		likely the SNP has damaging effect.
-76	MutPred_rankscore: MutPred scores were ranked among all MutPred scores in dbNSFP. The rankscore is
-		the ratio of the rank of the score over the total number of MutPred scores in dbNSFP.
+53	MutationAssessor_score: MutationAssessor functional impact combined score (MAori). Thescore ranges from -5.17 to 6.49 in dbNSFP. Multiple entries are separated by ";", corresponding to Uniprot_entry.
+54	MutationAssessor_rankscore: MAori scores were ranked among all MAori scores in dbNSFP.The rankscore is the ratio of the rank of the score over the total number of MAori scores in dbNSFP. The scores range from 0 to 1.
+55	MutationAssessor_pred: MutationAssessor's functional impact of a variant -predicted functional, i.e. high ("H") or medium ("M"), or predicted non-functional,i.e. low ("L") or neutral ("N"). The MAori score cutoffs between "H" and "M", "M" and "L", and "L" and "N", are 3.5, 1.935 and 0.8, respectively. The rankscore cutoffs between "H" and "M", "M" and "L", and "L" and "N", are 0.9307, 0.52043 and 0.19675, respectively.
+56	FATHMM_score: FATHMM default score (weighted for human inherited-disease mutations withDisease Ontology) (FATHMMori). Scores range from -16.13 to 10.64. The smaller the score the more likely the SNP has damaging effect.Multiple scores separated by ";", corresponding to Ensembl_proteinid.
+57	FATHMM_converted_rankscore: FATHMMori scores were first converted toFATHMMnew=1-(FATHMMori+16.13)/26.77, then ranked among all FATHMMnew scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of FATHMMnew scores in dbNSFP. If there are multiple scores, only the most damaging (largest) rankscore is presented. The scores range from 0 to 1.
+58	FATHMM_pred: If a FATHMMori score is <=-1.5 (or rankscore >=0.81332) the corresponding nsSNVis predicted as "D(AMAGING)"; otherwise it is predicted as "T(OLERATED)".Multiple predictions separated by ";", corresponding to Ensembl_proteinid.
+59	PROVEAN_score: PROVEAN score (PROVEANori). Scores range from -14 to 14. The smaller the scorethe more likely the SNP has damaging effect. Multiple scores separated by ";", corresponding to Ensembl_proteinid.
+60	PROVEAN_converted_rankscore: PROVEANori were first converted to PROVEANnew=1-(PROVEANori+14)/28,then ranked among all PROVEANnew scores in dbNSFP. The rankscore is the ratio of the rank the PROVEANnew score over the total number of PROVEANnew scores in dbNSFP. If there are multiple scores, only the most damaging (largest) rankscore is presented.The scores range from 0 to 1.
+61	PROVEAN_pred: If PROVEANori <= -2.5 (rankscore>=0.54382) the corresponding nsSNV ispredicted as "D(amaging)"; otherwise it is predicted as "N(eutral)". Multiple predictions separated by ";", corresponding to Ensembl_proteinid.
+62	MetaSVM_score: Our support vector machine (SVM) based ensemble prediction score, whichincorporated 10 scores (SIFT, PolyPhen-2 HDIV, PolyPhen-2 HVAR, GERP++, MutationTaster, Mutation Assessor, FATHMM, LRT, SiPhy, PhyloP) and the maximum frequency observed in the 1000 genomes populations. Larger value means the SNV is more likely to be damaging. Scores range from -2 to 3 in dbNSFP.
+63	MetaSVM_rankscore: MetaSVM scores were ranked among all MetaSVM scores in dbNSFP.The rankscore is the ratio of the rank of the score over the total number of MetaSVM scores in dbNSFP. The scores range from 0 to 1.
+64	MetaSVM_pred: Prediction of our SVM based ensemble prediction score,"T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is 0. The rankscore cutoff between"D" and "T" is 0.82257.
+65	MetaLR_score: Our logistic regression (LR) based ensemble prediction score, whichincorporated 10 scores (SIFT, PolyPhen-2 HDIV, PolyPhen-2 HVAR, GERP++, MutationTaster, Mutation Assessor, FATHMM, LRT, SiPhy, PhyloP) and the maximum frequency observed in the 1000 genomes populations. Larger value means the SNV is more likely to be damaging. Scores range from 0 to 1.
+66	MetaLR_rankscore: MetaLR scores were ranked among all MetaLR scores in dbNSFP. The rankscoreis the ratio of the rank of the score over the total number of MetaLR scores in dbNSFP. The scores range from 0 to 1.
+67	MetaLR_pred: Prediction of our MetaLR based ensemble prediction score,"T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is 0.5. The rankscore cutoff between "D" and "T" is 0.81101.
+68	Reliability_index: Number of observed component scores (except the maximum frequency inthe 1000 genomes populations) for MetaSVM and MetaLR. Ranges from 1 to 10. As MetaSVM and MetaLR scores are calculated based on imputed data, the less missing component scores, the higher the reliability of the scores and predictions. 
+69	MetaRNN_score: Our recurrent neural network (RNN) based ensemble prediction score, whichincorporated 16 scores (SIFT, Polyphen2_HDIV, Polyphen2_HVAR, MutationAssessor, PROVEAN, VEST4, M-CAP, REVEL, MutPred, MVP, PrimateAI, DEOGEN2, CADD, fathmm-XF, Eigen and GenoCanyon), 8 conservation scores (GERP, phyloP100way_vertebrate, phyloP30way_mammalian, phyloP17way_primate, phastCons100way_vertebrate, phastCons30way_mammalian, phastCons17way_primate and SiPhy), and allele frequency information from the 1000 Genomes Project (1000GP), ExAC, and gnomAD. Larger value means the SNV is more likely to be damaging. Scores range from 0 to 1.
+70	MetaRNN_rankscore: MetaRNN scores were ranked among all MetaRNN scores in dbNSFP. The rankscoreis the ratio of the rank of the score over the total number of MetaRNN scores in dbNSFP. The scores range from 0 to 1.
+71	MetaRNN_pred: Prediction of our MetaRNN based ensemble prediction score,"T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is 0.5. The rankscore cutoff between "D" and "T" is 0.6149.
+72	M-CAP_score: M-CAP is hybrid ensemble score (details in DOI: 10.1038/ng.3703). Scores range from 0 to 1. The larger the score the more likely the SNP has damaging effect. 
+73	M-CAP_rankscore: M-CAP scores were ranked among all M-CAP scores in dbNSFP. The rankscore isthe ratio of the rank of the score over the total number of M-CAP scores in dbNSFP.
+74	M-CAP_pred: Prediction of M-CAP score based on the authors' recommendation, "T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is 0.025.
+75	MutPred_score: General MutPred score. Scores range from 0 to 1. The larger the score the morelikely the SNP has damaging effect.
+76	MutPred_rankscore: MutPred scores were ranked among all MutPred scores in dbNSFP. The rankscore isthe ratio of the rank of the score over the total number of MutPred scores in dbNSFP.
 77	MutPred_protID: UniProt accession or Ensembl transcript ID used for MutPred_score calculation.
 78	MutPred_AAchange: Amino acid change used for MutPred_score calculation.
-79	MutPred_Top5features: Top 5 features (molecular mechanisms of disease) as predicted by MutPred with
-		p values. MutPred_score > 0.5 and p < 0.05 are referred to as actionable hypotheses.
-		MutPred_score > 0.75 and p < 0.05 are referred to as confident hypotheses.
-		MutPred_score > 0.75 and p < 0.01 are referred to as very confident hypotheses.
-80	MVP_score: A pathogenicity prediction score for missense variants using deep learning approach.
-		The range of MVP score is from 0 to 1. The larger the score, the more likely the variant is 
-		pathogenic. The authors suggest thresholds of 0.7 and 0.75 for separating damaging vs tolerant 
-		variants in constrained genes (ExAC pLI >=0.5) and non-constrained genes (ExAC pLI<0.5), respectively. 
-		Details see doi: http://dx.doi.org/10.1101/259390
-		Multiple entries are separated by ";", corresponding to Ensembl_transcriptid.
-81	MVP_rankscore: MVP scores were ranked among all MVP scores in dbNSFP. The rankscore is
-		the ratio of the rank of the score over the total number of MVP scores in dbNSFP. 
-82	MPC_score: A deleteriousness prediction score for missense variants based on regional missense
-		constraint. The range of MPC score is 0 to 5. The larger the score, the more likely the variant is 
-		pathogenic. Details see doi: http://dx.doi.org/10.1101/148353.
-		Multiple entries are separated by ";", corresponding to Ensembl_transcriptid.
-83	MPC_rankscore: MPC scores were ranked among all MPC scores in dbNSFP. The rankscore is
-		the ratio of the rank of the score over the total number of MPC scores in dbNSFP. 
-84	PrimateAI_score: A pathogenicity prediction score for missense variants based on common variants of
-		non-human primate species using a deep neural network. The range of PrimateAI score is 0 to 1. 
-		The larger the score, the more likely the variant is pathogenic. The authors suggest a threshold
-		of 0.803 for separating damaging vs tolerant variants. 
-		Details see https://doi.org/10.1038/s41588-018-0167-z
-85	PrimateAI_rankscore: PrimateAI scores were ranked among all PrimateAI scores in dbNSFP. The rankscore is
-		the ratio of the rank of the score over the total number of PrimateAI scores in dbNSFP. 
-86	PrimateAI_pred: Prediction of PrimateAI score based on the authors' recommendation, "T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is 0.803.
-87	DEOGEN2_score: A deleteriousness prediction score "which incorporates heterogeneous information about
-		the molecular effects of the variants, the domains involved, the relevance of the gene and the 
-		interactions in which it participates". It ranges from 0 to 1. The larger the score, the more 
-		likely the variant is deleterious. The authors suggest a threshold of 0.5 for separating damaging 
-		vs tolerant variants.
-88	DEOGEN2_rankscore: DEOGEN2 scores were ranked among all DEOGEN2 scores in dbNSFP. The rankscore is
-		the ratio of the rank of the score over the total number of DEOGEN2 scores in dbNSFP. 
-89	DEOGEN2_pred: Prediction of DEOGEN2 score based on the authors' recommendation, "T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is 0.5.
-90	BayesDel_addAF_score: A deleteriousness preidction meta-score for SNVs and indels with inclusion of MaxAF.
-		See https://doi.org/10.1002/humu.23158 for details. The range of the score in dbNSFP is from -1.11707 to 
-		0.750927. The higher the score, the more likely the variant is pathogenic. The author suggested cutoff 
-		between deleterious ("D") and tolerated ("T") is 0.0692655.
-91	BayesDel_addAF_rankscore: BayesDel_addAF scores were ranked among all BayesDel_addAF scores in dbNSFP.
-		The rankscore is the ratio of the rank of the score over the total number of BayesDel_addAF scores in dbNSFP. 
-92	BayesDel_addAF_pred: Prediction of BayesDel_addAF score based on the authors' recommendation, "T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is 0.0692655.
-93	BayesDel_noAF_score: A deleteriousness preidction meta-score for SNVs and indels without inclusion of MaxAF.
-		See https://doi.org/10.1002/humu.23158 for details. The range of the score in dbNSFP is from -1.31914 to 0.840878.
-		The higher the score, the more likely the variant is pathogenic. The author suggested cutoff between 
-		deleterious ("D") and tolerated ("T") is -0.0570105.
-94	BayesDel_noAF_rankscore: BayesDel_noAF scores were ranked among all BayesDel_noAF scores in dbNSFP.
-		The rankscore is the ratio of the rank of the score over the total number of BayesDel_noAF scores in dbNSFP.
-95	BayesDel_noAF_pred: Prediction of BayesDel_noAF score based on the authors' recommendation, "T(olerated)" or
-		"D(amaging)". The score cutoff between "D" and "T" is -0.0570105.
-96	LIST-S2_score: A deleteriousness preidction score for nonsynonymous SNVs. See https://doi.org/10.1093/nar/gkaa288.
-		for details. The range of the score in dbNSFP is from 0 to 1.
-		The higher the score, the more likely the variant is pathogenic. The author suggested cutoff between 
-		deleterious ("D") and tolerated ("T") is 0.85.
-97	LIST-S2_rankscore: LIST-S2 scores were ranked among all LIST-S2 scores in dbNSFP. The rankscore is the ratio
-		of the rank of the score over the total number of LIST-S2 scores in dbNSFP.
-98	LIST-S2_pred: Prediction of LIST-S2 score based on the authors' recommendation, "T(olerated)" or "D(amaging)".
-		The score cutoff between "D" and "T" is 0.85.
-99	Aloft_Fraction_transcripts_affected: the fraction of the transcripts of the gene affected
-		i.e. No. of transcripts affected by the SNP/Total no. of protein_coding transcripts for the gene
-		multiple values separated by ";", corresponding to Ensembl_proteinid.
-100	Aloft_prob_Tolerant: Probability of the SNP being classified as benign by ALoFT
-		multiple values separated by ";", corresponding to Ensembl_proteinid.
-101	Aloft_prob_Recessive: Probability of the SNP being classified as recessive disease-causing by ALoFT
-		multiple values separated by ";", corresponding to Ensembl_proteinid.
-102	Aloft_prob_Dominant:  Probability of the SNP being classified as dominant disease-causing by ALoFT
-		multiple values separated by ";", corresponding to Ensembl_proteinid.
-103	Aloft_pred: final classification predicted by ALoFT;
-		values can be Tolerant, Recessive or Dominant
-		multiple values separated by ";", corresponding to Ensembl_proteinid.
-104	Aloft_Confidence: Confidence level of Aloft_pred;
-		values can be "High Confidence" (p < 0.05) or "Low Confidence" (p > 0.05)
-		multiple values separated by ";", corresponding to Ensembl_proteinid.
-105	DANN_score: DANN is a functional prediction score retrained based on the training data
-		of CADD using deep neural network. Scores range from 0 to 1. A larger number indicate 
-		a higher probability to be damaging. More information of this score can be found in
-		doi: 10.1093/bioinformatics/btu703. 
-106	DANN_rankscore: DANN scores were ranked among all DANN scores in dbNSFP. The rankscore is
-		the ratio of the rank of the score over the total number of DANN scores in dbNSFP.
-107	fathmm-MKL_coding_score: fathmm-MKL p-values. Scores range from 0 to 1. SNVs with scores >0.5
-		are predicted to be deleterious, and those <0.5 are predicted to be neutral or benign. 
-		Scores close to 0 or 1 are with the highest-confidence. Coding scores are trained using 10
-		groups of features. More details of the score can be found in 
-		doi: 10.1093/bioinformatics/btv009.
-108	fathmm-MKL_coding_rankscore: fathmm-MKL coding scores were ranked among all fathmm-MKL coding
-		scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number 
-		of fathmm-MKL coding scores in dbNSFP.
-109	fathmm-MKL_coding_pred: If a fathmm-MKL_coding_score is >0.5 (or rankscore >0.28317) 
-		the corresponding nsSNV is predicted as "D(AMAGING)"; otherwise it is predicted as "N(EUTRAL)".
-110	fathmm-MKL_coding_group: the groups of features (labeled A-J) used to obtained the score. More
-		details can be found in doi: 10.1093/bioinformatics/btv009.
-111	fathmm-XF_coding_score: fathmm-XF p-values. Scores range from 0 to 1. SNVs with scores >0.5
-		are predicted to be deleterious, and those <0.5 are predicted to be neutral or benign. 
-		Scores close to 0 or 1 are with the highest-confidence. Coding scores are trained using 10
-		groups of features. More details of the score can be found in 
-		doi: 10.1093/bioinformatics/btx536.
-112	fathmm-XF_coding_rankscore: fathmm-XF coding scores were ranked among all fathmm-XF coding
-		scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number 
-		of fathmm-XF coding scores in dbNSFP.
-113	fathmm-XF_coding_pred: If a fathmm-XF_coding_score is >0.5, the corresponding nsSNV is predicted
-		as "D(AMAGING)"; otherwise it is predicted as "N(EUTRAL)".
-114	Eigen-raw_coding: Eigen score for coding SNVs. A functional prediction score based on conservation,
-		allele frequencies, and deleteriousness prediction using an unsupervised learning method 
-		(doi: 10.1038/ng.3477). 
-115	Eigen-raw_coding_rankscore: Eigen-raw scores were ranked among all Eigen-raw scores in dbNSFP. The rankscore
-		is the ratio of the rank of the score over the total number of Eigen-raw scores in dbNSFP.
+79	MutPred_Top5features: Top 5 features (molecular mechanisms of disease) as predicted by MutPred withp values. MutPred_score > 0.5 and p < 0.05 are referred to as actionable hypotheses.MutPred_score > 0.75 and p < 0.05 are referred to as confident hypotheses.MutPred_score > 0.75 and p < 0.01 are referred to as very confident hypotheses.
+80	MVP_score: A pathogenicity prediction score for missense variants using deep learning approach.The range of MVP score is from 0 to 1. The larger the score, the more likely the variant is pathogenic. The authors suggest thresholds of 0.7 and 0.75 for separating damaging vs tolerant variants in constrained genes (ExAC pLI >=0.5) and non-constrained genes (ExAC pLI<0.5), respectively. Details see doi: http://dx.doi.org/10.1101/259390Multiple entries are separated by ";", corresponding to Ensembl_transcriptid.
+81	MVP_rankscore: MVP scores were ranked among all MVP scores in dbNSFP. The rankscore isthe ratio of the rank of the score over the total number of MVP scores in dbNSFP. 
+82	MPC_score: A deleteriousness prediction score for missense variants based on regional missenseconstraint. The range of MPC score is 0 to 5. The larger the score, the more likely the variant is pathogenic. Details see doi: http://dx.doi.org/10.1101/148353.Multiple entries are separated by ";", corresponding to Ensembl_transcriptid.
+83	MPC_rankscore: MPC scores were ranked among all MPC scores in dbNSFP. The rankscore isthe ratio of the rank of the score over the total number of MPC scores in dbNSFP. 
+84	PrimateAI_score: A pathogenicity prediction score for missense variants based on common variants ofnon-human primate species using a deep neural network. The range of PrimateAI score is 0 to 1. The larger the score, the more likely the variant is pathogenic. The authors suggest a thresholdof 0.803 for separating damaging vs tolerant variants. Details see https://doi.org/10.1038/s41588-018-0167-z
+85	PrimateAI_rankscore: PrimateAI scores were ranked among all PrimateAI scores in dbNSFP. The rankscore isthe ratio of the rank of the score over the total number of PrimateAI scores in dbNSFP. 
+86	PrimateAI_pred: Prediction of PrimateAI score based on the authors' recommendation, "T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is 0.803.
+87	DEOGEN2_score: A deleteriousness prediction score "which incorporates heterogeneous information aboutthe molecular effects of the variants, the domains involved, the relevance of the gene and the interactions in which it participates". It ranges from 0 to 1. The larger the score, the more likely the variant is deleterious. The authors suggest a threshold of 0.5 for separating damaging vs tolerant variants.
+88	DEOGEN2_rankscore: DEOGEN2 scores were ranked among all DEOGEN2 scores in dbNSFP. The rankscore isthe ratio of the rank of the score over the total number of DEOGEN2 scores in dbNSFP. 
+89	DEOGEN2_pred: Prediction of DEOGEN2 score based on the authors' recommendation, "T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is 0.5.
+90	BayesDel_addAF_score: A deleteriousness preidction meta-score for SNVs and indels with inclusion of MaxAF.See https://doi.org/10.1002/humu.23158 for details. The range of the score in dbNSFP is from -1.11707 to 0.750927. The higher the score, the more likely the variant is pathogenic. The author suggested cutoff between deleterious ("D") and tolerated ("T") is 0.0692655.
+91	BayesDel_addAF_rankscore: BayesDel_addAF scores were ranked among all BayesDel_addAF scores in dbNSFP.The rankscore is the ratio of the rank of the score over the total number of BayesDel_addAF scores in dbNSFP. 
+92	BayesDel_addAF_pred: Prediction of BayesDel_addAF score based on the authors' recommendation, "T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is 0.0692655.
+93	BayesDel_noAF_score: A deleteriousness preidction meta-score for SNVs and indels without inclusion of MaxAF.See https://doi.org/10.1002/humu.23158 for details. The range of the score in dbNSFP is from -1.31914 to 0.840878.The higher the score, the more likely the variant is pathogenic. The author suggested cutoff between deleterious ("D") and tolerated ("T") is -0.0570105.
+94	BayesDel_noAF_rankscore: BayesDel_noAF scores were ranked among all BayesDel_noAF scores in dbNSFP.The rankscore is the ratio of the rank of the score over the total number of BayesDel_noAF scores in dbNSFP.
+95	BayesDel_noAF_pred: Prediction of BayesDel_noAF score based on the authors' recommendation, "T(olerated)" or"D(amaging)". The score cutoff between "D" and "T" is -0.0570105.
+96	LIST-S2_score: A deleteriousness preidction score for nonsynonymous SNVs. See https://doi.org/10.1093/nar/gkaa288.for details. The range of the score in dbNSFP is from 0 to 1.The higher the score, the more likely the variant is pathogenic. The author suggested cutoff between deleterious ("D") and tolerated ("T") is 0.85.
+97	LIST-S2_rankscore: LIST-S2 scores were ranked among all LIST-S2 scores in dbNSFP. The rankscore is the ratioof the rank of the score over the total number of LIST-S2 scores in dbNSFP.
+98	LIST-S2_pred: Prediction of LIST-S2 score based on the authors' recommendation, "T(olerated)" or "D(amaging)".The score cutoff between "D" and "T" is 0.85.
+99	Aloft_Fraction_transcripts_affected: the fraction of the transcripts of the gene affectedi.e. No. of transcripts affected by the SNP/Total no. of protein_coding transcripts for the genemultiple values separated by ";", corresponding to Ensembl_proteinid.
+100	Aloft_prob_Tolerant: Probability of the SNP being classified as benign by ALoFTmultiple values separated by ";", corresponding to Ensembl_proteinid.
+101	Aloft_prob_Recessive: Probability of the SNP being classified as recessive disease-causing by ALoFTmultiple values separated by ";", corresponding to Ensembl_proteinid.
+102	Aloft_prob_Dominant:  Probability of the SNP being classified as dominant disease-causing by ALoFTmultiple values separated by ";", corresponding to Ensembl_proteinid.
+103	Aloft_pred: final classification predicted by ALoFT;values can be Tolerant, Recessive or Dominantmultiple values separated by ";", corresponding to Ensembl_proteinid.
+104	Aloft_Confidence: Confidence level of Aloft_pred;values can be "High Confidence" (p < 0.05) or "Low Confidence" (p > 0.05)multiple values separated by ";", corresponding to Ensembl_proteinid.
+105	DANN_score: DANN is a functional prediction score retrained based on the training dataof CADD using deep neural network. Scores range from 0 to 1. A larger number indicate a higher probability to be damaging. More information of this score can be found indoi: 10.1093/bioinformatics/btu703. 
+106	DANN_rankscore: DANN scores were ranked among all DANN scores in dbNSFP. The rankscore isthe ratio of the rank of the score over the total number of DANN scores in dbNSFP.
+107	fathmm-MKL_coding_score: fathmm-MKL p-values. Scores range from 0 to 1. SNVs with scores >0.5are predicted to be deleterious, and those <0.5 are predicted to be neutral or benign. Scores close to 0 or 1 are with the highest-confidence. Coding scores are trained using 10groups of features. More details of the score can be found in doi: 10.1093/bioinformatics/btv009.
+108	fathmm-MKL_coding_rankscore: fathmm-MKL coding scores were ranked among all fathmm-MKL codingscores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of fathmm-MKL coding scores in dbNSFP.
+109	fathmm-MKL_coding_pred: If a fathmm-MKL_coding_score is >0.5 (or rankscore >0.28317) the corresponding nsSNV is predicted as "D(AMAGING)"; otherwise it is predicted as "N(EUTRAL)".
+110	fathmm-MKL_coding_group: the groups of features (labeled A-J) used to obtained the score. Moredetails can be found in doi: 10.1093/bioinformatics/btv009.
+111	fathmm-XF_coding_score: fathmm-XF p-values. Scores range from 0 to 1. SNVs with scores >0.5are predicted to be deleterious, and those <0.5 are predicted to be neutral or benign. Scores close to 0 or 1 are with the highest-confidence. Coding scores are trained using 10groups of features. More details of the score can be found in doi: 10.1093/bioinformatics/btx536.
+112	fathmm-XF_coding_rankscore: fathmm-XF coding scores were ranked among all fathmm-XF codingscores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of fathmm-XF coding scores in dbNSFP.
+113	fathmm-XF_coding_pred: If a fathmm-XF_coding_score is >0.5, the corresponding nsSNV is predictedas "D(AMAGING)"; otherwise it is predicted as "N(EUTRAL)".
+114	Eigen-raw_coding: Eigen score for coding SNVs. A functional prediction score based on conservation,allele frequencies, and deleteriousness prediction using an unsupervised learning method (doi: 10.1038/ng.3477). 
+115	Eigen-raw_coding_rankscore: Eigen-raw scores were ranked among all Eigen-raw scores in dbNSFP. The rankscoreis the ratio of the rank of the score over the total number of Eigen-raw scores in dbNSFP.
 116	Eigen-phred_coding: Eigen score in phred scale.
-117	Eigen-PC-raw_coding: Eigen PC score for genome-wide SNVs. A functional prediction score based on
-		conservation, allele frequencies, deleteriousness prediction (for missense SNVs) and
-		epigenomic signals (for synonymous and non-coding SNVs) using an unsupervised learning 
-		method (doi: 10.1038/ng.3477). 
-118	Eigen-PC-raw_coding_rankscore: Eigen-PC-raw scores were ranked among all Eigen-PC-raw scores in
-		dbNSFP. The rankscore is the ratio of the rank of the score over the total number 
-		of Eigen-PC-raw scores in dbNSFP.
+117	Eigen-PC-raw_coding: Eigen PC score for genome-wide SNVs. A functional prediction score based onconservation, allele frequencies, deleteriousness prediction (for missense SNVs) andepigenomic signals (for synonymous and non-coding SNVs) using an unsupervised learning method (doi: 10.1038/ng.3477). 
+118	Eigen-PC-raw_coding_rankscore: Eigen-PC-raw scores were ranked among all Eigen-PC-raw scores indbNSFP. The rankscore is the ratio of the rank of the score over the total number of Eigen-PC-raw scores in dbNSFP.
 119	Eigen-PC-phred_coding: Eigen PC score in phred scale.
-120	integrated_fitCons_score: fitCons score predicts the fraction of genomic positions belonging to
-		a specific function class (defined by epigenomic "fingerprint") that are under selective 
-		pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of 
-		nucleic sites of the functional class the genomic position belong to are under selective 
-		pressure, therefore more likely to be functional important. Integrated (i6) scores are
-		integrated across three cell types (GM12878, H1-hESC and HUVEC). More details can be found
-		in doi:10.1038/ng.3196.
-121	integrated_fitCons_rankscore: integrated fitCons scores were ranked among all integrated fitCons
-		scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number 
-		of integrated fitCons scores in dbNSFP.
-122	integrated_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores
-		(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
-123	GM12878_fitCons_score: fitCons score predicts the fraction of genomic positions belonging to
-		a specific function class (defined by epigenomic "fingerprint") that are under selective 
-		pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of 
-		nucleic sites of the functional class the genomic position belong to are under selective 
-		pressure, therefore more likely to be functional important. GM12878 fitCons scores are
-		based on cell type GM12878. More details can be found in doi:10.1038/ng.3196.
-124	GM12878_fitCons_rankscore: GM12878 fitCons scores were ranked among all GM12878 fitCons
-		scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number 
-		of GM12878 fitCons scores in dbNSFP.
-125	GM12878_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores
-		(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
-126	H1-hESC_fitCons_score: fitCons score predicts the fraction of genomic positions belonging to
-		a specific function class (defined by epigenomic "fingerprint") that are under selective 
-		pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of 
-		nucleic sites of the functional class the genomic position belong to are under selective 
-		pressure, therefore more likely to be functional important. GM12878 fitCons scores are
-		based on cell type H1-hESC. More details can be found in doi:10.1038/ng.3196.
-127	H1-hESC_fitCons_rankscore: H1-hESC fitCons scores were ranked among all H1-hESC fitCons
-		scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number 
-		of H1-hESC fitCons scores in dbNSFP.
-128	H1-hESC_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores
-		(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
-129	HUVEC_fitCons_score: fitCons score predicts the fraction of genomic positions belonging to
-		a specific function class (defined by epigenomic "fingerprint") that are under selective 
-		pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of 
-		nucleic sites of the functional class the genomic position belong to are under selective 
-		pressure, therefore more likely to be functional important. GM12878 fitCons scores are
-		based on cell type HUVEC. More details can be found in doi:10.1038/ng.3196.
-130	HUVEC_fitCons_rankscore: HUVEC fitCons scores were ranked among all HUVEC fitCons
-		scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number 
-		of HUVEC fitCons scores in dbNSFP.
-131	HUVEC_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores
-		(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
-132	GERP++_NR: GERP++ neutral rate
-133	GERP++_RS: GERP++ RS score, the larger the score, the more conserved the site. Scores range from
-		-12.3 to 6.17.
-134	GERP++_RS_rankscore: GERP++ RS scores were ranked among all GERP++ RS scores in dbNSFP.
-		The rankscore is the ratio of the rank of the score over the total number of GERP++ RS 
-		scores in dbNSFP.
-135	phyloP100way_vertebrate: phyloP (phylogenetic p-values) conservation score based on the
-		multiple alignments of 100 vertebrate genomes (including human). The larger the score, 
-		the more conserved the site. Scores range from -20.0 to 10.003 in dbNSFP.
-136	phyloP100way_vertebrate_rankscore: phyloP100way_vertebrate scores were ranked among all
-		phyloP100way_vertebrate scores in dbNSFP. The rankscore is the ratio of the rank of the 
-		score over the total number of phyloP100way_vertebrate scores in dbNSFP.
-137	phyloP30way_mammalian: phyloP (phylogenetic p-values) conservation score based on the
-		multiple alignments of 30 mammalian genomes (including human). The larger the score, 
-		the more conserved the site. Scores range from -20 to 1.312 in dbNSFP.
-138	phyloP30way_mammalian_rankscore: phyloP30way_mammalian scores were ranked among all
-		phyloP30way_mammalian scores in dbNSFP. The rankscore is the ratio of the rank of the 
-		score over the total number of phyloP30way_mammalian scores in dbNSFP.
-139	phyloP17way_primate: a conservation score based on 17way alignment primate set,
-		the higher the more conservative. Scores range from -13.362 to 0.756 in dbNSFP.
-140	phyloP17way_primate_rankscore: the rank of the phyloP17way_primate score among
-		all phyloP17way_primate scores in dbNSFP.
-141	phastCons100way_vertebrate: phastCons conservation score based on the multiple alignments
-		of 100 vertebrate genomes (including human). The larger the score, the more conserved 
-		the site. Scores range from 0 to 1. 
-142	phastCons100way_vertebrate_rankscore: phastCons100way_vertebrate scores were ranked among
-		all phastCons100way_vertebrate scores in dbNSFP. The rankscore is the ratio of the rank 
-		of the score over the total number of phastCons100way_vertebrate scores in dbNSFP.
-143	phastCons30way_mammalian: phastCons conservation score based on the multiple alignments
-		of 30 mammalian genomes (including human). The larger the score, the more conserved 
-		the site. Scores range from 0 to 1. 
-144	phastCons30way_mammalian_rankscore: phastCons30way_mammalian scores were ranked among
-		all phastCons30way_mammalian scores in dbNSFP. The rankscore is the ratio of the rank 
-		of the score over the total number of phastCons30way_mammalian scores in dbNSFP.
-145	phastCons17way_primate: a conservation score based on 17way alignment primate set,
-		The larger the score, the more conserved the site. Scores range from 0 to 1. 
-146	phastCons17way_primate_rankscore: the rank of the phastCons17way_primate score among
-		all phastCons17way_primate scores in dbNSFP.
-147	SiPhy_29way_pi: The estimated stationary distribution of A, C, G and T at the site,
-		using SiPhy algorithm based on 29 mammals genomes. 
-148	SiPhy_29way_logOdds: SiPhy score based on 29 mammals genomes. The larger the score,
-		the more conserved the site. Scores range from 0 to 37.9718 in dbNSFP.
-149	SiPhy_29way_logOdds_rankscore: SiPhy_29way_logOdds scores were ranked among all
-		SiPhy_29way_logOdds scores in dbNSFP. The rankscore is the ratio of the rank 
-		of the score over the total number of SiPhy_29way_logOdds scores in dbNSFP.
-150	bStatistic: Background selection (B) value estimates from doi.org/10.1371/journal.pgen.1000471.
-		Ranges from 0 to 1000. It estimates the expected fraction (*1000) of neutral diversity present 
-		at a site. Values close to 0 represent near complete removal of diversity as a result of 
-		background selection and values near 1000 indicating absent of background selection. 
-		Data from CADD v1.4.
-151	bStatistic_converted_rankscore: bStatistic scores were first converted to -bStatistic, then 
-		ranked among all -bStatistic scores in dbNSFP. The rankscore is the ratio of the rank of 
-		-bStatistic over the total number of -bStatistic scores in dbNSFP.
+120	integrated_fitCons_score: fitCons score predicts the fraction of genomic positions belonging toa specific function class (defined by epigenomic "fingerprint") that are under selective pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of nucleic sites of the functional class the genomic position belong to are under selective pressure, therefore more likely to be functional important. Integrated (i6) scores areintegrated across three cell types (GM12878, H1-hESC and HUVEC). More details can be foundin doi:10.1038/ng.3196.
+121	integrated_fitCons_rankscore: integrated fitCons scores were ranked among all integrated fitConsscores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of integrated fitCons scores in dbNSFP.
+122	integrated_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
+123	GM12878_fitCons_score: fitCons score predicts the fraction of genomic positions belonging toa specific function class (defined by epigenomic "fingerprint") that are under selective pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of nucleic sites of the functional class the genomic position belong to are under selective pressure, therefore more likely to be functional important. GM12878 fitCons scores arebased on cell type GM12878. More details can be found in doi:10.1038/ng.3196.
+124	GM12878_fitCons_rankscore: GM12878 fitCons scores were ranked among all GM12878 fitConsscores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of GM12878 fitCons scores in dbNSFP.
+125	GM12878_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
+126	H1-hESC_fitCons_score: fitCons score predicts the fraction of genomic positions belonging toa specific function class (defined by epigenomic "fingerprint") that are under selective pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of nucleic sites of the functional class the genomic position belong to are under selective pressure, therefore more likely to be functional important. GM12878 fitCons scores arebased on cell type H1-hESC. More details can be found in doi:10.1038/ng.3196.
+127	H1-hESC_fitCons_rankscore: H1-hESC fitCons scores were ranked among all H1-hESC fitConsscores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of H1-hESC fitCons scores in dbNSFP.
+128	H1-hESC_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
+129	HUVEC_fitCons_score: fitCons score predicts the fraction of genomic positions belonging toa specific function class (defined by epigenomic "fingerprint") that are under selective pressure. Scores range from 0 to 1, with a larger score indicating a higher proportion of nucleic sites of the functional class the genomic position belong to are under selective pressure, therefore more likely to be functional important. GM12878 fitCons scores arebased on cell type HUVEC. More details can be found in doi:10.1038/ng.3196.
+130	HUVEC_fitCons_rankscore: HUVEC fitCons scores were ranked among all HUVEC fitConsscores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of HUVEC fitCons scores in dbNSFP.
+131	HUVEC_confidence_value: 0 - highly significant scores (approx. p<.003); 1 - significant scores(approx. p<.05); 2 - informative scores (approx. p<.25); 3 - other scores (approx. p>=.25).
+132	GERP___NR: GERP neutral rate
+133	GERP___RS: GERP RS score, the larger the score, the more conserved the site. Scores range from-12.3 to 6.17.
+134	GERP++_RS_rankscore: GERP++ RS scores were ranked among all GERP++ RS scores in dbNSFP.The rankscore is the ratio of the rank of the score over the total number of GERP++ RS scores in dbNSFP.
+135	phyloP100way_vertebrate: phyloP (phylogenetic p-values) conservation score based on themultiple alignments of 100 vertebrate genomes (including human). The larger the score, the more conserved the site. Scores range from -20.0 to 10.003 in dbNSFP.
+136	phyloP100way_vertebrate_rankscore: phyloP100way_vertebrate scores were ranked among allphyloP100way_vertebrate scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of phyloP100way_vertebrate scores in dbNSFP.
+137	phyloP30way_mammalian: phyloP (phylogenetic p-values) conservation score based on themultiple alignments of 30 mammalian genomes (including human). The larger the score, the more conserved the site. Scores range from -20 to 1.312 in dbNSFP.
+138	phyloP30way_mammalian_rankscore: phyloP30way_mammalian scores were ranked among allphyloP30way_mammalian scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of phyloP30way_mammalian scores in dbNSFP.
+139	phyloP17way_primate: a conservation score based on 17way alignment primate set,the higher the more conservative. Scores range from -13.362 to 0.756 in dbNSFP.
+140	phyloP17way_primate_rankscore: the rank of the phyloP17way_primate score amongall phyloP17way_primate scores in dbNSFP.
+141	phastCons100way_vertebrate: phastCons conservation score based on the multiple alignmentsof 100 vertebrate genomes (including human). The larger the score, the more conserved the site. Scores range from 0 to 1. 
+142	phastCons100way_vertebrate_rankscore: phastCons100way_vertebrate scores were ranked amongall phastCons100way_vertebrate scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of phastCons100way_vertebrate scores in dbNSFP.
+143	phastCons30way_mammalian: phastCons conservation score based on the multiple alignmentsof 30 mammalian genomes (including human). The larger the score, the more conserved the site. Scores range from 0 to 1. 
+144	phastCons30way_mammalian_rankscore: phastCons30way_mammalian scores were ranked amongall phastCons30way_mammalian scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of phastCons30way_mammalian scores in dbNSFP.
+145	phastCons17way_primate: a conservation score based on 17way alignment primate set,The larger the score, the more conserved the site. Scores range from 0 to 1. 
+146	phastCons17way_primate_rankscore: the rank of the phastCons17way_primate score amongall phastCons17way_primate scores in dbNSFP.
+147	SiPhy_29way_pi: The estimated stationary distribution of A, C, G and T at the site,using SiPhy algorithm based on 29 mammals genomes. 
+148	SiPhy_29way_logOdds: SiPhy score based on 29 mammals genomes. The larger the score,the more conserved the site. Scores range from 0 to 37.9718 in dbNSFP.
+149	SiPhy_29way_logOdds_rankscore: SiPhy_29way_logOdds scores were ranked among allSiPhy_29way_logOdds scores in dbNSFP. The rankscore is the ratio of the rank of the score over the total number of SiPhy_29way_logOdds scores in dbNSFP.
+150	bStatistic: Background selection (B) value estimates from doi.org/10.1371/journal.pgen.1000471.Ranges from 0 to 1000. It estimates the expected fraction (*1000) of neutral diversity present at a site. Values close to 0 represent near complete removal of diversity as a result of background selection and values near 1000 indicating absent of background selection. Data from CADD v1.4.
+151	bStatistic_converted_rankscore: bStatistic scores were first converted to -bStatistic, then ranked among all -bStatistic scores in dbNSFP. The rankscore is the ratio of the rank of -bStatistic over the total number of -bStatistic scores in dbNSFP.
 152	1000Gp3_AC: Alternative allele counts in the whole 1000 genomes phase 3 (1000Gp3) data.
 153	1000Gp3_AF: Alternative allele frequency in the whole 1000Gp3 data.
 154	1000Gp3_AFR_AC: Alternative allele counts in the 1000Gp3 African descendent samples.
@@ -561,78 +223,59 @@ Columns of dbNSFP_variant:
 167	ALSPAC_AF: Alternative allele frequency in called genotypes in UK10K ALSPAC cohort.
 168	UK10K_AC: Alternative allele count in combined genotypes in UK10K cohort (TWINSUK+ALSPAC).
 169	UK10K_AF: Alternative allele frequency in combined genotypes in UK10K cohort (TWINSUK+ALSPAC).
-170	ESP6500_AA_AC: Alternative allele count in the African American samples of the
-		NHLBI GO Exome Sequencing Project (ESP6500 data set).
-171	ESP6500_AA_AF: Alternative allele frequency in the African American samples of the
-		NHLBI GO Exome Sequencing Project (ESP6500 data set).
-172	ESP6500_EA_AC: Alternative allele count in the European American samples of the
-		NHLBI GO Exome Sequencing Project (ESP6500 data set).
-173	ESP6500_EA_AF: Alternative allele frequency in the European American samples of the
-		NHLBI GO Exome Sequencing Project (ESP6500 data set).
+170	ESP6500_AA_AC: Alternative allele count in the African American samples of theNHLBI GO Exome Sequencing Project (ESP6500 data set).
+171	ESP6500_AA_AF: Alternative allele frequency in the African American samples of theNHLBI GO Exome Sequencing Project (ESP6500 data set).
+172	ESP6500_EA_AC: Alternative allele count in the European American samples of theNHLBI GO Exome Sequencing Project (ESP6500 data set).
+173	ESP6500_EA_AF: Alternative allele frequency in the European American samples of theNHLBI GO Exome Sequencing Project (ESP6500 data set).
 174	ExAC_AC: Allele count in total ExAC samples (60,706 samples)
 175	ExAC_AF: Allele frequency in total ExAC samples
 176	ExAC_Adj_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in total ExAC samples
 177	ExAC_Adj_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in total ExAC samples
-178	ExAC_AFR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in African & African American
-		ExAC samples
-179	ExAC_AFR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in African & African American
-		ExAC samples
+178	ExAC_AFR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in African & African AmericanExAC samples
+179	ExAC_AFR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in African & African AmericanExAC samples
 180	ExAC_AMR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in American ExAC samples
 181	ExAC_AMR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in American ExAC samples
 182	ExAC_EAS_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in East Asian ExAC samples
 183	ExAC_EAS_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in East Asian ExAC samples
 184	ExAC_FIN_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Finnish ExAC samples
 185	ExAC_FIN_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Finnish ExAC samples
-186	ExAC_NFE_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC
-		samples
-187	ExAC_NFE_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC
-		samples
+186	ExAC_NFE_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Non-Finnish European ExACsamples
+187	ExAC_NFE_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Non-Finnish European ExACsamples
 188	ExAC_SAS_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in South Asian ExAC samples
 189	ExAC_SAS_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in South Asian ExAC samples
 190	ExAC_nonTCGA_AC: Allele count in total ExAC_nonTCGA samples (53,105 samples)
 191	ExAC_nonTCGA_AF: Allele frequency in total ExAC_nonTCGA samples
 192	ExAC_nonTCGA_Adj_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in total ExAC_nonTCGA samples
 193	ExAC_nonTCGA_Adj_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in total ExAC_nonTCGA samples
-194	ExAC_nonTCGA_AFR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in African & African American
-		ExAC_nonTCGA samples
-195	ExAC_nonTCGA_AFR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in African & African American
-		ExAC_nonTCGA samples
+194	ExAC_nonTCGA_AFR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in African & African AmericanExAC_nonTCGA samples
+195	ExAC_nonTCGA_AFR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in African & African AmericanExAC_nonTCGA samples
 196	ExAC_nonTCGA_AMR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in American ExAC_nonTCGA samples
 197	ExAC_nonTCGA_AMR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in American ExAC_nonTCGA samples
 198	ExAC_nonTCGA_EAS_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in East Asian ExAC_nonTCGA samples
 199	ExAC_nonTCGA_EAS_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in East Asian ExAC_nonTCGA samples
 200	ExAC_nonTCGA_FIN_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Finnish ExAC_nonTCGA samples
 201	ExAC_nonTCGA_FIN_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Finnish ExAC_nonTCGA samples
-202	ExAC_nonTCGA_NFE_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonTCGA
-		samples
-203	ExAC_nonTCGA_NFE_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonTCGA
-		samples
+202	ExAC_nonTCGA_NFE_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonTCGAsamples
+203	ExAC_nonTCGA_NFE_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonTCGAsamples
 204	ExAC_nonTCGA_SAS_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in South Asian ExAC_nonTCGA samples
 205	ExAC_nonTCGA_SAS_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in South Asian ExAC_nonTCGA samples
 206	ExAC_nonpsych_AC: Allele count in total ExAC_nonpsych samples (45,376 samples)
 207	ExAC_nonpsych_AF: Allele frequency in total ExAC_nonpsych samples
 208	ExAC_nonpsych_Adj_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in total ExAC_nonpsych samples
 209	ExAC_nonpsych_Adj_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in total ExAC_nonpsych samples
-210	ExAC_nonpsych_AFR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in African & African American
-		ExAC_nonpsych samples
-211	ExAC_nonpsych_AFR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in African & African American
-		ExAC_nonpsych samples
+210	ExAC_nonpsych_AFR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in African & African AmericanExAC_nonpsych samples
+211	ExAC_nonpsych_AFR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in African & African AmericanExAC_nonpsych samples
 212	ExAC_nonpsych_AMR_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in American ExAC_nonpsych samples
 213	ExAC_nonpsych_AMR_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in American ExAC_nonpsych samples
 214	ExAC_nonpsych_EAS_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in East Asian ExAC_nonpsych samples
 215	ExAC_nonpsych_EAS_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in East Asian ExAC_nonpsych samples
 216	ExAC_nonpsych_FIN_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Finnish ExAC_nonpsych samples
 217	ExAC_nonpsych_FIN_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Finnish ExAC_nonpsych samples
-218	ExAC_nonpsych_NFE_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonpsych
-		samples
-219	ExAC_nonpsych_NFE_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonpsych
-		samples
+218	ExAC_nonpsych_NFE_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonpsychsamples
+219	ExAC_nonpsych_NFE_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in Non-Finnish European ExAC_nonpsychsamples
 220	ExAC_nonpsych_SAS_AC: Adjusted Alt allele counts (DP >= 10 & GQ >= 20) in South Asian ExAC_nonpsych samples
 221	ExAC_nonpsych_SAS_AF: Adjusted Alt allele frequency (DP >= 10 & GQ >= 20) in South Asian ExAC_nonpsych samples
-222	gnomAD_exomes_flag: information from gnomAD exome data indicating whether the variant falling within low-complexity
-		(lcr) or segmental duplication (segdup) or decoy regions. The flag can be either "." for high-quality PASS or not 
-		reported/polymorphic in gnomAD exomes, "lcr" for within lcr, "segdup" for within segdup, or "decoy" for
-		with decoy region.
+222	gnomAD_exomes_flag: information from gnomAD exome data indicating whether the variant falling within low-complexity(lcr) or segmental duplication (segdup) or decoy regions. The flag can be either "." for high-quality PASS or not reported/polymorphic in gnomAD exomes, "lcr" for within lcr, "segdup" for within segdup, or "decoy" forwith decoy region.
 223	gnomAD_exomes_AC: Alternative allele count in the whole gnomAD exome samples v2.1.1
 224	gnomAD_exomes_AN: Total allele count in the whole gnomAD exome samples v2.1.1
 225	gnomAD_exomes_AF: Alternative allele frequency in the whole gnomAD exome samples v2.1.1
@@ -813,84 +456,51 @@ Columns of dbNSFP_variant:
 400	gnomAD_exomes_non_topmed_POPMAX_AN: Total number of alleles in the non-topmed subset of population with the maximum AF
 401	gnomAD_exomes_non_topmed_POPMAX_AF: Maximum allele frequency across populations (excluding samples of Ashkenazi, Finnish, and indeterminate ancestry) in the non-topmed subset
 402	gnomAD_exomes_non_topmed_POPMAX_nhomalt: Count of homozygous individuals in the non-topmed subset of population with the maximum allele frequency
-403	gnomAD_genomes_flag: information from gnomAD genome data indicating whether the variant falling within low-complexity
-		(lcr) or segmental duplication (segdup) or decoy regions. The flag can be either "." for high-quality PASS or not 
-		reported/polymorphic in gnomAD exomes, "lcr" for within lcr, "segdup" for within segdup, or "decoy" for
-		with decoy region.
-404	gnomAD_genomes_AC: Alternative allele count in the whole gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+403	gnomAD_genomes_flag: information from gnomAD genome data indicating whether the variant falling within low-complexity(lcr) or segmental duplication (segdup) or decoy regions. The flag can be either "." for high-quality PASS or not reported/polymorphic in gnomAD exomes, "lcr" for within lcr, "segdup" for within segdup, or "decoy" forwith decoy region.
+404	gnomAD_genomes_AC: Alternative allele count in the whole gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 405	gnomAD_genomes_AN: Total allele count in the whole gnomAD genome samples v3.1
-406	gnomAD_genomes_AF: Alternative allele frequency in the whole gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-407	gnomAD_genomes_nhomalt: Count of individuals with homozygous alternative allele in the whole gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+406	gnomAD_genomes_AF: Alternative allele frequency in the whole gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+407	gnomAD_genomes_nhomalt: Count of individuals with homozygous alternative allele in the whole gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
 408	gnomAD_genomes_POPMAX_AC: Allele count in the population with the maximum AF
 409	gnomAD_genomes_POPMAX_AN: Total number of alleles in the population with the maximum AF
 410	gnomAD_genomes_POPMAX_AF: Maximum allele frequency across populations (excluding samples of Ashkenazi, Finnish, and indeterminate ancestry)
 411	gnomAD_genomes_POPMAX_nhomalt: Count of homozygous individuals in the population with the maximum allele frequency
-412	gnomAD_genomes_AFR_AC: Alternative allele count in the African/African American gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+412	gnomAD_genomes_AFR_AC: Alternative allele count in the African/African American gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 413	gnomAD_genomes_AFR_AN: Total allele count in the African/African American gnomAD genome samples v3.1
-414	gnomAD_genomes_AFR_AF: Alternative allele frequency in the African/African American gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-415	gnomAD_genomes_AFR_nhomalt: Count of individuals with homozygous alternative allele in the African/African American gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-416	gnomAD_genomes_AMI_AC: Alternative allele count in the Amish gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+414	gnomAD_genomes_AFR_AF: Alternative allele frequency in the African/African American gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+415	gnomAD_genomes_AFR_nhomalt: Count of individuals with homozygous alternative allele in the African/African American gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+416	gnomAD_genomes_AMI_AC: Alternative allele count in the Amish gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 417	gnomAD_genomes_AMI_AN: Total allele count in the Amish gnomAD genome samples v3.1
-418	gnomAD_genomes_AMI_AF: Alternative allele frequency in the Amish gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-419	gnomAD_genomes_AMI_nhomalt: Count of individuals with homozygous alternative allele in the Amish gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-420	gnomAD_genomes_AMR_AC: Alternative allele count in the Latino gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+418	gnomAD_genomes_AMI_AF: Alternative allele frequency in the Amish gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+419	gnomAD_genomes_AMI_nhomalt: Count of individuals with homozygous alternative allele in the Amish gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+420	gnomAD_genomes_AMR_AC: Alternative allele count in the Latino gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 421	gnomAD_genomes_AMR_AN: Total allele count in the Latino gnomAD genome samples v3.1
-422	gnomAD_genomes_AMR_AF: Alternative allele frequency in the Latino gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-423	gnomAD_genomes_AMR_nhomalt: Count of individuals with homozygous alternative allele in the Latino gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-424	gnomAD_genomes_ASJ_AC: Alternative allele count in the Ashkenazi Jewish gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+422	gnomAD_genomes_AMR_AF: Alternative allele frequency in the Latino gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+423	gnomAD_genomes_AMR_nhomalt: Count of individuals with homozygous alternative allele in the Latino gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+424	gnomAD_genomes_ASJ_AC: Alternative allele count in the Ashkenazi Jewish gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 425	gnomAD_genomes_ASJ_AN: Total allele count in the Ashkenazi Jewish gnomAD genome samples v3.1
-426	gnomAD_genomes_ASJ_AF: Alternative allele frequency in the Ashkenazi Jewish gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-427	gnomAD_genomes_ASJ_nhomalt: Count of individuals with homozygous alternative allele in the Ashkenazi Jewish gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-428	gnomAD_genomes_EAS_AC: Alternative allele count in the East Asian gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+426	gnomAD_genomes_ASJ_AF: Alternative allele frequency in the Ashkenazi Jewish gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+427	gnomAD_genomes_ASJ_nhomalt: Count of individuals with homozygous alternative allele in the Ashkenazi Jewish gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+428	gnomAD_genomes_EAS_AC: Alternative allele count in the East Asian gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 429	gnomAD_genomes_EAS_AN: Total allele count in the East Asian gnomAD genome samples v3.1
-430	gnomAD_genomes_EAS_AF: Alternative allele frequency in the East Asian gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-431	gnomAD_genomes_EAS_nhomalt: Count of individuals with homozygous alternative allele in the East Asian gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-432	gnomAD_genomes_FIN_AC: Alternative allele count in the Finnish gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+430	gnomAD_genomes_EAS_AF: Alternative allele frequency in the East Asian gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+431	gnomAD_genomes_EAS_nhomalt: Count of individuals with homozygous alternative allele in the East Asian gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+432	gnomAD_genomes_FIN_AC: Alternative allele count in the Finnish gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 433	gnomAD_genomes_FIN_AN: Total allele count in the Finnish gnomAD genome samples v3.1
-434	gnomAD_genomes_FIN_AF: Alternative allele frequency in the Finnish gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-435	gnomAD_genomes_FIN_nhomalt: Count of individuals with homozygous alternative allele in the Finnish gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-436	gnomAD_genomes_MID_AC: Alternative allele count in the Middle Eastern gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+434	gnomAD_genomes_FIN_AF: Alternative allele frequency in the Finnish gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+435	gnomAD_genomes_FIN_nhomalt: Count of individuals with homozygous alternative allele in the Finnish gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+436	gnomAD_genomes_MID_AC: Alternative allele count in the Middle Eastern gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 437	gnomAD_genomes_MID_AN: Total allele count in the Middle Eastern gnomAD genome samples v3.1
-438	gnomAD_genomes_MID_AF: Alternative allele frequency in the Middle Eastern gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-439	gnomAD_genomes_MID_nhomalt: Count of individuals with homozygous alternative allele in the Middle Eastern gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-440	gnomAD_genomes_NFE_AC: Alternative allele count in the Non-Finnish European gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+438	gnomAD_genomes_MID_AF: Alternative allele frequency in the Middle Eastern gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+439	gnomAD_genomes_MID_nhomalt: Count of individuals with homozygous alternative allele in the Middle Eastern gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+440	gnomAD_genomes_NFE_AC: Alternative allele count in the Non-Finnish European gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 441	gnomAD_genomes_NFE_AN: Total allele count in the Non-Finnish European gnomAD genome samples v3.1
-442	gnomAD_genomes_NFE_AF: Alternative allele frequency in the Non-Finnish European gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-443	gnomAD_genomes_NFE_nhomalt: Count of individuals with homozygous alternative allele in the Non-Finnish European gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
-444	gnomAD_genomes_SAS_AC: Alternative allele count in the South Asian gnomAD genome samples v3.1
-		For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+442	gnomAD_genomes_NFE_AF: Alternative allele frequency in the Non-Finnish European gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+443	gnomAD_genomes_NFE_nhomalt: Count of individuals with homozygous alternative allele in the Non-Finnish European gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+444	gnomAD_genomes_SAS_AC: Alternative allele count in the South Asian gnomAD genome samples v3.1For mtDNA, this is sum of AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95") and AC_het ("Allele count restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
 445	gnomAD_genomes_SAS_AN: Total allele count in the South Asian gnomAD genome samples v3.1
-446	gnomAD_genomes_SAS_AF: Alternative allele frequency in the South Asian gnomAD genome samples v3.1
-		For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
-447	gnomAD_genomes_SAS_nhomalt: Count of individuals with homozygous alternative allele in the South Asian gnomAD genome samples v3.1
-		For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
+446	gnomAD_genomes_SAS_AF: Alternative allele frequency in the South Asian gnomAD genome samples v3.1For mtDNA, this is sum of AF_hom ("Allele frequency restricted to variants with a heteroplasmy level >= 0.95") and AF_het ("Allele frequency restricted to variants with a heteroplasmy level >= 0.10 and < 0.95")
+447	gnomAD_genomes_SAS_nhomalt: Count of individuals with homozygous alternative allele in the South Asian gnomAD genome samples v3.1For mtDNA, this is AC_hom ("Allele count restricted to variants with a heteroplasmy level >= 0.95")
 448	gnomAD_genomes_controls_and_biobanks_AC: Alternative allele count in the controls/biobanks subset of whole gnomAD genome samples v3.1
 449	gnomAD_genomes_controls_and_biobanks_AN: Total allele count in the controls/biobanks subset of whole gnomAD genome samples v3.1
 450	gnomAD_genomes_controls_and_biobanks_AF: Alternative allele frequency in the controls/biobanks subset of whole gnomAD genome samples v3.1
@@ -1052,23 +662,15 @@ Columns of dbNSFP_variant:
 606	gnomAD_genomes_non_topmed_SAS_AF: Alternative allele frequency in the non-topmed subset of South Asian gnomAD genome samples v3.1
 607	gnomAD_genomes_non_topmed_SAS_nhomalt: Count of individuals with homozygous alternative allele in the non-topmed subset of South Asian gnomAD genome samples v3.1
 608	clinvar_id: clinvar variation ID
-609	clinvar_clnsig: clinical significance by clinvar
-		Possible values: Benign, Likely_benign, Likely_pathogenic, Pathogenic, drug_response, 
-		histocompatibility. A negative score means the score is for the ref allele
+609	clinvar_clnsig: clinical significance by clinvarPossible values: Benign, Likely_benign, Likely_pathogenic, Pathogenic, drug_response, histocompatibility. A negative score means the score is for the ref allele
 610	clinvar_trait: the trait/disease the clinvar_clnsig referring to
-611	clinvar_review: ClinVar Review Status summary
-		Possible values:  no assertion criteria provided, criteria provided, single submitter,
-		criteria provided, multiple submitters, no conflicts, reviewed by expert panel, practice guideline
+611	clinvar_review: ClinVar Review Status summaryPossible values:  no assertion criteria provided, criteria provided, single submitter,criteria provided, multiple submitters, no conflicts, reviewed by expert panel, practice guideline
 612	clinvar_hgvs: variant in HGVS format
 613	clinvar_var_source: source of the variant
 614	clinvar_MedGen_id: MedGen ID of the trait/disease the clinvar_trait referring to
 615	clinvar_OMIM_id: OMIM ID of the trait/disease the clinvar_trait referring to
 616	clinvar_Orphanet_id: Orphanet ID of the trait/disease the clinvar_trait referring to
-617	Interpro_domain: domain or conserved site on which the variant locates. Domain
-		annotations come from Interpro database. The number in the brackets following
-		a specific domain is the count of times Interpro assigns the variant position to  
-		that domain, typically coming from different predicting databases. Multiple entries 
-		separated by ";".
+617	Interpro_domain: domain or conserved site on which the variant locates. Domainannotations come from Interpro database. The number in the brackets followinga specific domain is the count of times Interpro assigns the variant position to  that domain, typically coming from different predicting databases. Multiple entries separated by ";".
 618	GTEx_V8_gene: target gene of the (significant) eQTL SNP
 619	GTEx_V8_tissue: tissue type of the expression data with which the eQTL/gene pair is detected
 620	Geuvadis_eQTL_target_gene: Ensembl gene ID of the eQTL associated with, from the Geuvadis project
@@ -1114,144 +716,68 @@ Columns of dbNSFP_gene:
 651	Tissue_specificity(Uniprot): Tissue specificity description from Uniprot
 652	Expression(egenetics): Tissues/organs the gene expressed in (egenetics data from BioMart)
 653	Expression(GNF/Atlas): Tissues/organs the gene expressed in (GNF/Atlas data from BioMart)
-654	Interactions(IntAct): The number of other genes this gene interacting with (from IntAct).
-		Full information (gene name followed by Pubmed id in "[]") can be found in the ".complete"
-		table
-655	Interactions(BioGRID): The number of other genes this gene interacting with (from BioGRID)
-		Full information (gene name followed by Pubmed id in "[]") can be found in the ".complete"
-		table
-656	Interactions(ConsensusPathDB): The number of other genes this gene interacting with
-		(from ConsensusPathDB). Full information (gene name followed by interaction confidence in "[]") can be 
-		found in the ".complete" table
-657	P(HI): Estimated probability of haploinsufficiency of the gene
-		(from doi:10.1371/journal.pgen.1001154)
-658	HIPred_score: Estimated probability of haploinsufficiency of the gene
-		(from doi:10.1093/bioinformatics/btx028)
-659	HIPred: HIPred prediction of haploinsufficiency of the gene. Y(es) or N(o).
-		(from doi:10.1093/bioinformatics/btx028)
-660	GHIS: A score predicting the gene haploinsufficiency. The higher the score the more likely the gene is
-		haploinsufficient. (from doi: 10.1093/nar/gkv474) 
-661	P(rec): Estimated probability that gene is a recessive disease gene
-		(from DOI:10.1126/science.1215040)
-662	Known_rec_info: Known recessive status of the gene (from DOI:10.1126/science.1215040)
-		"lof-tolerant = seen in homozygous state in at least one 1000G individual"
-		"recessive = known OMIM recessive disease" 
-		(original annotations from DOI:10.1126/science.1215040)
-663	RVIS_EVS: Residual Variation Intolerance Score, a measure of intolerance of mutational burden,
-		the higher the score the more tolerant to mutational burden the gene is. Based on EVS (ESP6500) data.
-		from doi:10.1371/journal.pgen.1003709
-664	RVIS_percentile_EVS: The percentile rank of the gene based on RVIS, the higher the percentile
-		the more tolerant to mutational burden the gene is. Based on EVS (ESP6500) data.
-665	LoF-FDR_ExAC: "A gene's corresponding FDR p-value for preferential LoF depletion among the ExAC population.
-		Lower FDR corresponds with genes that are increasingly depleted of LoF variants." cited from RVIS document.
-666	RVIS_ExAC: "ExAC-based RVIS; setting 'common' MAF filter at 0.05% in at least one of the six individual
-		ethnic strata from ExAC." cited from RVIS document.
-667	RVIS_percentile_ExAC: "Genome-Wide percentile for the new ExAC-based RVIS; setting 'common' MAF filter at 0.05%
-		in at least one of the six individual ethnic strata from ExAC." cited from RVIS document.
-668	ExAC_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and 
-		homozygous lof variants)" based on ExAC r0.3 data
-669	ExAC_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"
-		based on ExAC r0.3 data
-670	ExAC_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"
-		based on ExAC r0.3 data
-671	ExAC_nonTCGA_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and 
-		homozygous lof variants)" based on ExAC r0.3 nonTCGA subset
-672	ExAC_nonTCGA_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"
-		based on ExAC r0.3 nonTCGA subset
-673	ExAC_nonTCGA_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"
-		based on ExAC r0.3 nonTCGA subset
-674	ExAC_nonpsych_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and 
-		homozygous lof variants)" based on ExAC r0.3 nonpsych subset
-675	ExAC_nonpsych_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"
-		based on ExAC r0.3 nonpsych subset
-676	ExAC_nonpsych_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"
-		based on ExAC r0.3 nonpsych subset
-677	gnomAD_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and 
-		homozygous lof variants)" based on gnomAD 2.1 data
-678	gnomAD_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"
-		based on gnomAD 2.1 data
-679	gnomAD_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"
-		based on gnomAD 2.1 data
+654	Interactions(IntAct): The number of other genes this gene interacting with (from IntAct).Full information (gene name followed by Pubmed id in "[]") can be found in the ".complete"table
+655	Interactions(BioGRID): The number of other genes this gene interacting with (from BioGRID)Full information (gene name followed by Pubmed id in "[]") can be found in the ".complete"table
+656	Interactions(ConsensusPathDB): The number of other genes this gene interacting with(from ConsensusPathDB). Full information (gene name followed by interaction confidence in "[]") can be found in the ".complete" table
+657	P(HI): Estimated probability of haploinsufficiency of the gene(from doi:10.1371/journal.pgen.1001154)
+658	HIPred_score: Estimated probability of haploinsufficiency of the gene(from doi:10.1093/bioinformatics/btx028)
+659	HIPred: HIPred prediction of haploinsufficiency of the gene. Y(es) or N(o).(from doi:10.1093/bioinformatics/btx028)
+660	GHIS: A score predicting the gene haploinsufficiency. The higher the score the more likely the gene ishaploinsufficient. (from doi: 10.1093/nar/gkv474) 
+661	P(rec): Estimated probability that gene is a recessive disease gene(from DOI:10.1126/science.1215040)
+662	Known_rec_info: Known recessive status of the gene (from DOI:10.1126/science.1215040)"lof-tolerant = seen in homozygous state in at least one 1000G individual""recessive = known OMIM recessive disease" (original annotations from DOI:10.1126/science.1215040)
+663	RVIS_EVS: Residual Variation Intolerance Score, a measure of intolerance of mutational burden,the higher the score the more tolerant to mutational burden the gene is. Based on EVS (ESP6500) data.from doi:10.1371/journal.pgen.1003709
+664	RVIS_percentile_EVS: The percentile rank of the gene based on RVIS, the higher the percentilethe more tolerant to mutational burden the gene is. Based on EVS (ESP6500) data.
+665	LoF-FDR_ExAC: "A gene's corresponding FDR p-value for preferential LoF depletion among the ExAC population.Lower FDR corresponds with genes that are increasingly depleted of LoF variants." cited from RVIS document.
+666	RVIS_ExAC: "ExAC-based RVIS; setting 'common' MAF filter at 0.05% in at least one of the six individualethnic strata from ExAC." cited from RVIS document.
+667	RVIS_percentile_ExAC: "Genome-Wide percentile for the new ExAC-based RVIS; setting 'common' MAF filter at 0.05%in at least one of the six individual ethnic strata from ExAC." cited from RVIS document.
+668	ExAC_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and homozygous lof variants)" based on ExAC r0.3 data
+669	ExAC_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"based on ExAC r0.3 data
+670	ExAC_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"based on ExAC r0.3 data
+671	ExAC_nonTCGA_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and homozygous lof variants)" based on ExAC r0.3 nonTCGA subset
+672	ExAC_nonTCGA_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"based on ExAC r0.3 nonTCGA subset
+673	ExAC_nonTCGA_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"based on ExAC r0.3 nonTCGA subset
+674	ExAC_nonpsych_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and homozygous lof variants)" based on ExAC r0.3 nonpsych subset
+675	ExAC_nonpsych_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"based on ExAC r0.3 nonpsych subset
+676	ExAC_nonpsych_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"based on ExAC r0.3 nonpsych subset
+677	gnomAD_pLI: "the probability of being loss-of-function intolerant (intolerant of both heterozygous and homozygous lof variants)" based on gnomAD 2.1 data
+678	gnomAD_pRec: "the probability of being intolerant of homozygous, but not heterozygous lof variants"based on gnomAD 2.1 data
+679	gnomAD_pNull: "the probability of being tolerant of both heterozygous and homozygous lof variants"based on gnomAD 2.1 data
 680	ExAC_del.score: "Winsorised deletion intolerance z-score" based on ExAC r0.3.1 CNV data
 681	ExAC_dup.score: "Winsorised duplication intolerance z-score" based on ExAC r0.3.1 CNV data
 682	ExAC_cnv.score: "Winsorised cnv intolerance z-score" based on ExAC r0.3.1 CNV data
-683	ExAC_cnv_flag: "Gene is in a known region of recurrent CNVs mediated by tandem segmental duplications and
-		intolerance scores are more likely to be biased or noisy." from ExAC r0.3.1 CNV release
-684	GDI: gene damage index score, "a genome-wide, gene-level metric of the mutational damage that has
-		accumulated in the general population" from doi: 10.1073/pnas.1518646112. The higher the score
-		the less likely the gene is to be responsible for monogenic diseases.
+683	ExAC_cnv_flag: "Gene is in a known region of recurrent CNVs mediated by tandem segmental duplications andintolerance scores are more likely to be biased or noisy." from ExAC r0.3.1 CNV release
+684	GDI: gene damage index score, "a genome-wide, gene-level metric of the mutational damage that hasaccumulated in the general population" from doi: 10.1073/pnas.1518646112. The higher the scorethe less likely the gene is to be responsible for monogenic diseases.
 685	GDI-Phred: Phred-scaled GDI scores
-686	Gene damage prediction (all disease-causing genes): gene damage prediction (low/medium/high) by GDI
-		for all diseases
-687	Gene damage prediction (all Mendelian disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for all Mendelian diseases
-688	Gene damage prediction (Mendelian AD disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for Mendelian autosomal dominant diseases
-689	Gene damage prediction (Mendelian AR disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for Mendelian autosomal recessive diseases
-690	Gene damage prediction (all PID disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for all primary immunodeficiency diseases
-691	Gene damage prediction (PID AD disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for primary immunodeficiency autosomal dominant diseases
-692	Gene damage prediction (PID AR disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for primary immunodeficiency autosomal recessive diseases
-693	Gene damage prediction (all cancer disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for all cancer disease
-694	Gene damage prediction (cancer recessive disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for cancer recessive disease
-695	Gene damage prediction (cancer dominant disease-causing genes): gene damage prediction (low/medium/high)
-		by GDI for cancer dominant disease
-696	LoFtool_score: a percentile score for gene intolerance to functional change. The lower the score the higher
-		gene intolerance to functional change. For details see doi: 10.1093/bioinformatics/btv602.
-697	SORVA_LOF_MAF0.005_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Heterozygote or Homozygote of LOF SNVs whose MAF<0.005. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-698	SORVA_LOF_MAF0.005_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Compound Heterozygote or Homozygote of LOF SNVs whose MAF<0.005. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-699	SORVA_LOF_MAF0.001_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Heterozygote or Homozygote of LOF SNVs whose MAF<0.001. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-700	SORVA_LOF_MAF0.001_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Compound Heterozygote or Homozygote of LOF SNVs whose MAF<0.001. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-701	SORVA_LOForMissense_MAF0.005_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.005. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-702	SORVA_LOForMissense_MAF0.005_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Compound Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.005. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-703	SORVA_LOForMissense_MAF0.001_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.001. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-704	SORVA_LOForMissense_MAF0.001_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)
-		who are either Compound Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.001. This fraction is from 
-		a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). 
-		Please see doi: 10.1101/103218 for details.
-705	Essential_gene: Essential ("E") or Non-essential phenotype-changing ("N") based on
-		Mouse Genome Informatics database. from doi:10.1371/journal.pgen.1003484
-706	Essential_gene_CRISPR: Essential ("E") or Non-essential phenotype-changing ("N") based on 
-		large scale CRISPR experiments. from doi: 10.1126/science.aac7041
-707	Essential_gene_CRISPR2: Essential ("E"), context-Specific essential ("S"), or Non-essential phenotype-changing ("N") 
-		based on large scale CRISPR experiments. from http://dx.doi.org/10.1016/j.cell.2015.11.015
-708	Essential_gene_gene-trap: Essential ("E"), HAP1-Specific essential ("H"), KBM7-Specific essential ("K"),
-		or Non-essential phenotype-changing ("N"), based on large scale mutagenesis experiments. 
-		from doi: 10.1126/science.aac7557
+686	Gene damage prediction (all disease-causing genes): gene damage prediction (low/medium/high) by GDIfor all diseases
+687	Gene damage prediction (all Mendelian disease-causing genes): gene damage prediction (low/medium/high)by GDI for all Mendelian diseases
+688	Gene damage prediction (Mendelian AD disease-causing genes): gene damage prediction (low/medium/high)by GDI for Mendelian autosomal dominant diseases
+689	Gene damage prediction (Mendelian AR disease-causing genes): gene damage prediction (low/medium/high)by GDI for Mendelian autosomal recessive diseases
+690	Gene damage prediction (all PID disease-causing genes): gene damage prediction (low/medium/high)by GDI for all primary immunodeficiency diseases
+691	Gene damage prediction (PID AD disease-causing genes): gene damage prediction (low/medium/high)by GDI for primary immunodeficiency autosomal dominant diseases
+692	Gene damage prediction (PID AR disease-causing genes): gene damage prediction (low/medium/high)by GDI for primary immunodeficiency autosomal recessive diseases
+693	Gene damage prediction (all cancer disease-causing genes): gene damage prediction (low/medium/high)by GDI for all cancer disease
+694	Gene damage prediction (cancer recessive disease-causing genes): gene damage prediction (low/medium/high)by GDI for cancer recessive disease
+695	Gene damage prediction (cancer dominant disease-causing genes): gene damage prediction (low/medium/high)by GDI for cancer dominant disease
+696	LoFtool_score: a percentile score for gene intolerance to functional change. The lower the score the highergene intolerance to functional change. For details see doi: 10.1093/bioinformatics/btv602.
+697	SORVA_LOF_MAF0.005_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Heterozygote or Homozygote of LOF SNVs whose MAF<0.005. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+698	SORVA_LOF_MAF0.005_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Compound Heterozygote or Homozygote of LOF SNVs whose MAF<0.005. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+699	SORVA_LOF_MAF0.001_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Heterozygote or Homozygote of LOF SNVs whose MAF<0.001. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+700	SORVA_LOF_MAF0.001_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Compound Heterozygote or Homozygote of LOF SNVs whose MAF<0.001. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+701	SORVA_LOForMissense_MAF0.005_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.005. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+702	SORVA_LOForMissense_MAF0.005_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Compound Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.005. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+703	SORVA_LOForMissense_MAF0.001_HetOrHom: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.001. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+704	SORVA_LOForMissense_MAF0.001_HomOrCompoundHet: the fraction of individuals in the 1000 Genomes Project data (N=2504)who are either Compound Heterozygote or Homozygote of LOF or missense SNVs whose MAF<0.001. This fraction is from a method for ranking genes based on mutational burden called SORVA (Significance Of Rare VAriants). Please see doi: 10.1101/103218 for details.
+705	Essential_gene: Essential ("E") or Non-essential phenotype-changing ("N") based onMouse Genome Informatics database. from doi:10.1371/journal.pgen.1003484
+706	Essential_gene_CRISPR: Essential ("E") or Non-essential phenotype-changing ("N") based on large scale CRISPR experiments. from doi: 10.1126/science.aac7041
+707	Essential_gene_CRISPR2: Essential ("E"), context-Specific essential ("S"), or Non-essential phenotype-changing ("N") based on large scale CRISPR experiments. from http://dx.doi.org/10.1016/j.cell.2015.11.015
+708	Essential_gene_gene-trap: Essential ("E"), HAP1-Specific essential ("H"), KBM7-Specific essential ("K"),or Non-essential phenotype-changing ("N"), based on large scale mutagenesis experiments. from doi: 10.1126/science.aac7557
 709	Gene_indispensability_score: A probability prediction of the gene being essential. From doi:10.1371/journal.pcbi.1002886
 710	Gene_indispensability_pred: Essential ("E") or loss-of-function tolerant ("N") based on Gene_indispensability_score.
 711	MGI_mouse_gene: Homolog mouse gene name from MGI
 712	MGI_mouse_phenotype: Phenotype description for the homolog mouse gene from MGI
 713	ZFIN_zebrafish_gene: Homolog zebrafish gene name from ZFIN
 714	ZFIN_zebrafish_structure: Affected structure of the homolog zebrafish gene from ZFIN
-715	ZFIN_zebrafish_phenotype_quality: Phenotype description for the homolog zebrafish gene
-		from ZFIN
+715	ZFIN_zebrafish_phenotype_quality: Phenotype description for the homolog zebrafish genefrom ZFIN
 716	ZFIN_zebrafish_phenotype_tag: Phenotype tag for the homolog zebrafish gene from ZFIN
 
 Columns of dbscSNV1.1:
@@ -1271,22 +797,15 @@ Columns of dbscSNV1.1:
 	Ensembl_gene: gene id according to Ensembl
 	Ensembl_functional_consequence: functional consequence of the SNV according to Ensembl
 	Ensembl_id_c.change_p.change: SNV in format of c.change and p.change according to Ensembl
-	ada_score: ensemble prediction score based on ada-boost. Ranges 0 to 1. The larger the 
-		score the higher probability the scSNV will affect splicing. The suggested cutoff for
-		a binary prediction (affecting splicing vs. not affecting splicing) is 0.6.
-	rf_score: ensemble prediction score based on random forests. Ranges 0 to 1. The larger the 
-		score the higher probability the scSNV will affect splicing. The suggested cutoff for
-		a binary prediction (affecting splicing vs. not affecting splicing) is 0.6.
+	ada_score: ensemble prediction score based on ada-boost. Ranges 0 to 1. The larger the score the higher probability the scSNV will affect splicing. The suggested cutoff fora binary prediction (affecting splicing vs. not affecting splicing) is 0.6.
+	rf_score: ensemble prediction score based on random forests. Ranges 0 to 1. The larger the score the higher probability the scSNV will affect splicing. The suggested cutoff fora binary prediction (affecting splicing vs. not affecting splicing) is 0.6.
 	
 	Note 1: Missing data is designated as '.'. 
 	Note 2: Multiple annotations are separated by ';'
 
 Please cite:
-	Liu X, Jian X, and Boerwinkle E. 2011. dbNSFP: a lightweight database of human 
-		non-synonymous SNPs and their functional predictions. Human Mutation. 32:894-899.
-	Liu X, Wu C, Li C and Boerwinkle E. 2016. dbNSFP v3.0: A One-Stop Database of Functional 
-		Predictions and Annotations for Human Non-synonymous and Splice Site SNVs. 
-		Human Mutation. 37(3):235-241.
+	Liu X, Jian X, and Boerwinkle E. 2011. dbNSFP: a lightweight database of human non-synonymous SNPs and their functional predictions. Human Mutation. 32:894-899.
+	Liu X, Wu C, Li C and Boerwinkle E. 2016. dbNSFP v3.0: A One-Stop Database of Functional Predictions and Annotations for Human Non-synonymous and Splice Site SNVs. Human Mutation. 37(3):235-241.
 
 Contact:
 	Xiaoming Liu, Ph.D.

@@ -732,11 +732,15 @@ Ran the tool `SnpSift` to further annotate our `vcf` file. This tool compares th
 </pre>
 ```
 
+One last pass with `SnipSift`, this time through a command to add metadata from the NSFP database.
+
 ```{bash eval=FALSE}
 
 java -jar /data/datasets/dbNSFP/snpEff/SnpSift.jar DbNsfp -db /data/datasets/dbNSFP/snpEff/data/dbNSFP4.3c.txt.gz SnpVariants_Step2.vcf > SnpVariants_Step3.vcf
 
 ```
+
+In this section we can parse our `vcf` file in order to generate a table with descriptions about all the fields added.
 
 ```{r include=FALSE}
 if (!require(stringr))
@@ -756,10 +760,10 @@ snpVcf <- snpVcf[str_detect(snpVcf, "##INFO")]
 #Remove identifier fields
 snpVcf <- str_remove_all(snpVcf, "(##INFO=<ID=|Number=|Type=|Description=|\\\\|\"|>)")
 snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
-snpVcf$ID[32:75] <- str_remove(snpVcf$ID[32:75], "dbNSFP_")
 
 #Create table from resulting values
 snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
+snpVcf$ID[32:75] <- str_remove(snpVcf$ID[32:75], "dbNSFP_")
 
 #Assign database
 #Index 1 to 7 are from database Human Genome 38 (hg.38)
@@ -770,26 +774,37 @@ snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "GRCh38.p14"), replicat
 
 ```
 
+The file doesn't include explicit descriptions of the NSFP database fields. However, we can download the (documentation file)[https://usf.app.box.com/s/vjigc1jponlbdpkp8ifsxl0zmumm61sh] and parse it too.
+
 ```{r}
 
+#Read text documentation file
 nsfpDocs <- readLines("./dbNSFP4.3c.readme.txt")
+#Vector of IDs to compare against the many entries in the file
 nsfpIDs <- snpVcf$ID[32:75]
 nsfpIDs <- str_remove(nsfpIDs, " ")
 nsfpIDs <- paste0(nsfpIDs, ":")
 
+#Look up and add descriptions in correct order
+#IMPORTANT: File has been edited with an IDE in order to simplify this R code.
 nsfpDocsLines <- c()
-
 for (id in nsfpIDs) {
   newLine <- nsfpDocs[str_detect(nsfpDocs, id)]
-  if (identical(newLine, character(0))) nsfpDocsLines <- c(nsfpDocsLines, "") 
   nsfpDocsLines <- c(nsfpDocsLines, newLine)
 }
 
+#Remove unnecessary strings
 nsfpDocsLines <- str_remove_all(nsfpDocsLines, "(.+:\\s|\\\t|\\\\|\")")
 
+#Assign new descriptions to corresponding entries
 snpVcf$Description[32:75] <- nsfpDocsLines
 
 ```
 
+Our resulting table:
+
+```{r}
+snpVcf
+```
 
 ### Analyzing Variant Annotation
