@@ -736,7 +736,9 @@ One last pass with `SnipSift`, this time through a command to add metadata from 
 
 ```{bash eval=FALSE}
 
-java -jar /data/datasets/dbNSFP/snpEff/SnpSift.jar DbNsfp -db /data/datasets/dbNSFP/snpEff/data/dbNSFP4.3c.txt.gz SnpVariants_Step2.vcf > SnpVariants_Step3.vcf
+#Missing fields of interest (not available in dbNSFP5.3.1a) LRT_pred, FATHMM_pred, FATHMM_score, SiPhy_29way_logOdds, gnomAD_exomes_AF gnomAD_genomes_AF
+
+java -jar /data/datasets/dbNSFP/snpEff/SnpSift.jar DbNsfp -db /data/datasets/dbNSFP/snpEff/data/dbNSFP5.3.1a_grch38.gz SnpVariants_Step2.vcf > SnpVariants_Step3.vcf -f "SIFT_pred,SIFT_score,Polyphen2_HDIV_pred,Polyphen2_HDIV_score,Polyphen2_HVAR_pred,Polyphen2_HVAR_score,MutationTaster_pred,REVEL_score,VEST4_score,phyloP100way_vertebrate,GERP++_NR,GERP++_RS"
 
 ```
 
@@ -763,14 +765,14 @@ snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
 
 #Create table from resulting values
 snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
-snpVcf$ID[32:75] <- str_remove(snpVcf$ID[32:75], "dbNSFP_")
+snpVcf$ID[32:43] <- str_remove(snpVcf$ID[32:43], "dbNSFP_")
 
 #Assign database
 #Index 1 to 7 are from database Human Genome 38 (hg.38)
 #Index 8 to 10 are from database GRCh38.p14, assignment step 1 (SnpEff)
 #Index 11 to 31 are from database dbSnp_clinvar, assignment step 2 (SnpSift)
-#Index 32 to 75 are from database dbNSFP, assignment step 3 (SnpSift)
-snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "GRCh38.p14"), replicate(21, "dbSnp_clinvar"), replicate(44, "dbNSFP4.3c"))
+#Index 32 to 43 are from database dbNSFP, assignment step 3 (SnpSift)
+snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "GRCh38.p14"), replicate(21, "dbSnp_clinvar"), replicate(12, "dbNSFP5.3.1a"))
 
 ```
 
@@ -779,9 +781,9 @@ The file doesn't include explicit descriptions of the NSFP database fields. Howe
 ```{r}
 
 #Read text documentation file
-nsfpDocs <- readLines("./dbNSFP4.3c.readme.txt")
+nsfpDocs <- readLines("./dbNSFP5.3.1a.readme.txt")
 #Vector of IDs to compare against the many entries in the file
-nsfpIDs <- snpVcf$ID[32:75]
+nsfpIDs <- snpVcf$ID[32:43]
 nsfpIDs <- str_remove(nsfpIDs, " ")
 nsfpIDs <- paste0(nsfpIDs, ":")
 
@@ -790,6 +792,7 @@ nsfpIDs <- paste0(nsfpIDs, ":")
 nsfpDocsLines <- c()
 for (id in nsfpIDs) {
   newLine <- nsfpDocs[str_detect(nsfpDocs, id)]
+  if (identical(newLine, character(0))) nsfpDocsLines <- c(nsfpDocsLines, "") 
   nsfpDocsLines <- c(nsfpDocsLines, newLine)
 }
 
@@ -797,7 +800,7 @@ for (id in nsfpIDs) {
 nsfpDocsLines <- str_remove_all(nsfpDocsLines, "(.+:\\s|\\\t|\\\\|\")")
 
 #Assign new descriptions to corresponding entries
-snpVcf$Description[32:75] <- nsfpDocsLines
+snpVcf$Description[32:43] <- nsfpDocsLines
 
 ```
 
