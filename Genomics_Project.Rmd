@@ -763,13 +763,12 @@ snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
 
 #Create table from resulting values
 snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
-#snpVcf$ID[32:43] <- str_remove(snpVcf$ID[32:505], "dbNSFP_")
 
 #Assign database
 #Index 1 to 7 are from database Human Genome 38 (hg.38)
 #Index 8 to 10 are from database GRCh38.p14, assignment step 1 (SnpEff)
 #Index 11 to 31 are from database dbSnp_clinvar, assignment step 2 (SnpSift)
-#Index 32 to 43 are from database dbNSFP, assignment step 3 (SnpSift)
+#Index 32 to 536 are from database dbNSFP, assignment step 3 (SnpSift)
 snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "GRCh38.p14"), replicate(21, "dbSnp_clinvar"), replicate(505, "dbNSFP5.3.1a"))
 
 ```
@@ -809,22 +808,29 @@ snpVcf$Description[32:536] <- nsfpDocsLines
 
 ```
 
-```{r}
-strings <- c("dbNSFP_gnomAD4.1_joint_POPMAX_AF","dbNSFP_gnomAD2.1.1_exomes_controls","dbNSFP_REVEL_score","dbNSFP_SIFT_pred","dbNSFP_SIFT_score","dbNSFP_Polyphen2_HDIV_pred","dbNSFP_Polyphen2_HVAR_pred","dbNSFP_MutationTaster_pred","dbNSFP_CADD_phred","dbNSFP_VEST4_score","dbNSFP_ESM1b_pred","dbNSFP_phyloP100way_vertebrate","dbNSFP_GERP___NR","dbNSFP_GERP___RS","dbNSFP_fathmm_XF_coding_pred","dbNSFP_BayesDel_addAF_pred","dbNSFP_MetaSVM_pred","dbNSFP_MetaLR_pred")
-for (s in strings) {
-  temp <- nsfpDocs[str_detect(snpVcf$ID, s)]
-  if (identical(temp, character(0))) print(s)
-}
-```
-
 ```{bash eval=FALSE}
 java -jar /data/datasets/dbNSFP/snpEff/SnpSift.jar extractFields SnpVariants_Step3.vcf -s ";" CHROM POS ID REF ALT FILTER ANN[*].EFFECT ANN[*].IMPACT ANN[*].GENE ANN[*].FEATURE ANN[*].FEATUREID ANN[*].BIOTYPE CLNDN CLNSIG CLNVC dbNSFP_gnomAD4.1_joint_POPMAX_AF dbNSFP_gnomAD2.1.1_exomes_controls_POPMAX_AF dbNSFP_REVEL_score dbNSFP_SIFT_pred dbNSFP_SIFT_score dbNSFP_Polyphen2_HDIV_pred dbNSFP_Polyphen2_HVAR_pred dbNSFP_MutationTaster_pred dbNSFP_CADD_phred dbNSFP_VEST4_score dbNSFP_ESM1b_pred dbNSFP_phyloP100way_vertebrate dbNSFP_GERP___NR dbNSFP_GERP___RS dbNSFP_fathmm_XF_coding_pred dbNSFP_BayesDel_addAF_pred dbNSFP_MetaSVM_pred dbNSFP_MetaLR_pred > SnpVariants_Filtered.txt
 ```
 
+```{r include=FALSE}
+if (!require(tidyverse))
+  install.packages('tidyverse')
+```
+
+```{r message=FALSE}
+library(tidyverse)
+```
+
 ```{r}
-snpFilteredVariants <- read.table("./SnpVariants_Filtered.txt", sep = "", quote = "", fill = T, header = T)
+snpFilteredVariants <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
+
+snpFilteredVariants <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
+
+snpFilteredVariantsTest <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
 ```
+
+
 
 
 ### Analyzing Variant Annotation
