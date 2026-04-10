@@ -489,7 +489,7 @@ cat("Length of SOD2:", sum( width(iranges) ), "bp")
 ```{r}
 
 geneList <- list()
-refGen$Gene[1]
+unique(refGen$Gene)
 for (geneName in unique(refGen$Gene)){
   gene <- refGen[refGen$Gene == geneName,]
   iranges <- IRanges(start = gene$`Exon Start`, end = gene$`Exon End`, names = gene$Gene)
@@ -773,7 +773,9 @@ snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "GRCh38.p14"), replicat
 
 ```
 
-The file doesn't include explicit descriptions of the NSFP database fields. However, we can download the (documentation file)[https://usf.app.box.com/s/vjigc1jponlbdpkp8ifsxl0zmumm61sh] and parse it too.
+The file doesn't include explicit descriptions of the NSFP database fields. However, we can download the (documentation file)[<https://drive.google.com/file/d/1lx26ftYpsQEi5tp1LzF7a4U2Ak8oYKXn/view>] and parse it too.
+
+### Analyzing Variant Annotation
 
 ```{r}
 
@@ -825,13 +827,45 @@ library(tidyverse)
 snpFilteredVariants <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
 
 snpFilteredVariants <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
+snpFilteredVariants
+snpFilteredVariantsCollapsed <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
 snpFilteredVariantsTest <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
 View(snpFilteredVariantsTest)
+for (pos in snpFilteredVariantsCollapsed$POS) {
+  p <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$POS, as.character(pos)))
+  snpFilteredVariantsCollapsed$ANN....FEATUREID[which(snpFilteredVariantsCollapsed$POS == pos)] <- paste(p$ANN....FEATUREID, collapse = "|")
+}
+snpFilteredVariantsCollapsed
 ```
 
+| Position | Variant | Gene |
+|:----------------------------------:|:----------------------------------:|
+| 86668578 | [NM_001171610.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/4812043/) | LDB3 |
+| 23392602 | [NM_002471.4](https://www.ncbi.nlm.nih.gov/clinvar/variation/4813436/) | MYH6 |
+| 130463597 | [NM_001371926.1](https://www.ncbi.nlm.nih.gov/clinvar/variation/3770524/) | POTEI |
+| 131264056 | [NM_001083538.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/2651372/) | POTEE |
+| 178580041 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
+| 178597531 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
+| 178715250 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
+| 178777698 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
+| 31478309 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD |
+| 31478314 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD |
 
+## Variant Visualization
 
+```{r include=FALSE}
+if (!require(trackViewer))
+  BiocManager::install("trackViewer")
+```
 
-### Analyzing Variant Annotation
+```{r message=FALSE}
+library(trackViewer)
+```
+
+```{r}
+sample.gr <- vcfGRanges
+features <- geneList$LDB3
+lolliplot(sample.gr, features)
+```
