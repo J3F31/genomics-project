@@ -30,7 +30,9 @@ knitr::opts_chunk$set(
 
 library(knitr)
 library(ggplot2)
+library(tidyverse)
 library(dplyr)
+library(trackViewer)
 ```
 
 # Abstract
@@ -784,28 +786,6 @@ We used `SnpSift` to annotate our VCF with the `dbNSFP` database, a comprehensiv
 
 After completing the annotation workflow in Galaxy, we performed additional processing in R to extract and summarize the metadata from our annotated VCF file. The final output consolidates the key annotation data added during each step of the workflow. A brief summary of the added annotation sources and the types of values they provide is presented in the table below.
 
-```{r}
-library(stringr)
-
-#Read metadata description fields from final vcf file
-snpVcf <- readLines("./SnpVariants_Step3.vcf")
-snpVcf <- snpVcf[str_detect(snpVcf, "##INFO")]
-
-#Remove identifier fields
-snpVcf <- str_remove_all(snpVcf, "(##INFO=<ID=|Number=|Type=|Description=|\\\\|\"|>)")
-snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
-
-#Create table from resulting values
-snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
-
-#Assign database
-#Index 1 to 7 are from database Human Genome 38 (hg.38)
-#Index 8 to 10 are from assignment step 1, SnpEff
-#Index 11 to 31 are from assignment step 2, SnpSift
-#Index 32 to 75 are from assignment step 3, dbNSFP
-snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "SnpEff"), replicate(21, "SnpSift"), replicate(44, "dbNSFP"))
-
-```
 
 ### Analyzing Variant Annotation
 
@@ -835,14 +815,25 @@ After generating two separate tabular files—one containing SnpEff and ClinVar 
 | ANN[\*].FEATUREID | Unique transcript identifier for cross-referencing |
 | ANN[\*].BIOTYPE | Transcript classification (protein_coding, pseudogene) |
 | CLNDN, CLNSIG, CLNVC | Clinical significance and disease associations from ClinVar |
-| dbNSFP_ExAC_Adj_AF | Population frequency to filter common variants |
-| dbNSFP_MetaSVM_pred | Ensemble prediction for missense impact |
-| dbNSFP_Interpro_domain | Protein domain context for functional assessment |
-| dbNSFP_LRT_pred | Evolutionary-based deleteriousness prediction |
-| dbNSFP_phastCons100way_vertebrate | Conservation score for functionally important positions |
+| dbNSFP_REVEL_score | Ensemble meta-predictor for missense pathogenicity |
+| dbNSFP_SIFT_pred, dbNSFP_SIFT_score | SIFT prediction and score for missense deleteriousness |
+| dbNSFP_Polyphen2_HDIV_pred, dbNSFP_Polyphen2_HVAR_pred | Polyphen2 predictions (human diversity and human variation modes) |
 | dbNSFP_MutationTaster_pred | Comprehensive disease-causing prediction |
-| dbNSFP_MutationAssessor_pred | Residue functional importance ranking |
-| dbNSFP_SIFT_pred | Classic missense deleteriousness prediction |
+| dbNSFP_CADD_phred | Combined Annotation Dependent Depletion (CADD) phred score for variant deleteriousness |
+| dbNSFP_VEST4_score | Variant Effect Scoring Tool (VEST4) for missense pathogenicity |
+| dbNSFP_ESM1b_pred | Evolutionary Scale Modeling (ESM1b) prediction for protein variant effects |
+| dbNSFP_phyloP100way_vertebrate | Phylogenetic conservation score across 100 vertebrates |
+| dbNSFP_GERP___NR, dbNSFP_GERP___RS | Genomic Evolutionary Rate Profiling (GERP) rejected substitutions and neutral rate scores |
+| dbNSFP_fathmm_XF_coding_pred | Functional Analysis Through Hidden Markov Models (fathmm) coding variant prediction |
+| dbNSFP_BayesDel_addAF_pred | Bayesian deleteriousness prediction incorporating allele frequency |
+| dbNSFP_MetaSVM_pred, dbNSFP_MetaLR_pred | Ensemble SVM and logistic regression meta-predictors for missense impact |
+
+```{r}
+
+snpFilteredVariants_1 <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
+#View(snpFilteredVariants_1)
+
+```
 
 **Finding Variants of Interest**
 
@@ -851,15 +842,123 @@ With the merged tabular file containing all relevant annotations in a clean, str
 here we will do some R code to filter the file, As an end product for this step you are expected to include a nice table including at least 10 variants in your report that contains all relevant information for each of them, i.e. the chromomsome, position, reference and variant nucleotides, gene name and all relevant scores.
 
 ```{r}
-merged_tabular <- readLines("./Step1_2_tabular.tabular") #this will change to new update 
-merged_tabular
+
+snpFilteredVariants_1 <- snpFilteredVariants_1 %>%  
+  filter(
+    str_detect(ANN....EFFECT, "splice_region_variant|missense_variant"),
+    #str_detect(ANN....IMPACT, "HIGH|MODERATE")
+  )
+
+#%>%
+#select(
+ #   -REF, 
+  #  -ALT, 
+   # -`ANN....BIOTYPE`, 
+    #-FILTER, 
+    #-ANN....FEATURE, 
+    #-CLNVC
+  #)
+  
+  snpFilteredVariants_Unique <- snpFilteredVariants_1 %>%
+  distinct(POS, REF, ALT, .keep_all = TRUE)
+
+write.csv(snpFilteredVariants_Unique, "variants_Unique.csv", row.names = FALSE)
+
+
+head(snpFilteredVariants_Unique, n=10)
 
 ```
 
+### Variant Visualization
+
+```{r}
+if (!require(trackViewer))
+  BiocManager::install("trackViewer")
+```
+
+
+```{r}
+snpFilteredTable <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
+snpFilteredVariants <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
+snpFilteredVariantsCollapsed <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
+
+snpFilteredVariantsTest <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
+
+View(snpFilteredVariantsTest)
+for (pos in snpFilteredVariantsCollapsed$POS) {
+  p <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$POS, as.character(pos)))
+  snpFilteredVariantsCollapsed$ANN....FEATUREID[which(snpFilteredVariantsCollapsed$POS == pos)] <- paste(p$ANN....FEATUREID, collapse = "|")
+}
+snpFilteredVariantsCollapsed <- filter(snpFilteredVariantsCollapsed, snpFilteredVariantsCollapsed$ANN....GENE %in% names(final_GRange_list))
+snpFilteredVariantsCollapsed <- arrange(snpFilteredVariantsCollapsed, desc(snpFilteredVariantsCollapsed$ANN....IMPACT))
+snpFilteredVariantsCollapsed
+```
+| Position | Variant | Gene | Impact | Condition |
+|------------|------------|------------|------------|------------------------|
+| 23392602 | [NM_002471.4](https://www.ncbi.nlm.nih.gov/clinvar/variation/4813436/) | MYH6 | Moderate | Dilated cardiomyopathy 1EE |
+| 178580041 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Moderate | Dilated cardiomyopathy 1G |
+| 178715250 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Moderate | Dilated cardiomyopathy 1G |
+| 31478309 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD | Moderate | Dilated cardiomyopathy 3B |
+| 31478314 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD | Moderate | Dilated cardiomyopathy 3B |
+| 86668578 | [NM_001171610.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/4812043/) | LDB3 | Low | Myofibrillar myopathy 4 |
+| 178597531 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Low | Dilated cardiomyopathy 1G |
+| 178777698 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Low | Dilated cardiomyopathy 1G |
+
+
+```{r}
+variantsTTN <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "TTN"))
+variantsTTN <- distinct(variantsTTN, variantsTTN$POS, .keep_all = T)
+variantsTTN
+```
+
+```{r}
+
+Pre_samlple <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS, ANN....EFFECT = variantsTTN$ANN....EFFECT,ANN....IMPACT =variantsTTN$ANN....IMPACT )
+#Pre_samlple
+sample.gr <- Pre_samlple[str_detect(Pre_samlple$ANN....EFFECT, "(missense_variant|splice_region_variant)")]
+sample.gr
+#sample.gr$score <- sample.gr$AF * 100
+#sample.gr <- setNames(sample.gr, sample.gr$score)
+
+sample.gr$node.label <- as.character(sample.gr$ANN....EFFECT)
+sample.gr$label.parameter.rot <- 45
+sample.gr$label.parameter.pos <- 3
+
+
+features <- final_GRange_list$TTN
+
+features$fill <- c( "#51C6E6")
+
+#sample.gr$color[sample.gr$ANN....IMPACT == "HIGH"] <- 2    # red
+sample.gr$color[sample.gr$ANN....IMPACT == "MODERATE"] <- 2 # green
+sample.gr$color[sample.gr$ANN....IMPACT == "LOW"] <- 4      # blue
+
+sample.gr$border <- sample(c("gray80", "gray30"), length(sample.gr), replace=TRUE)
+sample.gr$alpha <- sample(100:255, length(sample.gr), replace = TRUE)/255
+
+
+#features$height <- c(0.02)
+
+features$height <- list(unit(1/16, "inches"),
+                        unit(3, "mm"),
+                        unit(12, "points"))
+
+
+#sample.gr$score <- sample.int(15, length(sample.gr), replace=TRUE)
+#sample.gr$node.label <- as.character(sample.gr$score)
+
+
+
+grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
+
+#lolliplot(sample.gr, features, lollipop_style_switch_limit=15)
+lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="pin", legend = legend)
+```
 
 # Discussion
 
 The identified variants provide insight into the genetic basis of cardiomyopathy in the analyzed patient sample. While some variants occur in known cardiomyopathy-associated genes, further validation is required to assess their pathogenicity.
+
 
 ### Limitations
 
