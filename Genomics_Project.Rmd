@@ -824,8 +824,8 @@ library(tidyverse)
 ```
 
 ```{r}
-snpFilteredVariants <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
-snpFilteredVariants <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
+snpFilteredTable <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
+snpFilteredVariants <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
 snpFilteredVariantsCollapsed <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
 for (pos in snpFilteredVariantsCollapsed$POS) {
@@ -860,7 +860,18 @@ library(trackViewer)
 ```
 
 ```{r}
-sample.gr <- vcfGRanges
-features <- geneList$LDB3
-lolliplot(sample.gr, features)
+variantsTTN <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "TTN"))
+variantsTTN <- distinct(variantsTTN, variantsTTN$POS, .keep_all = T)
+variantsTTN
+```
+
+```{r}
+sample.gr <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
+#sample.gr$score <- sample.gr$AF * 100
+#sample.gr <- setNames(sample.gr, sample.gr$score)
+#sample.gr$node.label <- as.character(sample.gr$score)
+features <- geneList$TTN
+features$fill <- c("red")
+features$height <- c(0.02)
+lolliplot(sample.gr, features, ylab = "Allele Frequency (%)")
 ```
