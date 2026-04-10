@@ -828,6 +828,7 @@ snpFilteredVariants <- filter(snpFilteredVariants, str_detect(snpFilteredVariant
 
 snpFilteredVariantsTest <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
+View(snpFilteredVariantsTest)
 ```
 
 
