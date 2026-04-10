@@ -825,9 +825,7 @@ library(tidyverse)
 
 ```{r}
 snpFilteredVariants <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
-
 snpFilteredVariants <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
-snpFilteredVariants
 snpFilteredVariantsCollapsed <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
 snpFilteredVariantsTest <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
@@ -837,21 +835,21 @@ for (pos in snpFilteredVariantsCollapsed$POS) {
   p <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$POS, as.character(pos)))
   snpFilteredVariantsCollapsed$ANN....FEATUREID[which(snpFilteredVariantsCollapsed$POS == pos)] <- paste(p$ANN....FEATUREID, collapse = "|")
 }
+snpFilteredVariantsCollapsed <- filter(snpFilteredVariantsCollapsed, snpFilteredVariantsCollapsed$ANN....GENE %in% names(geneList))
+snpFilteredVariantsCollapsed <- arrange(snpFilteredVariantsCollapsed, desc(snpFilteredVariantsCollapsed$ANN....IMPACT))
 snpFilteredVariantsCollapsed
 ```
 
-| Position | Variant | Gene |
-|:----------------------------------:|:----------------------------------:|
-| 86668578 | [NM_001171610.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/4812043/) | LDB3 |
-| 23392602 | [NM_002471.4](https://www.ncbi.nlm.nih.gov/clinvar/variation/4813436/) | MYH6 |
-| 130463597 | [NM_001371926.1](https://www.ncbi.nlm.nih.gov/clinvar/variation/3770524/) | POTEI |
-| 131264056 | [NM_001083538.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/2651372/) | POTEE |
-| 178580041 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
-| 178597531 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
-| 178715250 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
-| 178777698 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN |
-| 31478309 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD |
-| 31478314 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD |
+| Position | Variant | Gene | Impact | Condition |
+|------------|------------|------------|------------|------------------------|
+| 23392602 | [NM_002471.4](https://www.ncbi.nlm.nih.gov/clinvar/variation/4813436/) | MYH6 | Moderate | Dilated cardiomyopathy 1EE |
+| 178580041 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Moderate | Dilated cardiomyopathy 1G |
+| 178715250 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Moderate | Dilated cardiomyopathy 1G |
+| 31478309 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD | Moderate | Dilated cardiomyopathy 3B |
+| 31478314 | [NM_004006.3](https://www.ncbi.nlm.nih.gov/clinvar/variation/264223/) | DMD | Moderate | Dilated cardiomyopathy 3B |
+| 86668578 | [NM_001171610.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/4812043/) | LDB3 | Low | Myofibrillar myopathy 4 |
+| 178597531 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Low | Dilated cardiomyopathy 1G |
+| 178777698 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Low | Dilated cardiomyopathy 1G |
 
 ## Variant Visualization
 
