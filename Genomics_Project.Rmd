@@ -645,7 +645,7 @@ geneCoveragePositions
 
 ```{r}
 
-vcfFile <- read.delim("./CallVariants.vcf", stringsAsFactors = FALSE, comment = "#")
+vcfFile <- read.delim("./Call_Variants.vcf", stringsAsFactors = FALSE, comment = "#")
 head(vcfFile)
 
 ```
@@ -670,13 +670,13 @@ vcfGRanges <- GRanges(seqnames = vcfFile$CHROM, ranges = vcfIRanges)
 
 mcols(vcfGRanges) <- DataFrame(AF = vcfInfo$AF)
 
-vcfGRanges <- vcfGRanges[vcfGRanges$AF >= 0.3]
+vcfGRangesFiltered <- vcfGRanges[vcfGRanges$AF >= 0.3]
 
 ```
 
 ```{r}
 
-overlaps <- findOverlaps(vcfGRanges, geneList)
+overlaps <- findOverlaps(vcfGRangesFiltered, geneList)
 overlaps <- DataFrame(overlaps)
 overlaps
 
@@ -684,7 +684,7 @@ overlaps
 
 ```{r}
 
-vcfLines <- readLines("./CallVariants.vcf")
+vcfLines <- readLines("./Call_Variants.vcf")
 vcfHeader <- vcfLines[1:146]
 vcfData <- vcfLines[overlaps$queryHits + 147]
 writeLines(c(vcfHeader, vcfData), "./CallVariantsFiltered.vcf")
@@ -695,7 +695,7 @@ writeLines(c(vcfHeader, vcfData), "./CallVariantsFiltered.vcf")
 
 ```{r}
 
-hist(vcfGRanges$AF, xlab = "Allele Frequency", main = "Variant Allele Frequencies")
+hist(vcfGRangesFiltered$AF, xlab = "Allele Frequency", main = "Variant Allele Frequencies")
 
 ```
 
@@ -878,77 +878,30 @@ variantsLDB3
 ```
 
 ```{r}
-ttnGranges <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
-ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
-ttnOverlaps <- DataFrame(ttnOverlaps)
-ttnOverlaps$subjectHits
+dfGranges <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsTTN$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
 
-ttnGranges <- GRanges(seqnames = variantsMYH6$CHROM, ranges = variantsMYH6$POS)
-ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
-ttnOverlaps <- DataFrame(ttnOverlaps)
-ttnOverlaps$subjectHits
+dfGranges <- GRanges(seqnames = variantsMYH6$CHROM, ranges = variantsMYH6$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsMYH6$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
 
-ttnGranges <- GRanges(seqnames = variantsDMD$CHROM, ranges = variantsDMD$POS)
-ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
-ttnOverlaps <- DataFrame(ttnOverlaps)
-ttnOverlaps$subjectHits
+dfGranges <- GRanges(seqnames = variantsDMD$CHROM, ranges = variantsDMD$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsDMD$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
 
-ttnGranges <- GRanges(seqnames = variantsLDB3$CHROM, ranges = variantsLDB3$POS)
-ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
-ttnOverlaps <- DataFrame(ttnOverlaps)
-ttnOverlaps$subjectHits
+dfGranges <- GRanges(seqnames = variantsLDB3$CHROM, ranges = variantsLDB3$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsLDB3$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
 ```
+
 ```{r}
-sample.gr <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
-#sample.gr$score <- sample.gr$AF * 100
-#sample.gr <- setNames(sample.gr, sample.gr$score)
+sample.gr <- GRanges(seqnames = variantsMYH6$CHROM, ranges = variantsMYH6$POS)
+sample.gr$score <- variantsMYH6$AF * 100
+sample.gr <- setNames(sample.gr, variantsMYH6$POS)
 #sample.gr$node.label <- as.character(sample.gr$score)
-features <- geneList$TTN
+features <- geneList$MYH6
 features$fill <- c("red")
 features$height <- c(0.02)
 lolliplot(sample.gr, features, ylab = "Allele Frequency (%)")
-```
-
-```{r}
-
-Pre_samlple <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS, ANN....EFFECT = variantsTTN$ANN....EFFECT,ANN....IMPACT =variantsTTN$ANN....IMPACT )
-#Pre_samlple
-sample.gr <- Pre_samlple[str_detect(Pre_samlple$ANN....EFFECT, "(missense_variant|splice_region_variant)")]
-sample.gr
-#sample.gr$score <- sample.gr$AF * 100
-#sample.gr <- setNames(sample.gr, sample.gr$score)
-
-sample.gr$node.label <- as.character(sample.gr$ANN....EFFECT)
-sample.gr$label.parameter.rot <- 45
-sample.gr$label.parameter.pos <- 3
-
-
-features <- geneList$TTN
-
-features$fill <- c( "#51C6E6")
-
-#sample.gr$color[sample.gr$ANN....IMPACT == "HIGH"] <- 2    # red
-sample.gr$color[sample.gr$ANN....IMPACT == "MODERATE"] <- 2 # green
-sample.gr$color[sample.gr$ANN....IMPACT == "LOW"] <- 4      # blue
-
-sample.gr$border <- sample(c("gray80", "gray30"), length(sample.gr), replace=TRUE)
-sample.gr$alpha <- sample(100:255, length(sample.gr), replace = TRUE)/255
-
-
-#features$height <- c(0.02)
-
-features$height <- list(unit(1/16, "inches"),
-                        unit(3, "mm"),
-                        unit(12, "points"))
-
-
-#sample.gr$score <- sample.int(15, length(sample.gr), replace=TRUE)
-#sample.gr$node.label <- as.character(sample.gr$score)
-
-
-
-grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
-
-#lolliplot(sample.gr, features, lollipop_style_switch_limit=15)
-lolliplot(sample.gr, features, type="pin", legend = legend)
 ```
