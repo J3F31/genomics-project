@@ -1,7 +1,7 @@
 ---
 title: "Genomics Project Report"
 subtitle: "Master's Degree Project Report"
-author: "roa hanoun"
+author: "Roa hanoun & Jero Eyras"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -34,20 +34,6 @@ library(tidyverse)
 library(dplyr)
 library(trackViewer)
 ```
-
-# Abstract
-
-**This section will be filled in at the end of the project and will contain a concise summary of the study, including:**
-
--   Background
-
--   Objective
-
--   Methods
-
--   Key results
-
--   Conclusion
 
 # Introduction
 
@@ -94,19 +80,21 @@ The dataset used in this project consists of DNA sequencing data obtained from p
 
 Version control and collaboration were managed using **GitHub**, allowing transparent tracking of changes and shared development of the analysis. **Microsoft Teams** was used as the primary communication platform to coordinate the workflow, discuss results, and share progress with each other and with the course instructor.
 
-# Analysis Workflow
+## Analysis Workflow
 
 The overall analysis workflow is designed to identify and characterize genetic variants from DNA sequencing data in a systematic and reproducible manner. The workflow includes quality control of raw reads, read preprocessing, alignment to a reference genome, variant calling, and variant filtering and annotation. Each step of the analysis is briefly introduced here and discussed in detail in the following subsections.
 
-## Quality Control of Raw Reads
+### Quality Control of Raw Reads
 
-Quality control of raw sequencing reads was performed to evaluate data quality before downstream analysis. For this purpose, the tool **Falco** was used. A `.fastQ.gz` file was provided as input, and Falco generates several plots as output. Each plot highlights a specific aspect of the sequencing data, such as base quality scores, GC content, sequence length distribution, and the presence of adapter contamination, and provides a quality assessment in the form of **pass, warn, or fail**.
+Quality control of raw sequencing reads was performed to evaluate data quality before downstream analysis. For this purpose, the tool **Falco** was used. A `.fastQ.gz` file was provided as input, and Falco generates several plots as output. Each plot highlights a specific aspect of the sequencing data, such as base quality scores, GC content, sequence length distribution, and the presence of adapter contamination, and provides a quality assessment in the form of [pass]{style="color:#009900"}, [warn]{style="color:#999900"} or [fail]{style="color:#990000"}.
 
 ### Quality Control Results \*\* Here will add the results for r1 also! \*\*
 
 The quality control results were examined to determine whether read trimming or filtering was required before alignment. Key observations from the quality reports are summarized and interpreted in this section.
 
-### Basic Statistics
+#### - Sample1_R1_fastq_gz_R1
+
+#### Basic Statistics
 
 | Measure                           | Value                                |
 |-----------------------------------|--------------------------------------|
@@ -118,25 +106,25 @@ The quality control results were examined to determine whether read trimming or 
 | Sequence length                   | 32 - 151                             |
 | %GC:                              | 43                                   |
 
-##Per base sequence quality: pass
+#### Per base sequence quality: pass
 
 Per-base sequence quality refers to the assessment of quality scores for each nucleotide position in sequencing reads. This was evaluated using Falco, which generates a box-and-whisker plot showing Phred scores across all read positions. According to FastQC standards, a warning is issued if the lower quartile falls below 10 or the median falls below 25, whereas a failure is reported if the lower quartile falls below 5 or the median falls below **20**. The results show that all base positions in our data have quality scores ranging from **33.0 to 44.0**, which is well above both warning and failure thresholds. This indicates that our sequencing data pass the quality control check with high confidence in base-calling accuracy across all positions.
 
 ![](./assets/quality_res_byROA/Per%20base%20sequence%20quality1.png)
 
-##Per tile sequence quality : pass
+#### Per tile sequence quality : pass
 
 Per tile sequence quality examines quality variation between different tiles on the flow cell using a color scale where blue indicates average or above-average quality and red indicates lower quality. A warning is issued if any tile falls more than **2** Phred scores below the mean, and failure if more than **5** below. Our results show consistent blue coloration across all tiles with no significant deviations, confirming that the data **passes** this quality control check.
 
 ![](./assets/quality_res_byROA/Per%20tile%20sequence%20quality1.png)
 
-##Per sequence quality scores : pass
+#### Per sequence quality scores : pass
 
 Per sequence quality scores examine whether subsets of sequences have universally low quality values, which may indicate systematic issues like poor imaging at flow cell edges. A warning is issued if the most frequently observed mean quality falls below **27 (0.2% error rate)**, and failure occurs below **20 (1% error rate)**. In our results, the majority of sequences have mean quality scores above 30, well above both thresholds, confirming that the data passes this quality check.
 
 ![](./assets/quality_res_byROA/Per%20sequence%20quality%20scores1.png)
 
-##Per base sequence content : fail
+#### Per base sequence content : fail
 
 Per base sequence content analyzes the proportion of each nucleotide (A, T, C, G) at every position across all reads. In a properly balanced library, the lines for each base should run parallel with only small differences between A and T or G and C. A warning is issued if the difference between A and T or G and C exceeds **10%** at any position, and failure occurs if the difference exceeds **20%**.
 
@@ -144,7 +132,7 @@ Per base sequence content analyzes the proportion of each nucleotide (A, T, C, G
 
 In our results, the data failed this module. As shown, there is a consistent imbalance between A and T across most positions, with A averaging around **29%** while T averages only **21%**, creating a difference of approximately **8%**. While this difference is below the failure threshold, it still exceeds the warning threshold, indicating a systematic bias in nucleotide distribution that may need to be addressed before further analysis.
 
-##Per sequence GC content: pass
+#### Per sequence GC content: pass
 
 Per sequence GC content measures the distribution of G and C bases across all reads, plotted as the number of reads versus GC percentage. A normal distribution is expected for high-quality data, with the peak matching the genome's overall GC content.
 
@@ -152,41 +140,130 @@ Per sequence GC content measures the distribution of G and C bases across all re
 
 Our results passed this module, showing a GC distribution that closely follows the theoretical distribution. As shown, the highest density of reads occurs at **50-60%** GC, which aligns well with the expected pattern for this dataset. This indicates no significant GC bias in the sequencing data.
 
-##Per base N content : pass
+#### Per base N content : pass
 
 Per base N content measures the proportion of ambiguous base calls (N) at each position across all reads. Low N content, especially near read ends, is normal and expected. A warning is issued if any position exceeds **5%** N content, and failure occurs if above **20%**. Our results passed this module, with N content remaining consistently low **(below 0.04%)** across all positions. This indicates high-quality base calling with minimal ambiguity throughout the sequencing run.
 
 ![](./assets/quality_res_byROA/Per%20base%20N%20content1.png)
 
-##Sequence Length Distribution : warn
+#### Sequence Length Distribution : warn
 
 Sequence length distribution analyzes the range of fragment sizes in the raw sequencing data. A warning is issued if all sequences are not the same length, while failure occurs if any sequence has zero length. Our results show a warning in this module, indicating that the reads in our raw dataset are not all identical in length.
 
 ![](./assets/quality_res_byROA/Sequence%20Length%20Distribution1.png)
 
-##Sequence Duplication Levels : warn
+#### Sequence Duplication Levels : warn
 
 Sequence duplication levels measure the proportion of duplicate reads in the sequencing data. This module identifies reads that appear more than once, which can indicate over-amplification during library preparation. A warning is issued when non-unique reads make up more than **20%** of the total sequences. Our results show a warning in this module, indicating a moderate level of duplication in the dataset.
 
 ![](./assets/quality_res_byROA/Sequence%20Duplication%20Levels1.png)
 
-##Overrepresented sequences : pass
+#### Overrepresented sequences : pass
 
 Overrepresented sequences are those that appear more frequently than expected in the dataset. Our results passed this module as no overrepresented sequences were found.
 
-##Adapter Content : pass
+#### Adapter Content : pass
 
 Adapter content assesses the presence of adapter sequences in the reads, which can occur when fragments are shorter than the read length. A warning is issued if any adapter is present in more than **5%** of reads, and failure occurs if above **10%**. Our results passed this module with very low adapter content **(below 0.8%)** across all positions, indicating minimal adapter contamination.
 
 ![](./assets/quality_res_byROA/Adapter%20Content1.png)
 
-##Read Trimming and Filtering (**we can use the jero table)**
+#### - Sample1_R2_fastq_gz_R2
+
+#### Basic Statistics
+
+| Measure                           | Value                   |
+|-----------------------------------|-------------------------|
+| Filename                          |                         |
+| File type                         | Conventional base calls |
+| Encoding                          | Sanger / Illumina 1.9   |
+| Total Sequences                   | 1424257                 |
+| Sequences Flagged As Poor Quality | 0                       |
+| Sequence length                   | 32 - 151                |
+| %GC:                              | 43                      |
+
+#### [Per base sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html)
+
+This graph shows the quality values average in each base pair position read. The middle line is the median value, the boxes represent the inner 25% to 75% and the whiskers are the 10% and 90% points.
+
+![](./assets/quality-test/r2/per-base-sequence-quality.png)
+
+This test resulted in a pass. This is because no value is below 10 and no median is below 25. Quality decreases at the end of the sequences due to [phasing](https://www.ecseq.com/support/ngs/why-does-the-sequence-quality-decrease-over-the-read-in-illumina). This is a small chance that a nucleotide is misplaced, which with longer sequences adds up.
+
+#### [Per tile sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/12%20Per%20Tile%20Sequence%20Quality.html)
+
+This test gives quality scores on each base pair position per tile in the sequencer flow cell. A heat map like pattern represents above average values with cold colors and below average values with hot ones.
+
+![](./assets/quality-test/r2/per-tile-sequence-quality.png)
+
+The test resulted in a pass and there are no consistent low values for any given tile.
+
+#### [Per sequence quality scores](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/3%20Per%20Sequence%20Quality%20Scores.html)
+
+This plot shows the amount of sequences per Phred score, the highest density value being the average score.
+
+![](./assets/quality-test/r2/per-sequence-quality-scores.png)
+
+This test resulted in a pass as the most frequently observed values are above 27.
+
+#### [Per base sequence content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/4%20Per%20Base%20Sequence%20Content.html)
+
+Here the percentage amount of each nucleotide A, C, T and G is plotted per base pair position. It is expected to have a equally consistent amount of A and T as well as C and G.
+
+![](./assets/quality-test/r2/per-base-sequence-content.png)
+
+This test resulted in a fail. However, all sequencers produce inaccurate readings for this test at the start of the sequence.
+
+#### [Per sequence GC content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/5%20Per%20Sequence%20GC%20Content.html)
+
+This plot shows the Guanine and Cytosine percent amount against a theoretical normal distribution.
+
+![](./assets/quality-test/r2/per-sequence-gc-content.png)
+
+The result is a pass given that the sum of deviation from the normal distribution does not exceed 15% of all reads.
+
+#### [Per base N content](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/6%20Per%20Base%20N%20Content.html)
+
+If the sequencer is unable to confidently assign a base it will substitute it with an N. This test shows the percent amount of N per base pair position.
+
+![](./assets/quality-test/r2/per-base-n-content.png)
+
+The test resulted in a pass, because no position has more than 5%.
+
+#### [Sequence Length Distribution](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/7%20Sequence%20Length%20Distribution.html)
+
+![](./assets/quality-test/r2/sequence-length-distribution.png)
+
+#### [Sequence Duplication Levels](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/8%20Duplicate%20Sequences.html)
+
+![](./assets/quality-test/r2/sequence-duplication-levels.png)
+
+### Read Trimming and Filtering
 
 Based on the initial quality assessment, reads were trimmed to remove low-quality bases and sequencing adapters, ensuring that only high-quality sequences were retained for downstream analysis.
 
 **Tool used:** (`Trimmomatic`)
 
-### Trimming Parameters
+We tested multiple trimming strategies for our data (see Table below). Based on a comparison of their performance and suitability, we selected the optimal approach for the final analysis (The final one).
+
+```{r echo = FALSE}
+totalSequences <- 1424257
+
+PercentSequencesRemoved <- function(x){
+  percentSequencesLeft <- ((x * 100) / totalSequences)
+  round(100 - percentSequencesLeft, digits = 2)
+}
+```
+
+| Trim number | Avg. quality required | Min. read length to keep | \% sequences removed |
+|:----------------:|:----------------:|:----------------:|:----------------:|
+| 1st | 20 | 70 | `r PercentSequencesRemoved(1172109)` |
+| 2nd | 30 | 70 | `r PercentSequencesRemoved(754143)` |
+| 3rd | 30 | 100 | `r PercentSequencesRemoved(639254)` |
+| 4th | 30 | 50 | `r PercentSequencesRemoved(822515)` |
+| 5th | 20 | 50 | `r PercentSequencesRemoved(1224621)` |
+
+#### Trimming Parameters
 
 Based on our quality control results, we selected specific parameters for trimming with Trimmomatic. We kept the default values for the adapter clipping settings, and added several parameters to address issues identified in the quality report: we applied CROP to 145 bases to remove positions beyond 145 that showed noise in the per base sequence content, used HEADCROP of 7 bases to eliminate low-quality bases from the read starts, and set MINLEN to 50 to discard short reads after trimming, ensuring high-quality data for subsequent analysis.
 
@@ -222,7 +299,7 @@ Based on our quality control results, we selected specific parameters for trimmi
 
 #### - Sample1_R1_fastq_gz_R1 paired
 
-##Basic Statistics: pass
+#### Basic Statistics: pass
 
 | Measure | Value |
 |:----------------------------------:|:----------------------------------:|
@@ -234,49 +311,49 @@ Based on our quality control results, we selected specific parameters for trimmi
 | Sequence length | 50 - 138 |
 | %GC: | 42 |
 
-##Per base sequence quality: pass
+#### Per base sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20quality_r1_after.png)
 
-##Per tile sequence quality: pass
+#### Per tile sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20tile%20sequence%20quality_r1.png)
 
-##Per sequence quality scores: pass
+#### Per sequence quality scores: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20quality%20scores_r1.png)
 
-##Per base sequence content : pass
+#### Per base sequence content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20content_r1.png)
 
-##Per sequence GC content: pass
+#### Per sequence GC content: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20GC%20content_r1.png)
 
-##Per base N content : pass
+#### Per base N content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20N%20content_r1.png)
 
-##Sequence Length Distribution : warn
+#### Sequence Length Distribution : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Length%20Distribution_r1.png)
 
-##Sequence Duplication Levels : warn
+#### Sequence Duplication Levels : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Duplication%20Levels_r1.png)
 
-##Overrepresented sequences : pass
+#### Overrepresented sequences : pass
 
-### No overrepresented sequences
+**No overrepresented sequences**
 
-##Adapter Content : pass
+#### Adapter Content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Adapter%20Content_r1.png)
 
 #### - Sample1_R2_fastq_gz_R2 paired
 
-##Basic Statistics: pass
+#### Basic Statistics: pass
 
 | Measure | Value |
 |:----------------------------------:|:----------------------------------:|
@@ -288,61 +365,99 @@ Based on our quality control results, we selected specific parameters for trimmi
 | Sequence length | 50 - 138 |
 | %GC: | 42 |
 
-##Per base sequence quality: pass
+#### Per base sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20quality_r2.png)
 
-##Per tile sequence quality: pass
+#### Per tile sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20tile%20sequence%20quality_r2.png)
 
-##Per sequence quality scores: pass
+#### Per sequence quality scores: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20quality%20scores_r2.png)
 
-##Per base sequence content : warn
+#### Per base sequence content : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20content_r2.png)
 
-##Per sequence GC content: pass
+#### Per sequence GC content: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20GC%20content_r2.png)
 
-##Per base N content : pass
+#### Per base N content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20N%20content_r2.png)
 
-##Sequence Length Distribution : warn
+#### Sequence Length Distribution : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Length%20Distribution_r2.png)
 
-##Sequence Duplication Levels : warn
+#### Sequence Duplication Levels : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Duplication%20Levels_r2.png)
 
-##Overrepresented sequences : pass
+#### Overrepresented sequences : pass
 
-### No overrepresented sequences
+**No overrepresented sequences**
 
-##Adapter Content : pass
+#### Adapter Content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Adapter%20Content_r2.png)
 
-## Read Alignment (mapping with jero)
+### Read Alignment
 
 Filtered reads were aligned to the appropriate human reference genome using a short-read aligner.
 
-**Reference genome:**
+**Reference genome: Human reference hg38**
 
 **Alignment tool: BWA**
 
-### Alignment Statistics
+**Tool Parameters**
+
+| Input Parameter | Value |
+|------------------------------------|------------------------------------|
+| Will you select a reference genome from your history or use a built-in index? | cached |
+| Using reference genome | hg38 |
+| Single or Paired-end reads | paired |
+| Select first set of reads |  |
+| Select second set of reads |  |
+| Enter mean, standard deviation, max, and min for insert lengths. | Not available. |
+| Set read groups information? | do_not_set |
+| Select analysis mode | illumina |
+| BAM sorting mode | Sort by chromosomal coordinates |
+
+#### Expected coverage
 
 Key alignment metrics such as mapping rate and coverage were evaluated.
 
-coverage with jero !
+A sequence's coverage or read depth is the average amount of reads of each region in a given genome. To calculate the coverage we can use the formula `C = LN/G`, where `C = coverage`, `L = read length`, `N = number of reads` and `G = captured region`. This results in an expected or estimated coverage, as many reads could not be distributed evenly.
 
-### Marking Duplicate Mapped Reads
+```{r}
+Coverage <- function(readLength, readAmount, capturedRegion){
+  (readLength * readAmount) / capturedRegion
+}
+```
+
+```{r}
+# Our expected coverage on CardioPanel
+#
+# 50 min. & 138 max. sequence length
+# 1206159 total sequences, times 2 strands
+# 320000 bases for the CarioPanel 
+Coverage(88, 1206159 * 2, 320000)
+
+# "Max Illumina sequencer coverage on CardioPanel
+#
+# 300 max Illumina sequence length
+# 25000000 max Illumina reads
+# 320000 bases for the CardioPanel
+Coverage(300, 25000000, 320000)
+```
+
+The resulting expected read depth is \~ 663. Which means spotted DNA variants should be of high confidence. However, the actual coverage of each region should be also checked after the following mapping steps.
+
+#### Marking Duplicate Mapped Reads
 
 Before analyzing differences between the reference genome and our patient sample, duplicate mapped reads must be identified. Duplicates arise from PCR amplification bias (multiple copies of the same fragment) or optical artifacts during sequencing, and if unaddressed, can lead to false positive variant calls and inaccurate coverage estimates.
 
@@ -390,11 +505,11 @@ A variant was identified in the PSEN2 gene at the stop codon position. The refer
 
 Visualization of the LMNA gene showing a heterozygous variant. The aligned reads display both reference and alternative alleles (mixed colors at the variant position), with approximately equal representation. Heterozygous variants in LMNA are known to be associated with dilated cardiomyopathy (DCM).
 
-## Mapping Quality Control
+### Mapping Quality Control
 
 In this section, we assessed the mapping coverage for all panel genes to evaluate mapping performance. As observed in IGV, coverage levels varied significantly across regions, ranging from very high (300+) to areas with only a few reads present, which can impact variant detection reliability. Using **R** with libraries commonly used in genetic research, we calculated and reported coverage statistics for all panel genes to quantitatively assess these variations and identify undercovered regions.
 
-### Loading the BED-data
+#### Loading the BED-data
 
 The first step is to load the BED file containing the exon coordinates of our panel genes. The file is tab-separated and has four columns: chromosome, start, end, and gene name. We will read it into R, assign proper column names, and then examine the distribution of exons across chromosomes.
 
@@ -407,11 +522,10 @@ exons <- read.table(bed_file, header = FALSE, sep = "\t", stringsAsFactors = FAL
 colnames(exons) <- c("chromosome", "start", "end", "gene")
 
 head(exons)
-#View(exons)
+
 
 # Count exons per chromosome
 exon_counts <- table(exons$chromosome)
-print(exon_counts)
 
 # Plot the number of exons per chromosome
 barplot(exon_counts, 
@@ -419,29 +533,23 @@ barplot(exon_counts,
         ylab = "Exon count",
         xlab = "Chromosome",
         las = 2,
-)       
+        col = rainbow(length(exon_counts)),  # Colorful
+        border = "white" 
+)
+  
 
 ```
 
 This barplot shows the number of exons located on each chromosome in our dataset. Chromosomes with higher exon counts typically contain more genes or longer genes with multiple exons. For example, chromosome 2 has the highest exon count (around 250-300). In contrast, chromosomes like chr18, chr20, and chrX have fewer exons, indicating they may contain fewer genes or genes with simpler structures.
 
-```{r}
-#exon_counts_df <- as.data.frame(exon_counts)
-#colnames(exon_counts_df) <- c("chromosome", "exon_count")
-```
-
-### BED-visualization
+#### BED-visualization
 
 In this section, we visualized the distribution of genes across different chromosomes using the BED data. First, we reduced the data to unique chromosome-gene combinations, then counted the number of genes per chromosome and presented the results in a bar plot. This visualization provides a clear overview of how genes are distributed across chromosomes, helping to identify which chromosomes carry the most genes in our panel.
 
 ```{r}
 chromosome_gene <- subset(exons, select = c(chromosome, gene))
-head(chromosome_gene)
 
 uni_gene <- unique(chromosome_gene)
-
-head(uni_gene)
-#View(uni_gene)
 
 gene_counts <- table(uni_gene$chromosome)
 
@@ -450,12 +558,14 @@ barplot(gene_counts,
         ylab = "Number of genes",
         xlab = "Chromosome",
         las = 2,
+         col = rainbow(length(exon_counts)),  # Colorful
+        border = "white" 
     )
 ```
 
 This plot shows the number of genes per chromosome, and it directly explains the previous exon distribution. Chromosome 2 has the highest gene count (7 genes), which is why it also had the highest exon count (250-300). Chromosomes with fewer genes consistently showed fewer exons, confirming that exon numbers reflect gene density across chromosomes.
 
-### Bioconductor
+#### Bioconductor
 
 Bioconductor is a repository containing over 1800 R packages specifically designed for analyzing high-throughput biological data, which we used throughout this assignment.
 
@@ -463,7 +573,7 @@ Bioconductor is a repository containing over 1800 R packages specifically design
 
 The IRanges object contains exon positions and lengths but lacks chromosome information, making it incomplete for genomic analysis. Converting to a GRanges object adds the chromosome context, creating a complete genomic coordinate system that properly locates each exon in the genome.
 
-### GenomicRanges objects
+#### GenomicRanges objects
 
 The BED file was first represented as an IRanges object since it contains simple positional data such as chromosome names and start/stop positions. These IRanges objects were then converted to GenomicRanges objects, which store genomic features (like exons) along with their chromosome coordinates and strand information.
 
@@ -473,7 +583,6 @@ library(IRanges)
 library(GenomicRanges)
 
 bed_splitted <- split(exons, exons$gene)
-#View(bed_splitted)
 my_list <- list()
 
 for (gene in names(bed_splitted)[1:55]) {
@@ -499,7 +608,7 @@ head(final_GRange_list)
 
 ```
 
-### Gene Lengths Visualization
+#### Gene Lengths Visualization
 
 After creating the GRanges objects, we calculated the length of each gene using the width and sum functions on the GRangesList. Since some genes are much longer than others, a standard barplot would be difficult to read. We used the `gap.barplot` function from the plotrix library, which allows us to create a barplot with a gap in the y-axis to accommodate extremely long genes while still showing variation among shorter genes.
 
@@ -534,13 +643,13 @@ barplot(gene_lengths,
         main = "Gene Lengths Distribution",
         las = 2,
         ylim = c(0, 100000),
-        yaxt = "n")  # Remove default y-axis
+        yaxt = "n", col = "darkred")  # Remove default y-axis
 
 # Add custom y-axis
 axis(2, at = seq(0, 100000, by = 5000), las = 2)
 ```
 
-### Loading the Mapped Reads
+#### Loading the Mapped Reads
 
 We used the output from the mapping step (the BAM file) to inspect the coverage of all mapped positions across our panel genes. The Rsamtools library provides the necessary functions to read and process this alignment data into GRanges objects for further analysis.
 
@@ -563,7 +672,7 @@ head(pileup_data)
 
 ```
 
-### Pileup Processing
+#### Pileup Processing
 
 Here, we will obtain the pileup data for all our genes and store it in a single object `pileup_list`. This will allow us to calculate the average coverage for each gene and identify positions with low coverage that may require further inspection.
 
@@ -586,7 +695,7 @@ head(pileup_list[["TTN"]])
 
 This table shows the raw sequencing data for every position in our genes. Each row represents one nucleotide position, telling us which chromosome it's on, the exact location, which DNA strand the read came from, what base (A, T, G, or C) was detected, and how many times that base was seen. The last column just labels which gene the position belongs to. This data helps us see how well each region was covered during sequencing and spot any positions that might need a closer look.
 
-### Coverage calculation and reporting
+#### Coverage calculation and reporting
 
 In this assignment, we calculated the per-position coverage for each gene using the *aggregate* function, which sums the count values for each unique position across all reads. For every gene, we then determined: the number of bases sequenced, the average coverage, the number of low-coverage positions (below 30), and the percentage of low-coverage positions. These four values were stored in a new data frame along with the gene name, and the final results were ordered by the percentage of low-coverage positions in descending order for easy interpretation.
 
@@ -629,13 +738,26 @@ print(per_position_coverage)
 
 Coverage analysis across the 55 cardiomyopathy genes shows that the majority **(40 genes)** have excellent sequencing coverage with **0%** low coverage positions. However, several genes show concerning coverage gaps. JPH2 has the poorest coverage with **(30.7%)** of the gene falling below acceptable thresholds, followed by GATAD1 **(21.3%)**, TPM1 **(16.8%)**, and PRKAG2 **(16.3%)**. Other genes with significant coverage issues include DES **(14.7%)**, JUP **(11.2%)**, and MYBPC3 **(10.5%)**. These genes with \>10% low coverage warrant careful interpretation as potential variants in these poorly covered regions may be missed. In contrast, important large genes like TTN maintained excellent coverage throughout, increasing confidence in variant detection.
 
-## Variant Calling
+### Variant Calling
 
 Variant calling was performed to identify single nucleotide variants (SNVs) and small insertions/deletions (indels) from the aligned reads. We interest in a SNVs variants only, and using the default sittings in the tool.
 
 **Variant caller used: `Call variants with LoFreq`**
 
-### Raw Variant Output (VCF File)
+|              Input Parameter               |        Value        |
+|:------------------------------------------:|:-------------------:|
+|         Input reads in BAM format          |                     |
+| Choose the source for the reference genome |       cached        |
+|              Reference genome              |        hg38         |
+|            Call variants across            |       genome        |
+|         Types of variants to call          |      Only SNVs      |
+|         Variant calling parameters         |        false        |
+|         Variant filter parameters          | set_lofreq_standard |
+|                    sig                     |        0.01         |
+|                    bonf                    |       dynamic       |
+|                   others                   |       Empty.        |
+
+#### Raw Variant Output (VCF File)
 
 The result of the `LoFreq` tool is a single new file in your history in the vcf file format where each line describes a single variant. We have **1005** different variants.
 
@@ -646,7 +768,7 @@ VCF_FILE <- read.delim("Call_variants.vcf", stringsAsFactors = FALSE , comment =
 head(VCF_FILE)
 ```
 
-## Variant Filtering (VCF File Processing)
+#### Variant Filtering (VCF File Processing)
 
 To minimize false positive calls, variants were filtered using established quality metrics, including read depth, variant quality score, and allele frequency. The filtering workflow began by extracting allele frequency (AF) information from the VCF file. This AF data was subsequently incorporated as an additional column following the creation of GRanges objects.
 
@@ -712,14 +834,14 @@ writeLines(final_vcf, "filtered_variants.vcf")
 
 ```
 
-## Variant Visualization
+### Variant Visualization
 
 Two simple visualizations were created to explore the filtered variant dataset.
 
-### Allele frequency distribution
+#### Allele frequency distribution
 
 ```{r}
-hist(alleleFreq, breaks = 20, main = "Distribution of Allele Frequencies",
+hist(vcfGRangesFiltered$AF, breaks = 20, main = "Distribution of Allele Frequencies",
      xlab = "Allele Frequency",
      ylab = "Number of Variants",
      col = "steelblue")
@@ -731,7 +853,7 @@ The two peaks in the allele frequency histogram correspond to the two possible z
 
 -   **100%**: Homozygous variants, where both copies carry the alternative allele
 
-### Variants per gene
+#### Variants per gene
 
 ```{r}
 
@@ -761,11 +883,11 @@ Looking at the distribution of variants across genes, **TTN** had the highest nu
 
 What's interesting is that most of the genes with the highest variant counts are actually known to be involved in heart disease. So even though the variants are spread across many genes, the ones with the most hits tend to be those with known roles in cardiac function. This is not surprising, as our samples were obtained from patients with cardiomyopathy, so finding more variants in heart-disease-associated genes is expected.
 
-## Variant Annotation
+### Variant Annotation
 
 The filtered VCF file was uploaded to Galaxy for the subsequent annotation step to identify and characterize the genetic differences.
 
-### SnpEff and SnpSift
+#### SnpEff and SnpSift
 
 Following variant calling with `LoFreq`, we performed three sequential annotation steps to add functional, clinical, and population-level information to our filtered VCF file.
 
@@ -785,12 +907,66 @@ We used `SnpSift` to annotate our VCF with the `dbNSFP` database, a comprehensiv
 
 After completing the annotation workflow in Galaxy, we performed additional processing in R to extract and summarize the metadata from our annotated VCF file. The final output consolidates the key annotation data added during each step of the workflow. A brief summary of the added annotation sources and the types of values they provide is presented in the table below.
 
+```{r}
 
-### Analyzing Variant Annotation
+#Read metadata description fields from final vcf file
+snpVcf <- readLines("./SnpVariants_Step3.vcf")
+snpVcf <- snpVcf[str_detect(snpVcf, "##INFO")]
+
+#Remove identifier fields
+snpVcf <- str_remove_all(snpVcf, "(##INFO=<ID=|Number=|Type=|Description=|\\\\|\"|>)")
+snpVcf <- str_replace_all(snpVcf, ",\\s", "; ")
+
+#Create table from resulting values
+snpVcf <- read.table(text = snpVcf, sep = ",", fill = T, stringsAsFactors = FALSE, quote = "", col.names = c("ID", "Number", "Type", "Description"))
+
+#Assign database
+#Index 1 to 7 are from database Human Genome 38 (hg.38)
+#Index 8 to 10 are from database GRCh38.p14, assignment step 1 (SnpEff)
+#Index 11 to 31 are from database dbSnp_clinvar, assignment step 2 (SnpSift)
+#Index 32 to 536 are from database dbNSFP, assignment step 3 (SnpSift)
+snpVcf$Database <- c(replicate(7, "hg.38"), replicate(3, "GRCh38.p14"), replicate(21, "dbSnp_clinvar"), replicate(505, "dbNSFP5.3.1a"))
+
+```
+
+The file doesn't include explicit descriptions of the NSFP database fields. However, we can download the (documentation file)[<https://drive.google.com/file/d/1lx26ftYpsQEi5tp1LzF7a4U2Ak8oYKXn/view>] and parse it too. \### Analyzing Variant Annotation
 
 After annotating our VCF file with functional, clinical, and population-level data, we performed additional data preparation steps to convert the complex annotation fields into a workable format suitable for filtering and ranking in R.
 
-**Data Preparation**
+```{r}
+
+#Read text documentation file
+nsfpDocs <- readLines("./dbNSFP5.3.1a.readme.txt")
+#Vector of IDs to compare against the many entries in the file
+nsfpIDs <- snpVcf$ID[32:536]
+nsfpIDs <- str_remove_all(nsfpIDs, " ")
+nsfpIDs <- paste0(nsfpIDs, ":")
+
+#Look up and add descriptions in correct order
+#IMPORTANT: File has been edited with an IDE in order to simplify this R code.
+nsfpDocsLines <- c()
+for (id in nsfpIDs) {
+  newLine <- nsfpDocs[str_detect(nsfpDocs, id)]
+  if (length(newLine) > 1) {
+    nsfpDocsLines <- c(nsfpDocsLines, newLine[1])
+    next
+  }
+  if (identical(newLine, character(0))) {
+    nsfpDocsLines <- c(nsfpDocsLines, "")
+    next
+  }
+  nsfpDocsLines <- c(nsfpDocsLines, newLine)
+}
+
+#Remove unnecessary strings
+nsfpDocsLines <- str_remove_all(nsfpDocsLines, "(.+:\\s|\\\t|\\\\|\")")
+
+#Assign new descriptions to corresponding entries
+snpVcf$Description[32:536] <- nsfpDocsLines
+
+```
+
+#### Data Preparation
 
 -   Step #1 & #2; SnpEff ANN data and SnpSift ClinVar data
 
@@ -805,7 +981,7 @@ Similarly, we used the `SnpSift` Extract Fields tool to extract `dbNSFP` annotat
 After generating two separate tabular files—one containing SnpEff and ClinVar data, and another containing dbNSFP data—we merged them into a single consolidated file for analysis in R. The final merged file includes the following selected columns:
 
 | Column | Reason for Inclusion |
-|---------------------|---------------------------------------------------|
+|-----------------------|------------------------------------------------|
 | CHROM, POS, ID, REF, ALT, FILTER | Core variant identification and quality control |
 | ANN[\*].EFFECT | Specific molecular consequence (e.g., missense, stop_gained) |
 | ANN[\*].IMPACT | Severity ranking (HIGH, MODERATE, LOW, MODIFIER) |
@@ -822,68 +998,36 @@ After generating two separate tabular files—one containing SnpEff and ClinVar 
 | dbNSFP_VEST4_score | Variant Effect Scoring Tool (VEST4) for missense pathogenicity |
 | dbNSFP_ESM1b_pred | Evolutionary Scale Modeling (ESM1b) prediction for protein variant effects |
 | dbNSFP_phyloP100way_vertebrate | Phylogenetic conservation score across 100 vertebrates |
-| dbNSFP_GERP___NR, dbNSFP_GERP___RS | Genomic Evolutionary Rate Profiling (GERP) rejected substitutions and neutral rate scores |
+| dbNSFP_GERP\_**NR, dbNSFP_GERP**\_RS | Genomic Evolutionary Rate Profiling (GERP) rejected substitutions and neutral rate scores |
 | dbNSFP_fathmm_XF_coding_pred | Functional Analysis Through Hidden Markov Models (fathmm) coding variant prediction |
 | dbNSFP_BayesDel_addAF_pred | Bayesian deleteriousness prediction incorporating allele frequency |
 | dbNSFP_MetaSVM_pred, dbNSFP_MetaLR_pred | Ensemble SVM and logistic regression meta-predictors for missense impact |
-
-```{r}
-
-snpFilteredVariants_1 <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
-#View(snpFilteredVariants_1)
-
-```
 
 **Finding Variants of Interest**
 
 With the merged tabular file containing all relevant annotations in a clean, structured format, we uploaded the file to RStudio for downstream filtering and prioritization. This final dataset enables us to apply systematic filtering criteria—such as rarity thresholds, damaging prediction consensus, and clinical significance—to identify a high-confidence set of variants most likely related to the condition of interest.
 
-here we will do some R code to filter the file, As an end product for this step you are expected to include a nice table including at least 10 variants in your report that contains all relevant information for each of them, i.e. the chromomsome, position, reference and variant nucleotides, gene name and all relevant scores.
-
-```{r}
-
-snpFilteredVariants_1 <- snpFilteredVariants_1 %>%  
-  filter(
-    str_detect(ANN....EFFECT, "splice_region_variant|missense_variant"),
-    #str_detect(ANN....IMPACT, "HIGH|MODERATE")
-  )
-
-#%>%
-#select(
- #   -REF, 
-  #  -ALT, 
-   # -`ANN....BIOTYPE`, 
-    #-FILTER, 
-    #-ANN....FEATURE, 
-    #-CLNVC
-  #)
-  
-  snpFilteredVariants_Unique <- snpFilteredVariants_1 %>%
-  distinct(POS, REF, ALT, .keep_all = TRUE)
-
-write.csv(snpFilteredVariants_Unique, "variants_Unique.csv", row.names = FALSE)
-
-
-head(snpFilteredVariants_Unique, n=10)
-
-```
-
 ### Variant Visualization
+
+The variants shown in the table were obtained from the `FilteredVariants.vcf` file after applying additional refinement steps.
+
+First, variants were filtered to retain only `missense_variant` and `splice_region_variant`, as these are more likely to have functional impact. Then, redundant entries were removed by collapsing variants that represent the same genomic change but appear multiple times due to different annotations.
+
+After collapsing, 10 unique variants remained. These were further evaluated using the ClinVar database. Two variants (in POTEE and POTEI) were excluded as they are not associated with dilated cardiomyopathy.
+
+The final table therefore includes 8 variants relevant to the disease.
 
 ```{r}
 if (!require(trackViewer))
   BiocManager::install("trackViewer")
 ```
 
-
 ```{r}
 snpFilteredTable <- read.table("./FilteredTEST.tabular", sep = "", quote = "", fill = T, header = T)
 snpFilteredVariants <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
 snpFilteredVariantsCollapsed <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
-snpFilteredVariantsTest <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
-View(snpFilteredVariantsTest)
 for (pos in snpFilteredVariantsCollapsed$POS) {
   p <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$POS, as.character(pos)))
   snpFilteredVariantsCollapsed$ANN....FEATUREID[which(snpFilteredVariantsCollapsed$POS == pos)] <- paste(p$ANN....FEATUREID, collapse = "|")
@@ -892,8 +1036,9 @@ snpFilteredVariantsCollapsed <- filter(snpFilteredVariantsCollapsed, snpFiltered
 snpFilteredVariantsCollapsed <- arrange(snpFilteredVariantsCollapsed, desc(snpFilteredVariantsCollapsed$ANN....IMPACT))
 snpFilteredVariantsCollapsed
 ```
+
 | Position | Variant | Gene | Impact | Condition |
-|------------|------------|------------|------------|------------------------|
+|---------------|---------------|---------------|---------------|---------------|
 | 23392602 | [NM_002471.4](https://www.ncbi.nlm.nih.gov/clinvar/variation/4813436/) | MYH6 | Moderate | Dilated cardiomyopathy 1EE |
 | 178580041 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Moderate | Dilated cardiomyopathy 1G |
 | 178715250 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Moderate | Dilated cardiomyopathy 1G |
@@ -903,6 +1048,9 @@ snpFilteredVariantsCollapsed
 | 178597531 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Low | Dilated cardiomyopathy 1G |
 | 178777698 | [NM_001267550.2](https://www.ncbi.nlm.nih.gov/clinvar/variation/514880/) | TTN | Low | Dilated cardiomyopathy 1G |
 
+#### LollipopPlot
+
+A `lollipop` plot was used to visualize the distribution of selected variants, particularly in cases where multiple variants are located within the same gene. In this plot, the x-axis represents the genomic position of each variant, while the y-axis represents the allele frequency (AF) derived from the VCF file, scaled by a factor of 100 to improve readability due to the small magnitude of the original values.
 
 ```{r}
 variantsTTN <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "TTN"))
@@ -921,6 +1069,7 @@ variantsLDB3 <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE
 variantsLDB3 <- distinct(variantsLDB3, variantsLDB3$POS, .keep_all = T)
 variantsLDB3
 ```
+
 ```{r}
 dfGranges <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
 dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
@@ -939,6 +1088,23 @@ dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
 variantsLDB3$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
 
 ```
+
+#### Bloting
+
+A custom R function, `plot_gene_lollipop`, was developed to generate lollipop plots for multiple genes. The function takes three inputs: the gene name, a variants data frame specific to that gene (prepared in a previous step), and a list of the original genomic features stored as GRanges objects.
+
+Within the function, the variant data are converted into a GRanges object, where each variant is represented with its genomic position, allele frequency (AF), ID, effect, and impact. The corresponding gene features are retrieved from the provided features list and formatted for visualization.
+
+Several visual attributes were then customized to encode biological meaning:
+
+| Attribute | Description |
+|---------------------------------------------|---------------------------|
+| **Score (y-axis)** | The allele frequency (AF) was used as the score after scaling it by 100 to improve readability. |
+| **Color** | *missense_variant* variants were colored **red**, while *splice_region_variant* variants were colored **blue** to distinguish variant types. |
+| **Size** | Node size reflects variant impact: **MODERATE** impact variants appear larger, while **LOW** impact variants are smaller, ensuring clear visual distinction. |
+| **Shape** | Shapes were assigned based on variant effect: *missense variants* as **diamonds** and *splice region variants* as **squares**. |
+| **Transparency & Border** | A consistent transparency (alpha = 0.8) and neutral border color were applied to enhance visual clarity. |
+
 ```{r}
 # Create a function for any gene
 plot_gene_lollipop <- function(gene_name, variants_df, features_list) {
@@ -988,14 +1154,23 @@ sample.gr$cex[grepl("MODERATE", sample.gr$ANN....IMPACT)] <- 1.5
 sample.gr$cex[grepl("LOW", sample.gr$ANN....IMPACT)] <- 0.8  # Minimum 0.8, not 0.5
 
 
+available.shapes <- c("circle", "square", "diamond", 
+                      "triangle_point_up", "triangle_point_down")
+sample.gr$shape <- "circle"
+
+# Assign shapes based on conditions
+sample.gr$shape[grepl("missense_variant", sample.gr$ANN....EFFECT)] <- "diamond"
+sample.gr$shape[grepl("splice_region_variant", sample.gr$ANN....EFFECT)] <- "square"  
+
+#sample.gr$shape <- sample(available.shapes, size = length(sample.gr), replace = TRUE)
+sample.gr$legend <- paste0("legend", as.numeric(factor(sample.gr$shape)))
 # set title for the graph 
 #grid.text(gene_name, x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
 
   
   # Plot
   lolliplot(sample.gr, features, 
-            ylab = "Allele Frequency (%)", 
-            type = "circle")
+            ylab = "Allele Frequency (%)", type="circle",legend = "legend")
 }
 
 # Use for different genes
@@ -1004,15 +1179,6 @@ plot_gene_lollipop("DMD", variantsDMD, final_GRange_list)
 plot_gene_lollipop("MYH6", variantsMYH6, final_GRange_list)
 plot_gene_lollipop("LDB3", variantsLDB3, final_GRange_list)
 
-```
-```{r}
-# Assign symbols based on variant effect
-sample.gr$symbol <- 21  # Default circle
-
-sample.gr$symbol[grepl("missense", sample.gr$ANN....EFFECT)] <- 22     # Square
-sample.gr$symbol[grepl("splice", sample.gr$ANN....EFFECT)] <- 23       # Diamond
-sample.gr$symbol[grepl("frameshift", sample.gr$ANN....EFFECT)] <- 24   # Triangle
-sample.gr$symbol[grepl("stop_gained", sample.gr$ANN....EFFECT)] <- 25  # Triangle down
 ```
 
 ```{r}
@@ -1070,21 +1236,22 @@ lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="circle")
 
 # Discussion
 
-The identified variants provide insight into the genetic basis of cardiomyopathy in the analyzed patient sample. While some variants occur in known cardiomyopathy-associated genes, further validation is required to assess their pathogenicity.
+The identified variants provide insight into the genetic background of cardiomyopathy in a single patient sample. The dataset consists of DNA sequencing data obtained from patients diagnosed with cardiomyopathy, and the analysis was performed to prioritize candidate disease-associated variants within known cardiomyopathy-related genes.
 
+The pipeline applied quality-controlled sequencing data that had previously undergone preprocessing and filtering steps using `Galaxy tools`. Since the input data already originated from cardiomyopathy patients, the main objective was not case identification but rather the prioritization of potential disease-causing variants within known genes.
+
+Among the detected variants, `TTN` appears as the strongest candidate gene, while the remaining variants require further evidence before confirming pathogenicity. Validation was performed using ClinVar database annotation, supported by additional scoring systems from `dbNSFP`, `dbSNP`, and `ClinVar` annotations, which helped in assessing the clinical relevance of each variant.
 
 ### Limitations
 
--   Analysis based on a single sample
-
--   Lack of functional validation
-
--   Potential sequencing and alignment biases
+This analysis has several limitations. It is based on a single sample, which limits generalizability. No functional validation was performed, so pathogenicity remains computationally inferred. Additionally, annotation scores were not consistently available across all variants, limiting direct comparison. Finally, some genes showed reduced sequencing coverage, which may lead to missed variants in low-coverage regions.
 
 # Conclusion
 
-This project demonstrates a reproducible workflow for variant discovery in cardiomyopathy using NGS data. The documented pipeline can be extended to additional samples and integrated with functional and clinical data for improved interpretation.
+This project presents a reproducible pipeline for variant discovery and prioritization in cardiomyopathy using NGS data. The workflow integrates quality control, filtering, annotation, and clinical interpretation. The identified variants provide a set of potential candidates, but further validation is required to confirm their pathogenicity.
 
 # References
 
-(To be added)
+## Galaxy Workflow
+
+![](./assets/Workflow.png)
