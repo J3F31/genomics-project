@@ -937,6 +937,7 @@ variantsDMD$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
 dfGranges <- GRanges(seqnames = variantsLDB3$CHROM, ranges = variantsLDB3$POS)
 dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
 variantsLDB3$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
+
 ```
 ```{r}
 # Create a function for any gene
@@ -949,6 +950,9 @@ plot_gene_lollipop <- function(gene_name, variants_df, features_list) {
                 ID = variants_df$ID,
                 ANN....EFFECT = variants_df$ANN....EFFECT,
                 ANN....IMPACT = variants_df$ANN....IMPACT)
+
+
+
   
 features <- features_list[[gene_name]]
 
@@ -957,11 +961,8 @@ features$fill <- c( "#51C6E6")
 features$height <-c(0.02)
 
 #set color for each node according to effect
-sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
-                sample.gr$ANN....IMPACT == "LOW"] <- 4
-
-sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
-                sample.gr$ANN....IMPACT == "MODERATE"] <- 2
+sample.gr$color[grepl("missense_variant", sample.gr$ANN....EFFECT)] <- "red"
+sample.gr$color[grepl("splice_region_variant", sample.gr$ANN....EFFECT)] <- "blue"
 
 sample.gr$border <- sample(c( "gray30"), length(sample.gr), replace=TRUE)
 sample.gr$alpha <- 0.8
@@ -983,8 +984,8 @@ sample.gr$label.parameter.rot <- 45
 # set the size of node 
 # Ensure no node is too small to see
 sample.gr$cex <- 1  # Default
-sample.gr$cex[grepl("missense_variant", sample.gr$ANN....EFFECT)] <- 1.5
-sample.gr$cex[grepl("splice_region_variant", sample.gr$ANN....EFFECT)] <- 0.8  # Minimum 0.8, not 0.5
+sample.gr$cex[grepl("MODERATE", sample.gr$ANN....IMPACT)] <- 1.5
+sample.gr$cex[grepl("LOW", sample.gr$ANN....IMPACT)] <- 0.8  # Minimum 0.8, not 0.5
 
 
 # set title for the graph 
@@ -1004,6 +1005,15 @@ plot_gene_lollipop("MYH6", variantsMYH6, final_GRange_list)
 plot_gene_lollipop("LDB3", variantsLDB3, final_GRange_list)
 
 ```
+```{r}
+# Assign symbols based on variant effect
+sample.gr$symbol <- 21  # Default circle
+
+sample.gr$symbol[grepl("missense", sample.gr$ANN....EFFECT)] <- 22     # Square
+sample.gr$symbol[grepl("splice", sample.gr$ANN....EFFECT)] <- 23       # Diamond
+sample.gr$symbol[grepl("frameshift", sample.gr$ANN....EFFECT)] <- 24   # Triangle
+sample.gr$symbol[grepl("stop_gained", sample.gr$ANN....EFFECT)] <- 25  # Triangle down
+```
 
 ```{r}
 
@@ -1019,12 +1029,17 @@ features$height <- list(unit(1/16, "inches"),
                         unit(3, "mm"),
                         unit(12, "points"))
 
-#set color for each node according to effect
-sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
-                sample.gr$ANN....IMPACT == "LOW"] <- 4
+#interesting_effects <- c("missense_variant", "splice_region_variant")
 
-sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
-                sample.gr$ANN....IMPACT == "MODERATE"] <- 2
+#set color for each node according to effect
+#sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
+              #  sample.gr$ANN....IMPACT == "LOW"] <- "blue"
+
+#sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
+            #    sample.gr$ANN....IMPACT == "MODERATE"] <- "red"
+
+sample.gr$color[grepl("missense_variant", sample.gr$ANN....EFFECT)] <- "red"
+sample.gr$color[grepl("splice_region_variant", sample.gr$ANN....EFFECT)] <- "blue"
 
 sample.gr$border <- sample(c( "gray30"), length(sample.gr), replace=TRUE)
 sample.gr$alpha <- 0.8
@@ -1046,12 +1061,9 @@ sample.gr$label.parameter.rot <- 45
 # set the size of node 
 # Ensure no node is too small to see
 sample.gr$cex <- 1  # Default
-sample.gr$cex[grepl("missense_variant", sample.gr$ANN....EFFECT)] <- 1.5
-sample.gr$cex[grepl("splice_region_variant", sample.gr$ANN....EFFECT)] <- 0.8  # Minimum 0.8, not 0.5
+sample.gr$cex[grepl("MODERATE", sample.gr$ANN....IMPACT)] <- 1.5
+sample.gr$cex[grepl("LOW", sample.gr$ANN....IMPACT)] <- 0.8  # Minimum 0.8, not 0.5
 
-
-# set title for the graph 
-grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
 
 lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="circle")
 ```
