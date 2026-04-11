@@ -118,25 +118,25 @@ The quality control results were examined to determine whether read trimming or 
 | Sequence length                   | 32 - 151                             |
 | %GC:                              | 43                                   |
 
-## **Per base sequence quality: pass**
+##Per base sequence quality: pass
 
 Per-base sequence quality refers to the assessment of quality scores for each nucleotide position in sequencing reads. This was evaluated using Falco, which generates a box-and-whisker plot showing Phred scores across all read positions. According to FastQC standards, a warning is issued if the lower quartile falls below 10 or the median falls below 25, whereas a failure is reported if the lower quartile falls below 5 or the median falls below **20**. The results show that all base positions in our data have quality scores ranging from **33.0 to 44.0**, which is well above both warning and failure thresholds. This indicates that our sequencing data pass the quality control check with high confidence in base-calling accuracy across all positions.
 
 ![](./assets/quality_res_byROA/Per%20base%20sequence%20quality1.png)
 
-## **Per tile sequence quality : pass**
+##Per tile sequence quality : pass
 
 Per tile sequence quality examines quality variation between different tiles on the flow cell using a color scale where blue indicates average or above-average quality and red indicates lower quality. A warning is issued if any tile falls more than **2** Phred scores below the mean, and failure if more than **5** below. Our results show consistent blue coloration across all tiles with no significant deviations, confirming that the data **passes** this quality control check.
 
 ![](./assets/quality_res_byROA/Per%20tile%20sequence%20quality1.png)
 
-## **Per sequence quality scores : pass**
+##Per sequence quality scores : pass
 
 Per sequence quality scores examine whether subsets of sequences have universally low quality values, which may indicate systematic issues like poor imaging at flow cell edges. A warning is issued if the most frequently observed mean quality falls below **27 (0.2% error rate)**, and failure occurs below **20 (1% error rate)**. In our results, the majority of sequences have mean quality scores above 30, well above both thresholds, confirming that the data passes this quality check.
 
 ![](./assets/quality_res_byROA/Per%20sequence%20quality%20scores1.png)
 
-## **Per base sequence content : fail**
+##Per base sequence content : fail
 
 Per base sequence content analyzes the proportion of each nucleotide (A, T, C, G) at every position across all reads. In a properly balanced library, the lines for each base should run parallel with only small differences between A and T or G and C. A warning is issued if the difference between A and T or G and C exceeds **10%** at any position, and failure occurs if the difference exceeds **20%**.
 
@@ -144,7 +144,7 @@ Per base sequence content analyzes the proportion of each nucleotide (A, T, C, G
 
 In our results, the data failed this module. As shown, there is a consistent imbalance between A and T across most positions, with A averaging around **29%** while T averages only **21%**, creating a difference of approximately **8%**. While this difference is below the failure threshold, it still exceeds the warning threshold, indicating a systematic bias in nucleotide distribution that may need to be addressed before further analysis.
 
-## **Per sequence GC content: pass**
+##Per sequence GC content: pass
 
 Per sequence GC content measures the distribution of G and C bases across all reads, plotted as the number of reads versus GC percentage. A normal distribution is expected for high-quality data, with the peak matching the genome's overall GC content.
 
@@ -152,35 +152,35 @@ Per sequence GC content measures the distribution of G and C bases across all re
 
 Our results passed this module, showing a GC distribution that closely follows the theoretical distribution. As shown, the highest density of reads occurs at **50-60%** GC, which aligns well with the expected pattern for this dataset. This indicates no significant GC bias in the sequencing data.
 
-## **Per base N content : pass**
+##Per base N content : pass
 
 Per base N content measures the proportion of ambiguous base calls (N) at each position across all reads. Low N content, especially near read ends, is normal and expected. A warning is issued if any position exceeds **5%** N content, and failure occurs if above **20%**. Our results passed this module, with N content remaining consistently low **(below 0.04%)** across all positions. This indicates high-quality base calling with minimal ambiguity throughout the sequencing run.
 
 ![](./assets/quality_res_byROA/Per%20base%20N%20content1.png)
 
-## **Sequence Length Distribution : warn**
+##Sequence Length Distribution : warn
 
 Sequence length distribution analyzes the range of fragment sizes in the raw sequencing data. A warning is issued if all sequences are not the same length, while failure occurs if any sequence has zero length. Our results show a warning in this module, indicating that the reads in our raw dataset are not all identical in length.
 
 ![](./assets/quality_res_byROA/Sequence%20Length%20Distribution1.png)
 
-## **Sequence Duplication Levels : warn**
+##Sequence Duplication Levels : warn
 
 Sequence duplication levels measure the proportion of duplicate reads in the sequencing data. This module identifies reads that appear more than once, which can indicate over-amplification during library preparation. A warning is issued when non-unique reads make up more than **20%** of the total sequences. Our results show a warning in this module, indicating a moderate level of duplication in the dataset.
 
 ![](./assets/quality_res_byROA/Sequence%20Duplication%20Levels1.png)
 
-## **Overrepresented sequences : pass**
+##Overrepresented sequences : pass
 
 Overrepresented sequences are those that appear more frequently than expected in the dataset. Our results passed this module as no overrepresented sequences were found.
 
-## **Adapter Content : pass**
+##Adapter Content : pass
 
 Adapter content assesses the presence of adapter sequences in the reads, which can occur when fragments are shorter than the read length. A warning is issued if any adapter is present in more than **5%** of reads, and failure occurs if above **10%**. Our results passed this module with very low adapter content **(below 0.8%)** across all positions, indicating minimal adapter contamination.
 
 ![](./assets/quality_res_byROA/Adapter%20Content1.png)
 
-## Read Trimming and Filtering (**we can use the jero table)**
+##Read Trimming and Filtering (**we can use the jero table)**
 
 Based on the initial quality assessment, reads were trimmed to remove low-quality bases and sequencing adapters, ensuring that only high-quality sequences were retained for downstream analysis.
 
@@ -222,7 +222,7 @@ Based on our quality control results, we selected specific parameters for trimmi
 
 #### - Sample1_R1_fastq_gz_R1 paired
 
-## **Basic Statistics: pass**
+##Basic Statistics: pass
 
 | Measure | Value |
 |:----------------------------------:|:----------------------------------:|
@@ -234,49 +234,49 @@ Based on our quality control results, we selected specific parameters for trimmi
 | Sequence length | 50 - 138 |
 | %GC: | 42 |
 
-## **Per base sequence quality: pass**
+##Per base sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20quality_r1_after.png)
 
-## **Per tile sequence quality: pass**
+##Per tile sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20tile%20sequence%20quality_r1.png)
 
-## **Per sequence quality scores: pass**
+##Per sequence quality scores: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20quality%20scores_r1.png)
 
-## **Per base sequence content : pass**
+##Per base sequence content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20content_r1.png)
 
-## **Per sequence GC content: pass**
+##Per sequence GC content: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20GC%20content_r1.png)
 
-## **Per base N content : pass**
+##Per base N content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20N%20content_r1.png)
 
-## **Sequence Length Distribution : warn**
+##Sequence Length Distribution : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Length%20Distribution_r1.png)
 
-## **Sequence Duplication Levels : warn**
+##Sequence Duplication Levels : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Duplication%20Levels_r1.png)
 
-## **Overrepresented sequences : pass**
+##Overrepresented sequences : pass
 
 ### No overrepresented sequences
 
-## **Adapter Content : pass**
+##Adapter Content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Adapter%20Content_r1.png)
 
 #### - Sample1_R2_fastq_gz_R2 paired
 
-## **Basic Statistics: pass**
+##Basic Statistics: pass
 
 | Measure | Value |
 |:----------------------------------:|:----------------------------------:|
@@ -288,43 +288,43 @@ Based on our quality control results, we selected specific parameters for trimmi
 | Sequence length | 50 - 138 |
 | %GC: | 42 |
 
-## **Per base sequence quality: pass**
+##Per base sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20quality_r2.png)
 
-## **Per tile sequence quality: pass**
+##Per tile sequence quality: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20tile%20sequence%20quality_r2.png)
 
-## **Per sequence quality scores: pass**
+##Per sequence quality scores: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20quality%20scores_r2.png)
 
-## **Per base sequence content : warn**
+##Per base sequence content : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20sequence%20content_r2.png)
 
-## **Per sequence GC content: pass**
+##Per sequence GC content: pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20sequence%20GC%20content_r2.png)
 
-## **Per base N content : pass**
+##Per base N content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Per%20base%20N%20content_r2.png)
 
-## **Sequence Length Distribution : warn**
+##Sequence Length Distribution : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Length%20Distribution_r2.png)
 
-## **Sequence Duplication Levels : warn**
+##Sequence Duplication Levels : warn
 
 ![](./assets/quality_res_byROA/after%20trimming/Sequence%20Duplication%20Levels_r2.png)
 
-## **Overrepresented sequences : pass**
+##Overrepresented sequences : pass
 
 ### No overrepresented sequences
 
-## **Adapter Content : pass**
+##Adapter Content : pass
 
 ![](./assets/quality_res_byROA/after%20trimming/Adapter%20Content_r2.png)
 
@@ -699,18 +699,36 @@ vcfLines <- readLines(con = file("./Call_variants.vcf"))
 
 header_lines <- vcfLines[1:146]
 
-variant_lines <- vcfLines[147:length(vcfLines)]
+variant_lines <- vcfLines[overlaps$queryHits + 147]
 
 final_vcf <- c(header_lines, variant_lines)
 
 writeLines(final_vcf, "filtered_variants.vcf")
-
 
 #cat("Original total lines:", length(vcfLines), "\n")
 #cat("Header lines:", length(header_lines), "\n")
 #cat("Original variants:", length(variant_lines), "\n")
 #cat("New file total lines:", length(final_vcf), "\n")
 
+```
+
+```{r}
+# Read VCFs
+vcf1 <- read.table("Call_variants.vcf", skip = 145, header = TRUE, comment.char = "#")
+vcf2 <- read.table("filtered_variants.vcf", skip = 145, header = TRUE, comment.char = "#")
+
+# Create unique IDs for each variant
+vcf1$ID <- paste(vcf1$CHROM, vcf1$POS, vcf1$REF, vcf1$ALT, sep = "_")
+vcf2$ID <- paste(vcf2$CHROM, vcf2$POS, vcf2$REF, vcf2$ALT, sep = "_")
+
+# Find differences
+common <- intersect(vcf1$ID, vcf2$ID)
+only1 <- setdiff(vcf1$ID, vcf2$ID)
+only2 <- setdiff(vcf2$ID, vcf1$ID)
+
+cat("Common variants:", length(common), "\n")
+cat("Only in file1:", length(only1), "\n")
+cat("Only in file2:", length(only2), "\n")
 ```
 
 ## Variant Visualization
@@ -913,46 +931,53 @@ variantsTTN
 
 ```{r}
 
-Pre_samlple <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS, ANN....EFFECT = variantsTTN$ANN....EFFECT,ANN....IMPACT =variantsTTN$ANN....IMPACT )
+Pre_samlple <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS, ANN....EFFECT = variantsTTN$ANN....EFFECT,ANN....IMPACT =variantsTTN$ANN....IMPACT, ID = variantsTTN$ID) 
 #Pre_samlple
-sample.gr <- Pre_samlple[str_detect(Pre_samlple$ANN....EFFECT, "(missense_variant|splice_region_variant)")]
+sample.gr <- Pre_samlple
+#[str_detect(Pre_samlple$ANN....EFFECT, "(missense_variant|splice_region_variant)")]
 sample.gr
-#sample.gr$score <- sample.gr$AF * 100
-#sample.gr <- setNames(sample.gr, sample.gr$score)
-
-sample.gr$node.label <- as.character(sample.gr$ANN....EFFECT)
-sample.gr$label.parameter.rot <- 45
-sample.gr$label.parameter.pos <- 3
-
 
 features <- final_GRange_list$TTN
 
+#set height and color height 
 features$fill <- c( "#51C6E6")
-
-#sample.gr$color[sample.gr$ANN....IMPACT == "HIGH"] <- 2    # red
-sample.gr$color[sample.gr$ANN....IMPACT == "MODERATE"] <- 2 # green
-sample.gr$color[sample.gr$ANN....IMPACT == "LOW"] <- 4      # blue
-
-sample.gr$border <- sample(c("gray80", "gray30"), length(sample.gr), replace=TRUE)
-sample.gr$alpha <- sample(100:255, length(sample.gr), replace = TRUE)/255
-
-
-#features$height <- c(0.02)
-
 features$height <- list(unit(1/16, "inches"),
                         unit(3, "mm"),
                         unit(12, "points"))
 
+#color just the interested variants 
+interesting_variants <- variantsTTN %>%
+  filter(str_detect(ANN....EFFECT, "missense_variant|splice_region_variant")) 
+ 
+#print(interesting_variants)
+interesting_effects <- interesting_variants$ANN....EFFECT
 
-#sample.gr$score <- sample.int(15, length(sample.gr), replace=TRUE)
-#sample.gr$node.label <- as.character(sample.gr$score)
+sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
+                sample.gr$ANN....IMPACT == "LOW"] <- 4
+
+sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
+                sample.gr$ANN....IMPACT == "MODERATE"] <- 2
+#sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_variants$ANN....EFFECT] <- 3
+sample.gr$border <- sample(c("gray80", "gray30"), length(sample.gr), replace=TRUE)
+#sample.gr$alpha <- sample(100:255, length(sample.gr), replace = TRUE)/255
 
 
+# set a score for each node 
+sample.gr$score <- sample.int(15, length(sample.gr$ANN....EFFECT), replace=TRUE)
+#sample.gr$node.label <- as.character(sample.gr$ANN....EFFECT)
 
-grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
+# set a labels for each node according to ID 
+sample.gr <- setNames(sample.gr, sample.gr$ID)
+sample.gr$label.parameter.rot <- 45 
+
+# set the size of node 
+sample.gr$cex <- runif(length(sample.gr))
+
+# set title for the graph 
+#grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
 
 #lolliplot(sample.gr, features, lollipop_style_switch_limit=15)
-lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="pin", legend = legend)
+lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="pie", legend = legend)
 ```
 
 # Discussion
