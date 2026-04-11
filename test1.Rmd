@@ -675,9 +675,9 @@ vcfGRanges <- GRanges(seqnames = VCF_FILE$CHROM, ranges = vcfIRanges )
 mcols(vcfGRanges) <- DataFrame(AF = alleleFreq)
 
 
-vcfGRanges <- vcfGRanges[vcfGRanges$AF >= 0.3]
+vcfGRangesFiltered <- vcfGRanges[vcfGRanges$AF >= 0.3]
 
-vcfGRanges
+vcfGRangesFiltered
 ```
 
 To identify all variants falling within exonic regions, an overlap analysis was performed using the `findOverlaps` function. The resulting output contains two columns: `queryHits` and `subjectHits.` The `queryHits` column indicates the rows from the VCF data that lie within an exon, representing the variants of interest. The `subjectHits` column corresponds not to individual exons but to genes, meaning a `subjectHits` value of 1 refers to a hit within any exon of the first gene.
@@ -685,7 +685,7 @@ To identify all variants falling within exonic regions, an overlap analysis was 
 From the results, gene number 25 was observed to have 21 hits within its exonic regions.
 
 ```{r}
-overlaps <- findOverlaps(vcfGRanges, final_GRange_list)
+overlaps <- findOverlaps(vcfGRangesFiltered, final_GRange_list)
 overlaps <- DataFrame(overlaps)
 (overlaps)
 
@@ -710,25 +710,6 @@ writeLines(final_vcf, "filtered_variants.vcf")
 #cat("Original variants:", length(variant_lines), "\n")
 #cat("New file total lines:", length(final_vcf), "\n")
 
-```
-
-```{r}
-# Read VCFs
-vcf1 <- read.table("Call_variants.vcf", skip = 145, header = TRUE, comment.char = "#")
-vcf2 <- read.table("filtered_variants.vcf", skip = 145, header = TRUE, comment.char = "#")
-
-# Create unique IDs for each variant
-vcf1$ID <- paste(vcf1$CHROM, vcf1$POS, vcf1$REF, vcf1$ALT, sep = "_")
-vcf2$ID <- paste(vcf2$CHROM, vcf2$POS, vcf2$REF, vcf2$ALT, sep = "_")
-
-# Find differences
-common <- intersect(vcf1$ID, vcf2$ID)
-only1 <- setdiff(vcf1$ID, vcf2$ID)
-only2 <- setdiff(vcf2$ID, vcf1$ID)
-
-cat("Common variants:", length(common), "\n")
-cat("Only in file1:", length(only1), "\n")
-cat("Only in file2:", length(only2), "\n")
 ```
 
 ## Variant Visualization
@@ -927,7 +908,37 @@ snpFilteredVariantsCollapsed
 variantsTTN <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "TTN"))
 variantsTTN <- distinct(variantsTTN, variantsTTN$POS, .keep_all = T)
 variantsTTN
+
+variantsMYH6 <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "MYH6"))
+variantsMYH6 <- distinct(variantsMYH6, variantsMYH6$POS, .keep_all = T)
+variantsMYH6
+
+variantsDMD <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "DMD"))
+variantsDMD <- distinct(variantsDMD, variantsDMD$POS, .keep_all = T)
+variantsDMD
+
+variantsLDB3 <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "LDB3"))
+variantsLDB3 <- distinct(variantsLDB3, variantsLDB3$POS, .keep_all = T)
+variantsLDB3
 ```
+```{r}
+dfGranges <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsTTN$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
+
+dfGranges <- GRanges(seqnames = variantsMYH6$CHROM, ranges = variantsMYH6$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsMYH6$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
+
+dfGranges <- GRanges(seqnames = variantsDMD$CHROM, ranges = variantsDMD$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsDMD$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
+
+dfGranges <- GRanges(seqnames = variantsLDB3$CHROM, ranges = variantsLDB3$POS)
+dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
+variantsLDB3$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
+```
+
 
 ```{r}
 
@@ -945,39 +956,35 @@ features$height <- list(unit(1/16, "inches"),
                         unit(3, "mm"),
                         unit(12, "points"))
 
-#color just the interested variants 
-interesting_variants <- variantsTTN %>%
-  filter(str_detect(ANN....EFFECT, "missense_variant|splice_region_variant")) 
- 
-#print(interesting_variants)
-interesting_effects <- interesting_variants$ANN....EFFECT
+#set color for each node according to effect
 
 sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
                 sample.gr$ANN....IMPACT == "LOW"] <- 4
 
 sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
                 sample.gr$ANN....IMPACT == "MODERATE"] <- 2
-#sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_variants$ANN....EFFECT] <- 3
-sample.gr$border <- sample(c("gray80", "gray30"), length(sample.gr), replace=TRUE)
-#sample.gr$alpha <- sample(100:255, length(sample.gr), replace = TRUE)/255
+
+sample.gr$border <- sample(c( "gray30"), length(sample.gr), replace=TRUE)
 
 
 # set a score for each node 
-sample.gr$score <- sample.int(15, length(sample.gr$ANN....EFFECT), replace=TRUE)
-#sample.gr$node.label <- as.character(sample.gr$ANN....EFFECT)
+sample.gr$node.label <- variantsTTN$AF * 100
+sample.gr$score <- variantsTTN$AF * 100
 
 # set a labels for each node according to ID 
 sample.gr <- setNames(sample.gr, sample.gr$ID)
 sample.gr$label.parameter.rot <- 45 
 
 # set the size of node 
-sample.gr$cex <- runif(length(sample.gr))
+#sample.gr$cex <- runif(length(sample.gr))
+sample.gr$cex <- 1  # default
+sample.gr$cex[sample.gr$ANN....EFFECT == "missense_variant"] <- 1.5   
+sample.gr$cex[sample.gr$ANN....EFFECT == "splice_region_variant"] <- 0.5    
 
 # set title for the graph 
-#grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
+grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
 
-#lolliplot(sample.gr, features, lollipop_style_switch_limit=15)
-lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="pie", legend = legend)
+lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="pin", legend = legend)
 ```
 
 # Discussion
