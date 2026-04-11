@@ -670,7 +670,7 @@ vcfGRanges <- GRanges(seqnames = vcfFile$CHROM, ranges = vcfIRanges)
 
 mcols(vcfGRanges) <- DataFrame(AF = vcfInfo$AF)
 
-( vcfGRanges <- vcfGRanges[vcfGRanges$AF >= 0.3] )
+vcfGRanges <- vcfGRanges[vcfGRanges$AF >= 0.3]
 
 ```
 
@@ -828,9 +828,6 @@ snpFilteredTable <- read.table("./FilteredTEST.tabular", sep = "", quote = "", f
 snpFilteredVariants <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....EFFECT, "(missense_variant|splice_region_variant)"))
 snpFilteredVariantsCollapsed <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
 
-snpFilteredVariantsTest <- distinct(snpFilteredVariants, snpFilteredVariants$POS, .keep_all = T)
-
-View(snpFilteredVariantsTest)
 for (pos in snpFilteredVariantsCollapsed$POS) {
   p <- filter(snpFilteredVariants, str_detect(snpFilteredVariants$POS, as.character(pos)))
   snpFilteredVariantsCollapsed$ANN....FEATUREID[which(snpFilteredVariantsCollapsed$POS == pos)] <- paste(p$ANN....FEATUREID, collapse = "|")
@@ -866,8 +863,41 @@ library(trackViewer)
 variantsTTN <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "TTN"))
 variantsTTN <- distinct(variantsTTN, variantsTTN$POS, .keep_all = T)
 variantsTTN
+
+variantsMYH6 <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "MYH6"))
+variantsMYH6 <- distinct(variantsMYH6, variantsMYH6$POS, .keep_all = T)
+variantsMYH6
+
+variantsDMD <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "DMD"))
+variantsDMD <- distinct(variantsDMD, variantsDMD$POS, .keep_all = T)
+variantsDMD
+
+variantsLDB3 <- filter(snpFilteredTable, str_detect(snpFilteredTable$ANN....GENE, "LDB3"))
+variantsLDB3 <- distinct(variantsLDB3, variantsLDB3$POS, .keep_all = T)
+variantsLDB3
 ```
 
+```{r}
+ttnGranges <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
+ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
+ttnOverlaps <- DataFrame(ttnOverlaps)
+ttnOverlaps$subjectHits
+
+ttnGranges <- GRanges(seqnames = variantsMYH6$CHROM, ranges = variantsMYH6$POS)
+ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
+ttnOverlaps <- DataFrame(ttnOverlaps)
+ttnOverlaps$subjectHits
+
+ttnGranges <- GRanges(seqnames = variantsDMD$CHROM, ranges = variantsDMD$POS)
+ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
+ttnOverlaps <- DataFrame(ttnOverlaps)
+ttnOverlaps$subjectHits
+
+ttnGranges <- GRanges(seqnames = variantsLDB3$CHROM, ranges = variantsLDB3$POS)
+ttnOverlaps <- findOverlaps(ttnGranges, vcfGRanges)
+ttnOverlaps <- DataFrame(ttnOverlaps)
+ttnOverlaps$subjectHits
+```
 ```{r}
 sample.gr <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS)
 #sample.gr$score <- sample.gr$AF * 100
@@ -877,4 +907,48 @@ features <- geneList$TTN
 features$fill <- c("red")
 features$height <- c(0.02)
 lolliplot(sample.gr, features, ylab = "Allele Frequency (%)")
+```
+
+```{r}
+
+Pre_samlple <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS, ANN....EFFECT = variantsTTN$ANN....EFFECT,ANN....IMPACT =variantsTTN$ANN....IMPACT )
+#Pre_samlple
+sample.gr <- Pre_samlple[str_detect(Pre_samlple$ANN....EFFECT, "(missense_variant|splice_region_variant)")]
+sample.gr
+#sample.gr$score <- sample.gr$AF * 100
+#sample.gr <- setNames(sample.gr, sample.gr$score)
+
+sample.gr$node.label <- as.character(sample.gr$ANN....EFFECT)
+sample.gr$label.parameter.rot <- 45
+sample.gr$label.parameter.pos <- 3
+
+
+features <- geneList$TTN
+
+features$fill <- c( "#51C6E6")
+
+#sample.gr$color[sample.gr$ANN....IMPACT == "HIGH"] <- 2    # red
+sample.gr$color[sample.gr$ANN....IMPACT == "MODERATE"] <- 2 # green
+sample.gr$color[sample.gr$ANN....IMPACT == "LOW"] <- 4      # blue
+
+sample.gr$border <- sample(c("gray80", "gray30"), length(sample.gr), replace=TRUE)
+sample.gr$alpha <- sample(100:255, length(sample.gr), replace = TRUE)/255
+
+
+#features$height <- c(0.02)
+
+features$height <- list(unit(1/16, "inches"),
+                        unit(3, "mm"),
+                        unit(12, "points"))
+
+
+#sample.gr$score <- sample.int(15, length(sample.gr), replace=TRUE)
+#sample.gr$node.label <- as.character(sample.gr$score)
+
+
+
+grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
+
+#lolliplot(sample.gr, features, lollipop_style_switch_limit=15)
+lolliplot(sample.gr, features, type="pin", legend = legend)
 ```
