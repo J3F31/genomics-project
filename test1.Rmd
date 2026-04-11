@@ -938,14 +938,77 @@ dfGranges <- GRanges(seqnames = variantsLDB3$CHROM, ranges = variantsLDB3$POS)
 dfOverlaps <- DataFrame(findOverlaps(dfGranges, vcfGRanges))
 variantsLDB3$AF <- vcfGRanges[dfOverlaps$subjectHits]$AF
 ```
+```{r}
+# Create a function for any gene
+plot_gene_lollipop <- function(gene_name, variants_df, features_list) {
+  
 
+  sample.gr <- GRanges(seqnames = variants_df$CHROM, 
+                ranges = variants_df$POS,
+                AF = variants_df$AF,
+                ID = variants_df$ID,
+                ANN....EFFECT = variants_df$ANN....EFFECT,
+                ANN....IMPACT = variants_df$ANN....IMPACT)
+  
+features <- features_list[[gene_name]]
+
+#set height and color height 
+features$fill <- c( "#51C6E6")
+features$height <-c(0.02)
+
+#set color for each node according to effect
+sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
+                sample.gr$ANN....IMPACT == "LOW"] <- 4
+
+sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
+                sample.gr$ANN....IMPACT == "MODERATE"] <- 2
+
+sample.gr$border <- sample(c( "gray30"), length(sample.gr), replace=TRUE)
+sample.gr$alpha <- 0.8
+
+# set a score for each node 
+sample.gr$score <- sample.gr$AF * 100
+
+#sample.gr$node.label <- paste0(round(sample.gr$AF * 100, 1), "%")
+
+# Set label position
+#sample.gr$label.parameter.pos <- 3  
+
+
+
+# set a labels for each node according to ID 
+sample.gr <- setNames(sample.gr, sample.gr$ID)
+sample.gr$label.parameter.rot <- 45 
+
+# set the size of node 
+# Ensure no node is too small to see
+sample.gr$cex <- 1  # Default
+sample.gr$cex[grepl("missense_variant", sample.gr$ANN....EFFECT)] <- 1.5
+sample.gr$cex[grepl("splice_region_variant", sample.gr$ANN....EFFECT)] <- 0.8  # Minimum 0.8, not 0.5
+
+
+# set title for the graph 
+#grid.text(gene_name, x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
+
+  
+  # Plot
+  lolliplot(sample.gr, features, 
+            ylab = "Allele Frequency (%)", 
+            type = "circle")
+}
+
+# Use for different genes
+plot_gene_lollipop("TTN", variantsTTN, final_GRange_list)
+plot_gene_lollipop("DMD", variantsDMD, final_GRange_list)
+plot_gene_lollipop("MYH6", variantsMYH6, final_GRange_list)
+plot_gene_lollipop("LDB3", variantsLDB3, final_GRange_list)
+
+```
 
 ```{r}
 
-Pre_samlple <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS, ANN....EFFECT = variantsTTN$ANN....EFFECT,ANN....IMPACT =variantsTTN$ANN....IMPACT, ID = variantsTTN$ID) 
-#Pre_samlple
+Pre_samlple <- GRanges(seqnames = variantsTTN$CHROM, ranges = variantsTTN$POS, ANN....EFFECT = variantsTTN$ANN....EFFECT,ANN....IMPACT =variantsTTN$ANN....IMPACT, ID = variantsTTN$ID , AF= variantsTTN$AF) #Pre_samlple
 sample.gr <- Pre_samlple
-#[str_detect(Pre_samlple$ANN....EFFECT, "(missense_variant|splice_region_variant)")]
 sample.gr
 
 features <- final_GRange_list$TTN
@@ -957,7 +1020,6 @@ features$height <- list(unit(1/16, "inches"),
                         unit(12, "points"))
 
 #set color for each node according to effect
-
 sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects & 
                 sample.gr$ANN....IMPACT == "LOW"] <- 4
 
@@ -965,26 +1027,33 @@ sample.gr$color[sample.gr$ANN....EFFECT %in% interesting_effects &
                 sample.gr$ANN....IMPACT == "MODERATE"] <- 2
 
 sample.gr$border <- sample(c( "gray30"), length(sample.gr), replace=TRUE)
-
+sample.gr$alpha <- 0.8
 
 # set a score for each node 
-sample.gr$node.label <- variantsTTN$AF * 100
-sample.gr$score <- variantsTTN$AF * 100
+sample.gr$score <- sample.gr$AF * 100
+
+#sample.gr$node.label <- paste0(round(sample.gr$AF * 100, 1), "%")
+
+# Set label position
+#sample.gr$label.parameter.pos <- 3  
+
+
 
 # set a labels for each node according to ID 
 sample.gr <- setNames(sample.gr, sample.gr$ID)
 sample.gr$label.parameter.rot <- 45 
 
 # set the size of node 
-#sample.gr$cex <- runif(length(sample.gr))
-sample.gr$cex <- 1  # default
-sample.gr$cex[sample.gr$ANN....EFFECT == "missense_variant"] <- 1.5   
-sample.gr$cex[sample.gr$ANN....EFFECT == "splice_region_variant"] <- 0.5    
+# Ensure no node is too small to see
+sample.gr$cex <- 1  # Default
+sample.gr$cex[grepl("missense_variant", sample.gr$ANN....EFFECT)] <- 1.5
+sample.gr$cex[grepl("splice_region_variant", sample.gr$ANN....EFFECT)] <- 0.8  # Minimum 0.8, not 0.5
+
 
 # set title for the graph 
 grid.text("TTN gene", x=.5, y=.98, just="top", gp=gpar(cex=1.5, fontface="bold"))
 
-lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="pin", legend = legend)
+lolliplot(sample.gr, features, ylab = "Allele Frequency (%)", type="circle")
 ```
 
 # Discussion
