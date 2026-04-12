@@ -1,0 +1,18 @@
+General Feedback:
+- Add Galaxy tool boxes (including version), consistent format/style.
+- Change headers to match Genomics Guide.
+- Show all code (write code comments where needed). library(x) should be shown before being used, install(x) should not be shown
+- Less AI generated text or even less text in general. It feels very heavy to read.
+
+Section Feedback:
+	Mapping Reads
+	- What is a .marked.bam file?
+	- File names writen in text and file names imported in code don't match.
+	Mapping Quality Control
+	- Table colors should be uniform.
+	- No need to give your file the extension .bam.bai, just .bai is enough.
+	Variant Visualization
+	- Remove commented code that is not explicitly a comment.
+	- Graph legends are not labled
+	- What is the use of color and shape if they both show the same difference?
+	- Should the circles be labled with the position instead of the variant ID? Some are empty and it shows no significance in my opinion.
